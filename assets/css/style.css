@@ -1,5 +1,9 @@
+/*     General Classes       */
 .workSans{
     font-family: 'Work Sans', sans-serif;
+}
+.epilogue{
+    font-family: 'Epilogue', sans-serif;
 }
 .ls5{
     letter-spacing: 5px;
@@ -7,9 +11,21 @@
 .colorRedOnline{
     color: #D41E45;
 }
+.colorGrey{
+    color: #888888;
+}
 .BGColorRedOnline{
     background: #D41E45;
 }
+.BGColorLightGrey{
+    background-color: #F0F0F0;
+}
+.roundBorder{
+    border-radius: 8px;
+}
+/* CSS FOR INDEX */
+
+
 #containerStarting > a:nth-child(1){
     border-radius: 10px;
     height: 55px;
@@ -23,4 +39,17 @@
 }
 #containerStarting > a:nth-child(2)>p{
     font-size: 10px;
+}
+
+/* CSS FOR REGISTER */
+#formRegister>input::placeholder{
+    font-family: 'Epilogue', sans-serif;
+}
+#underTextEmailRegister{
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 20px;
+}
+#profilePictureRegister{
+    visibility: hidden;
 }
