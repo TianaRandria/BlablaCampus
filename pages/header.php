@@ -1,3 +1,4 @@
+<?php include('conditions.php'); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
