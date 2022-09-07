@@ -1,4 +1,7 @@
 /*     General Classes       */
+.bungee{
+    font-family: 'Bungee', cursive;
+}
 .workSans{
     font-family: 'Work Sans', sans-serif;
 }
@@ -23,6 +26,10 @@
 .roundBorder{
     border-radius: 8px;
 }
+.fwbold{
+    font-weight: 700;
+}
+
 /* CSS FOR INDEX */
 
 

@@ -1,17 +1,21 @@
 <?php include('header.php')?>
-<body class="flex flex-col justify-center items-center w-screen min-h-screen">
+<body class="flex flex-col justify-start items-center w-screen min-h-screen">
+<div id="topMenu" class="sticky top-0 left-0 w-screen h-40 flex justify-between items-center px-4">
+    <img src="../assets/img/simplifiedLogo.png" alt="Logo simplifié de BlaBla Campus">
+    <p id="textChanger"></p>
+</div>
 <form action="" method="post" class="flex flex-col p-3" id="formRegister">
-    <label for="nameRegister" class="epilogue">Entrez vos coordonnées</label>
+    <label for="nameRegister" class=" bungee">Entrez vos coordonnées</label>
     <input type="text" name="nameRegister" placeholder="Nom" class="BGColorLightGrey roundBorder">
     <input type="text" name="nicknameRegister" placeholder="Nom d'utilisateur" class="BGColorLightGrey roundBorder">
-    <label for="pswdRegister" class="epilogue">Entrez votre mot de passe</label>
+    <label for="pswdRegister" class=" bungee">Entrez votre mot de passe</label>
     <input type="password" name="pswdRegister" placeholder="**************" class="BGColorLightGrey roundBorder">
-    <label for="emailRegister" class="epilogue">Entrez votre email</label>
+    <label for="emailRegister" class=" bungee">Entrez votre email</label>
     <input type="email" name="emailRegister" placeholder="Email" class="BGColorLightGrey roundBorder">
     <p class="epilogue colorGrey" id="underTextEmailRegister">Ajoutez votre adresse e-mail pour recevoir des notifications sur votre activité sur BlaBla Campus.</p>
-    <label for="bioRegister" class="epilogue">Entrez votre biographie</label>
+    <label for="bioRegister" class=" bungee">Entrez votre biographie</label>
     <textarea name="bioRegister" id="bioRegister" cols="30" rows="10" placeholder="Entrez votre bio ici" class="BGColorLightGrey roundBorder" maxlength="140"></textarea>
-    <p class="epilogue">Téléchargez une image de profil</p>
+    <p class=" bungee">Téléchargez une image de profil</p>
     <label for="profilePictureRegister" id="profilePictureRegisterLabel" class="BGColorLightGrey roundBorder">
         <img src="../assets/img/landscape.png" alt="Logo de paysage stylisé">
         <p>Glisser-déposer ou parcourir un fichier</p>
