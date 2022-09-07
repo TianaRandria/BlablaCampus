@@ -1,4 +1,5 @@
-<?php include('header.php')?>
+<?php include('header.php') ?>
+
 <body class="flex flex-col justify-center items-center w-screen min-h-screen">
 <form action="" method="post" class="flex flex-col p-3" id="formRegister">
     <label for="nameRegister" class="epilogue">Entrez vos coordonnées</label>
