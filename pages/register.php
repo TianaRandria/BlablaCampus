@@ -1,9 +1,9 @@
 <?php include('header.php')?>
 <body class="flex flex-col justify-center items-center w-screen min-h-screen">
 <form action="" method="post" class="flex flex-col p-3" id="formRegister">
-    <label for="coordsRegister" class="epilogue">Entrez vos coordonnées</label>
-    <input type="text" name="coordsRegister" placeholder="Nom" class="BGColorLightGrey roundBorder">
-    <input type="text" name="coordsRegister" placeholder="Nom d'utilisateur" class="BGColorLightGrey roundBorder">
+    <label for="nameRegister" class="epilogue">Entrez vos coordonnées</label>
+    <input type="text" name="nameRegister" placeholder="Nom" class="BGColorLightGrey roundBorder">
+    <input type="text" name="nicknameRegister" placeholder="Nom d'utilisateur" class="BGColorLightGrey roundBorder">
     <label for="pswdRegister" class="epilogue">Entrez votre mot de passe</label>
     <input type="password" name="pswdRegister" placeholder="**************" class="BGColorLightGrey roundBorder">
     <label for="emailRegister" class="epilogue">Entrez votre email</label>
