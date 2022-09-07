@@ -13,19 +13,21 @@ function connect()
 
 function register()
 {
-  $pass = password_hash($_POST['password'],  PASSWORD_DEFAULT);
-  $login = $_POST['username'];
-  $name = $_POST['fullname'];
+  $password = password_hash($_POST['pswdRegister'],  PASSWORD_DEFAULT);
+  $name = $_POST['nameRegister'];
+  $nickname = $_POST['nicknameRegister'];
+  $email = $_POST['emailRegister'];
+  $bio = $_POST['emailRegister'];
 
-  $ajouter = connect()->prepare('INSERT INTO user (login_user, password_user, name_user ) VALUES (:login_user, :password_user, :name_user)');
+  $ajouter = connect()->prepare('INSERT INTO compte (username_user, password_user, name_user, email_user, bio_user ) VALUES (:nickname_user, :password_user, :name_user, :email_user, :bio_user )');
   $ajouter->bindParam(
-    ':login_user',
-    $login,
+    ':nickname_user',
+    $nickname,
     PDO::PARAM_STR
   );
   $ajouter->bindParam(
     ':password_user',
-    $pass,
+    $password,
     PDO::PARAM_STR
   );
   $ajouter->bindParam(
@@ -33,10 +35,20 @@ function register()
     $name,
     PDO::PARAM_STR
   );
+  $ajouter->bindParam(
+    ':email_user',
+    $email,
+    PDO::PARAM_STR
+  );
+  $ajouter->bindParam(
+    ':bio_user',
+    $bio,
+    PDO::PARAM_STR
+  );
   $estceok = $ajouter->execute();
   $ajouter->debugDumpParams();
   if ($estceok) {
-    header('Location: ./index.php');
+    header('Location: ./searchitinerary.php');
   } else {
     echo 'Error during registration';
   }
