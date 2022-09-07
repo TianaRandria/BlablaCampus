@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,11 +8,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@100;200;300;400;500;600;700&family=Work+Sans:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>BlaBla Campus</title>
 </head>
-
 <body class="flex flex-col justify-center items-center w-screen min-h-screen gap-20">
     <img src="assets/img/logoBlaBlaFirstPage.png" alt="Logo de BlaBla Campus">
     <div id="containerStarting" class="w-4/5">
@@ -21,9 +19,7 @@
             <img src="assets/img/carStarting.png" alt="Une voiture">
             <p class="text-white workSans ls5">COMMENCEZ</p>
         </a>
-        <a href="pages/login.php" class="flex justify-center items-center w-full">
-            <p class="workSans ls5 colorRedOnline">SE CONNECTER</p>
-        </a>
+        <a href="pages/login.php" class="flex justify-center items-center w-full"><p class="workSans ls5 colorRedOnline">SE CONNECTER</p></a>
     </div>
     <script src="assets/js/app.js"></script>
 </body>
