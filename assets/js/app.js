@@ -7,7 +7,6 @@ let textToChangeConfirmation = document.querySelector('#textToChangeConfirmation
 function fetchTextHeader(){
     fetch('../assets/json/textHeader.json').then(response => response.json().then(data => {
         for (let i = 0; i < data.textes.length; i++) {
-            console.log("filename Check: " + data.textes[i].file);
             if (data.textes[i].file === filename){
                 changingZone.insertAdjacentHTML('afterbegin', data.textes[i].toWrite);
                 changingZone.classList.add('disablingA');
