@@ -1,4 +1,7 @@
 /*     General Classes       */
+.bungee{
+    font-family: 'Bungee', cursive;
+}
 .workSans{
     font-family: 'Work Sans', sans-serif;
 }
@@ -15,7 +18,7 @@
     color: #888888;
 }
 .BGColorRedOnline{
-    background: #D41E45;
+    background-color: #D41E45 !important;
 }
 .BGColorLightGrey{
     background-color: #F0F0F0;
@@ -23,6 +26,19 @@
 .roundBorder{
     border-radius: 8px;
 }
+.fwbold{
+    font-weight: 700;
+}
+.disablingA{
+    pointer-events: none;
+}
+.hideVisibility{
+    visibility: hidden;
+}
+/* CSS HEADER */
+
+
+
 /* CSS FOR INDEX */
 
 
