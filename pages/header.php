@@ -16,6 +16,9 @@
 </head>
 <body class="flex flex-col justify-start items-center w-screen min-h-screen">
 <div id="topMenu" class="sticky top-0 left-0 w-full h-32 flex justify-between items-center px-4 bg-white">
-    <img src="../assets/img/simplifiedLogo.png" alt="Logo simplifié de BlaBla Campus">
+    
+    <a href="../index.php">
+        <img src="../assets/img/simplifiedLogo.png" alt="Logo simplifié de BlaBla Campus">
+    </a>
     <a href="#" id="changingZone" class="colorRedOnline workSans"></a>
 </div>

@@ -32,7 +32,9 @@
 .disablingA{
     pointer-events: none;
 }
-
+.hideVisibility{
+    visibility: hidden;
+}
 /* CSS HEADER */
 
 

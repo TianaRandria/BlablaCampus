@@ -1,4 +1,3 @@
 <?php include('header.php')?>
-<body class="flex flex-col justify-center items-center w-screen min-h-screen">
-Login
+<form action="" method="post"></form>
 <?php include('footer.php')?>

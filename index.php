@@ -1,3 +1,4 @@
+<?php include('assets/php/conditions.php'); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
