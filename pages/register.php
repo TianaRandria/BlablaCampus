@@ -10,7 +10,7 @@
     <input type="email" name="emailRegister" placeholder="Email" class="BGColorLightGrey roundBorder p-2" required>
     <p class="epilogue colorGrey" id="underTextEmailRegister">Ajoutez votre adresse e-mail pour recevoir des notifications sur votre activité sur BlaBla Campus.</p>
     <label for="bioRegister" class=" bungee">Entrez votre biographie</label>
-    <textarea name="bioRegister" id="bioRegister" cols="30" rows="8" placeholder="Entrez votre bio ici" class="BGColorLightGrey roundBorder" maxlength="140"></textarea>
+    <textarea name="bioRegister" id="bioRegister" cols="30" rows="8" placeholder="Entrez votre bio ici" class="BGColorLightGrey roundBorder resize-none" maxlength="140"></textarea>
     <p class=" bungee">Téléchargez une image de profil</p>
     <label for="profilePictureRegister" id="profilePictureRegisterLabel" class="BGColorLightGrey roundBorder flex flex-col justify-center items-center w-full h-48">
         <img src="../assets/img/landscape.png" alt="Logo de paysage stylisé">
@@ -19,7 +19,7 @@
     </label>
     <input type="file" name="profilePictureRegister" id="profilePictureRegister" accept=".png,.jpg,.heif" required>
     <div class="w-full flex justify-center">
-        <input type="submit" value="CRÉER MON COMPTE" class="BGColorRedOnline workSans roundBorder w-4/5 text-center text-sm py-2.5 text-white ls5">
+        <input type="submit" name="action" value="CRÉER MON COMPTE" class="BGColorRedOnline workSans roundBorder w-4/5 text-center text-sm py-2.5 text-white ls5">
     </div>
 </form>
 <?php include('footer.php')?>
