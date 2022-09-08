@@ -18,7 +18,7 @@
     color: #888888;
 }
 .BGColorRedOnline{
-    background: #D41E45;
+    background-color: #D41E45 !important;
 }
 .BGColorLightGrey{
     background-color: #F0F0F0;
@@ -32,6 +32,11 @@
 .disablingA{
     pointer-events: none;
 }
+
+/* CSS HEADER */
+
+
+
 /* CSS FOR INDEX */
 
 

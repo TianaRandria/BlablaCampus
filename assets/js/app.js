@@ -13,6 +13,7 @@ function fetchTextHeader(){
                 changingZone.classList.add('disablingA');
                 break;
             }
+            // TODO: ajouter le else pour le a redirigeant vers le profil
         }
         if (filename === "confirmation.php"){
             for (let i = 0; i < data.referant.length; i++) {
