@@ -1,3 +1,3 @@
 <?php include('header.php')?>
-<form action="" method="post"></form>
+<p id="textToChangeConfirmation"></p>
 <?php include('footer.php')?>

@@ -10,7 +10,15 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@100;200;300;400;500;600;700&family=Work+Sans:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Epilogue:wght@100;200;300;400;500;600;700&family=Work+Sans:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
     <title>BlaBla Campus</title>
 </head>
+<body class="flex flex-col justify-start items-center w-screen min-h-screen">
+<div id="topMenu" class="sticky top-0 left-0 w-full h-32 flex justify-between items-center px-4 bg-white">
+    
+    <a href="../index.php">
+        <img src="../assets/img/simplifiedLogo.png" alt="Logo simplifié de BlaBla Campus">
+    </a>
+    <a href="#" id="changingZone" class="colorRedOnline workSans"></a>
+</div>
