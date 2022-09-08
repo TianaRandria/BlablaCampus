@@ -1,9 +1,5 @@
 <?php include('header.php')?>
-<body class="flex flex-col justify-start items-center w-screen min-h-screen">
-<div id="topMenu" class="sticky top-0 left-0 w-screen h-40 flex justify-between items-center px-4">
-    <img src="../assets/img/simplifiedLogo.png" alt="Logo simplifié de BlaBla Campus">
-    <p id="textChanger"></p>
-</div>
+
 <form action="" method="post" class="flex flex-col p-3" id="formRegister">
     <label for="nameRegister" class=" bungee">Entrez vos coordonnées</label>
     <input type="text" name="nameRegister" placeholder="Nom" class="BGColorLightGrey roundBorder">
@@ -23,4 +19,5 @@
     </label>
     <input type="file" name="profilePictureRegister" id="profilePictureRegister" accept=".png,.jpg,.heif">
 </form>
+<a href="confirmation.php"> cahnger</a>
 <?php include('footer.php')?>

@@ -29,7 +29,9 @@
 .fwbold{
     font-weight: 700;
 }
-
+.disablingA{
+    pointer-events: none;
+}
 /* CSS FOR INDEX */
 
 
