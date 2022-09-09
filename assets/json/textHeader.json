@@ -1,9 +1,9 @@
 {
     "textes": [
-        {"file": "register.php", "toWrite": "Créer un compte"},
-        {"file": "login.php", "toWrite": "Se connecter"},
-        {"file": "pswdReset.php", "toWrite": "Mot de passe perdu"},
-        {"file": "confirmation.php", "toWrite": "Confirmation"}
+        {"file": "register.php", "toWrite": "CRÉER UN COMPTE"},
+        {"file": "login.php", "toWrite": "SE CONNECTER"},
+        {"file": "pswdReset.php", "toWrite": "MOT DE PASSE PERDU"},
+        {"file": "confirmation.php", "toWrite": "CONFIRMATION"}
     ],
     "referant":[
         {"file":"login.php","toWrite":"Vous êtes bien connecté"},
