@@ -23,4 +23,11 @@
     </div>
 </form>
 
-<?php include('footer.php') ?>
+<?php
+
+if (isset($_POST['action']) && !empty($_POST['nameRegister'])  && !empty($_POST['nicknameRegister']) && !empty($_POST['pswdRegister']) && !empty($_POST['emailRegister']) && !empty($_POST['bioRegister']) && $_POST['action'] == "CRÉER MON COMPTE") {
+    $register = new User();
+    $register->register();
+}
+
+include('footer.php') ?>
