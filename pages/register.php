@@ -1,6 +1,6 @@
-<?php include('header.php')?>
+<?php include('header.php') ?>
 
-<form action="confirmation.php" method="post" class="flex flex-col p-3 w-full gap-3" id="formRegister" method="post">
+<form action="confirmation.php" method="post" class="flex flex-col p-3 w-full gap-3" id="formRegister">
     <label for="nameRegister" class=" bungee">Entrez vos coordonnées</label>
     <input type="text" name="nameRegister" placeholder="Nom" class="BGColorLightGrey roundBorder p-2">
     <input type="text" name="nicknameRegister" placeholder="Nom d'utilisateur" class="BGColorLightGrey roundBorder p-2">
@@ -19,7 +19,8 @@
     </label>
     <input type="file" name="profilePictureRegister" id="profilePictureRegister" accept=".png,.jpg,.heif">
     <div class="w-full flex justify-center">
-        <input type="submit" value="CRÉER MON COMPTE" class="BGColorRedOnline workSans roundBorder w-4/5 text-center text-sm py-2.5 text-white ls5">
+        <input type="submit" name="action" value="CRÉER MON COMPTE" class="BGColorRedOnline workSans roundBorder w-4/5 text-center text-sm py-2.5 text-white ls5">
     </div>
 </form>
-<?php include('footer.php')?>
+
+<?php include('footer.php') ?>
