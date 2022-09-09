@@ -42,6 +42,9 @@
 .borderNone{
     appearance: none;
 }
+.dsn{
+    display: none !important;
+}
 /* CSS HEADER */
 
 
@@ -77,3 +80,6 @@
     visibility: hidden;
 }
 /* CSS FOR SEARCHITINERARY */
+#firstRow > img {
+    margin: 0 13px
+}
