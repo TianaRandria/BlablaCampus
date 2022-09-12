@@ -1,13 +1,3 @@
-let url = window.location.pathname;
-let filename = url.split('/').pop();
-let referrerUrl = document.referrer;
-let fileReferrer = referrerUrl.split('/').pop();
-let changingZone = document.querySelector('#changingZone');
-let textToChangeConfirmation = document.querySelector('#textToChangeConfirmation');
-let dateSearch = document.querySelector('#dateSearch');
-let blockSearch = document.querySelector('#blocDateSearch');
-let FirstRowInBlockSearch = document.querySelector('#blocDateSearch > #firstRow');
-let PInBlocDateSearch = document.querySelector('#blocDateSearch > #firstRow > p');
 function fetchTextHeader(){
     fetch('../assets/json/textHeader.json').then(response => response.json().then(data => {
         var controle = 0;
@@ -32,15 +22,12 @@ function fetchTextHeader(){
 
     }));
 }
-blockSearch.addEventListener('click', function(){
-    FirstRowInBlockSearch.classList.add('dsn');
-    dateSearch.classList.remove('dsn');
-})
-document.querySelector('#dateSearch').addEventListener('change', function(){
-    FirstRowInBlockSearch.classList.remove('dsn');
-    dateSearch.classList.add('dsn');
-    PInBlocDateSearch.textContent = document.querySelector('#dateSearch').value
-});
+if (filename === "searchItinerary.php"){
+    let searching = new SearchItinerary();
+    searching.blockSearchSwitchChange();
+    searching.blockSearchSwitchClick();
+}
+
 if ( url.includes('pages') == true && filename != "index.php") {
     fetchTextHeader();
 }

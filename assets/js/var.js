@@ -1,0 +1,10 @@
+let url = window.location.pathname;
+let filename = url.split('/').pop();
+let referrerUrl = document.referrer;
+let fileReferrer = referrerUrl.split('/').pop();
+let changingZone = document.querySelector('#changingZone');
+let textToChangeConfirmation = document.querySelector('#textToChangeConfirmation');
+let dateSearch = document.querySelector('#dateSearch');
+let blockSearch = document.querySelector('#blocDateSearch');
+let FirstRowInBlockSearch = document.querySelector('#blocDateSearch > #firstRow');
+let PInBlocDateSearch = document.querySelector('#blocDateSearch > #firstRow > p');

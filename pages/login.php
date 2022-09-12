@@ -1,5 +1,5 @@
 <?php include('header.php')?>
-<form action="confirmation.php" method="post" class="flex flex-col w-full p-4 gap-9">
+<form action="confirmation.php" method="post" class="flex flex-col w-5/6 gap-9">
     <label for="login" class="bungee text-lg">Entrez vos informations</label>
     <div class="flex flex-col gap-2.5">
         <input type="text" name="login" placeholder="Nom d'utilisateur" class="BGColorLightGrey roundBorder epilogue p-3" required>

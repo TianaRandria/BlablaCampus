@@ -15,10 +15,11 @@
     <title>BlaBla Campus</title>
 </head>
 <body class="flex flex-col justify-start items-center w-screen min-h-screen">
-<div id="topMenu" class="sticky top-0 left-0 w-full h-32 flex justify-between items-center px-4 bg-white">
-    
-    <a href="../index.php">
-        <img src="../assets/img/simplifiedLogo.png" alt="Logo simplifié de BlaBla Campus">
-    </a>
-    <a href="#" id="changingZone" class="colorRedOnline workSans"></a>
-</div>
+    <h1 class="dsn">Blabla Campus</h1>
+    <div id="topMenu" class="sticky top-0 left-0 w-5/6 h-32 flex justify-between items-center bg-white">
+        
+        <a href="../index.php">
+            <img src="../assets/img/simplifiedLogo.png" alt="Logo simplifié de BlaBla Campus">
+        </a>
+        <a href="#" id="changingZone" class="colorRedOnline workSans"></a>
+    </div>

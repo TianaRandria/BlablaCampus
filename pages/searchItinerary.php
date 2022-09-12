@@ -2,7 +2,7 @@
 <div class="w-4/5 p-2 flex">
     <h2 class="bungee">Rechercher un trajet</h2>
 </div>
-<form action="resulSearch.php" method="post" id="searchItinerary" class="w-4/5 flex flex-col gap-3 justify-center items-center">
+<form action="resultSearch.php" method="post" id="searchItinerary" class="w-5/6 flex flex-col gap-3 justify-center items-center">
     <div class="BGColorLightGrey w-full flex roundBorder h-14">
         <div class="p-3 w-1/5 flex justify-center items-center">
             <img src="../assets/img/pinPoint.png" alt="Cible d'un lieu">

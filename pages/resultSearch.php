@@ -1,13 +1,16 @@
 <?php include('header.php')?>
-<div>
-    <div>
-        <p class="jourDate"></p>
-        <p class="moisDate"></p>
+<h4 class="w-5/6 bungee">Trajets Disponibles</h4>
+<div class="flex w-5/6 justify-between items-center roundBorder BGColorLightGrey p-3">
+    <div class="flex w-3/5 justify-between items-center">
+        <div class="flex flex-col">
+            <p class="jourDate bungee colorRedOnline text-4xl">05</p>
+            <p class="moisDate bungee text-xl">SEP</p>
+        </div>
+        <div>
+            <p class="startingPoint colorGrey">Dole</p>
+            <p class="endingPoint colorGrey">Lons le Saunier</p>
+        </div>
     </div>
-    <div>
-        <p class="startingPoint"></p>
-        <p class="endingPoint"></p>
-    </div>
-    <img src="" alt="" class="fleche">
+    <img src="../assets//img/upDown.png" alt="doubles inversés haut et bas" class="fleche">
 </div>
 <?php include('footer.php')?>
