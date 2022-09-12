@@ -1,4 +1,4 @@
-<?php include('../assets/php/conditions.php'); ?>
+<?php include('../assets/class/User.php'); ?>
 <!DOCTYPE html>
 <html lang="fr">
 
