@@ -1,4 +1,4 @@
-<?php include('../assets/class/User.php'); ?>
+<?php require ('../assets/class/User.php'); ?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -16,7 +16,7 @@
 </head>
 <body class="flex flex-col justify-start items-center w-screen min-h-screen">
 <div id="topMenu" class="sticky top-0 left-0 w-full h-32 flex justify-between items-center px-4 bg-white">
-    
+
     <a href="../index.php">
         <img src="../assets/img/simplifiedLogo.png" alt="Logo simplifié de BlaBla Campus">
     </a>

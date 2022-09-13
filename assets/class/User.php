@@ -6,12 +6,12 @@ class User extends Database
 {
   public function login()
   {
-    $username = $_GET['username'];
-    $connection = $this->connect()->prepare("SELECT * FROM user WHERE username_user = :username");
+    $username = $_POST['login'];
+    $connection = $this->connect()->prepare("SELECT * FROM user WHERE nickname_user = :username");
     $connection->bindValue(':username', $username);
     $connection->execute();
     $user = $connection->fetch();
-    if ($user && password_verify($_GET['password'], $user['password_user'])) {
+    if ($user && password_verify($_POST['password'], $user['password_user'])) {
       $_SESSION['name_user'] = $username;
       echo $_SESSION['name_user'];
 
