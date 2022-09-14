@@ -1,8 +1,8 @@
 <?php
 
+//fonction de connextion à la base
 abstract class Database
 {
-  //fonction de connextion à la base
   public function connect()
   {
     try {
