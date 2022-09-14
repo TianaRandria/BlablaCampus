@@ -551,6 +551,10 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.invisible {
+  visibility: hidden;
+}
+
 .absolute {
   position: absolute;
 }
@@ -600,6 +604,10 @@ video {
   height: 3.5rem;
 }
 
+.h-screen {
+  height: 100vh;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -630,6 +638,10 @@ video {
 
 .w-1\/5 {
   width: 20%;
+}
+
+.w-4\/6 {
+  width: 66.666667%;
 }
 
 .cursor-pointer {
@@ -696,8 +708,16 @@ video {
   gap: 0.875rem;
 }
 
+.break-words {
+  overflow-wrap: break-word;
+}
+
 .rounded-3xl {
   border-radius: 1.5rem;
+}
+
+.rounded-xl {
+  border-radius: 0.75rem;
 }
 
 .bg-white {
