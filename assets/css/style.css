@@ -632,6 +632,10 @@ video {
   width: 20%;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .resize-none {
   resize: none;
 }
