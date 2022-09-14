@@ -2,9 +2,12 @@
 <main class="accountCard w-5/6 rounded-3xl relative">
     <div class="w-full bg-white p-6 flex flex-col justify-center items-start gap-6 rounded-3xl">
         <div class="firstRow flex justify-start items-center gap-3">
+
+        <!-- chemin d'image à remplacer par l'image du conducteur avec tes fonctions -->
             <div class="first-col">
                 <img src="../assets/img/humanLogo.png" alt="img du conducteur" class="img-account">
             </div>
+            <!-- Nom du conducteur à remplacer avec tes fonctions ainsi que sa bio -->
             <div class="second-col">
                 <p class="bungee text-sm font-bold colorRedOnline">Pauline</p>
                 <p class="epilogue font-light text-xs italic">Avec moi ça passe ou ça casse</p>
