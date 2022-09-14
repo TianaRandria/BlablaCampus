@@ -17,6 +17,9 @@
 .colorGrey{
     color: #888888;
 }
+.colorFakeBlack{
+    color: #333333;
+}
 .BGColorRedOnline{
     background-color: #D41E45 !important;
 }
@@ -82,4 +85,31 @@
 /* CSS FOR SEARCHITINERARY */
 #firstRow > img {
     margin: 0 13px
+}
+/*  CSS FOR SEARCHRESULT */
+.circleSearchResult{
+    height: 0.875rem;
+    width: 0.875rem;
+    border: solid 3px #333333;
+    background-color: white;
+    border-radius: 50px;
+    z-index: 2;
+}
+.blackBar{
+    width: 1px;
+    height: 90%;
+    border: solid 2px #333333;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.img-cardSearch{
+    height: 40px;
+    width: 40px;
+    outline: solid 3px #D41E45;
+    border-radius: 100%;
+}
+/* CSS FOR ACCOUNT */
+.accountCard{
+    filter: drop-shadow(0px 8px 24px rgba(0, 0, 0, 0.25));
 }
