@@ -1,4 +1,4 @@
-<?php include('header.php')?>
+<?php include('header.php') ?>
 
 <form action="confirmation.php" method="post" class="flex flex-col w-5/6 gap-3" id="formRegister">
     <label for="nameRegister" class=" bungee">Entrez vos coordonnées</label>
@@ -17,9 +17,17 @@
         <p>Glisser-déposer ou parcourir un fichier</p>
         <p class="text-sm w-3/4 text-center">Taille recommandée : JPG, PNG, GIF (150x150px, Max 1mb)</p>
     </label>
-    <input type="file" name="profilePictureRegister" id="profilePictureRegister" accept=".png,.jpg,.heif" required>
+    <input type="file" name="profilePictureRegister" id="profilePictureRegister" accept=".png,.jpg,.heif">
     <div class="w-full flex justify-center">
-        <input type="submit" name="action" value="CRÉER MON COMPTE" class="BGColorRedOnline workSans roundBorder w-4/5 text-center text-sm py-2.5 text-white ls5">
+        <input type="submit" name="action" value="CRÉER MON COMPTE" class="BGColorRedOnline cursor-pointer workSans roundBorder w-4/5 text-center text-sm py-2.5 text-white ls5">
     </div>
 </form>
-<?php include('footer.php')?>
+
+<?php
+
+if (isset($_POST['action']) && !empty($_POST['nameRegister'])  && !empty($_POST['nicknameRegister']) && !empty($_POST['pswdRegister']) && !empty($_POST['emailRegister']) && !empty($_POST['bioRegister']) && $_POST['action'] == "CRÉER MON COMPTE") {
+    $reg = new User();
+    $reg->register();
+}
+
+include('footer.php') ?>
