@@ -19,7 +19,9 @@ function fetchTextHeader(){
                 }
             }
         }
-
+        if ( filename ==="account.php"){
+            changingZone.href = "";
+        }
     }));
 }
 if (filename === "searchItinerary.php"){
