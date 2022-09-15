@@ -5,15 +5,15 @@
         <label for="createItineraryDepart" class="colorGrey font-epilogue font-medium text-sm">D'où partez vous?</label>
         <div class="flex w-full gap-2 p-2 BGColorLightGrey rounded-lg">
             <img src="../assets/img/pinPoint.png" alt="Logo pour le départ">
-            <input type="text" name="createItineraryDepart" id="createItineraryDepart" placeholder="Départ" required class="bg-transparent placeholder:text-black">
+            <input type="text" name="createItineraryDepart" id="createItineraryDepart" placeholder="Départ" required class="bg-transparent placeholder:text-black w-full">
         </div>
         <label for="departureTime" class="colorGrey font-epilogue font-medium text-sm">A quelle heure partez-vous ?</label>
-        <div class="flex w-full justify-start items-center">
+        <div class="flex w-full justify-start items-center BGColorLightGrey rounded-lg p-2 gap-2">
             <img src="../assets/img/clock.png" alt="Logo Horloge">
-            <input type="time" name="departureTime" id="departureTime" required>
+            <input type="time" name="departureTime" id="departureTime" required class="BGColorLightGrey w-full">
         </div>
         <label for="itineraryFinalCreate" class="colorGrey font-epilogue font-medium text-sm">Pour aller où?</label>
-        <div class="flex w-full">
+        <div class="flex w-full justify-start items-center gap-2">
             <img src="../assets/img/pinPoint.png" alt="Localisation du point d'arrivée">
             <select name="itineraryFinalCreate" id="itineraryFinalCreate" class="box-border w-full" required>
                 <option value="">Arrivée</option>
