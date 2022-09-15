@@ -21,6 +21,9 @@
         </a>
         <a href="pages/login.php" class="flex justify-center items-center w-full"><p class="font-workSans tracking-5px colorRedOnline">SE CONNECTER</p></a>
     </div>
+    <script src="assets/js/var.js"></script>
+    <script src="assets/js/functions.js"></script>
+    <script src="assets/js/class.js"></script>
     <script src="assets/js/app.js"></script>
 </body>
 

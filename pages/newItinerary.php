@@ -2,17 +2,17 @@
 <main class="w-5/6">
     <h2 class="font-bungee">Proposer un trajet</h2>
     <form action="" method="post" class="w-full flex flex-col items-start justify-start gap-3">
-        <label for="createItineraryDepart" class="colorGreyfont-epilogue font-medium text-sm">D'où partez vous?</label>
+        <label for="createItineraryDepart" class="colorGrey font-epilogue font-medium text-sm">D'où partez vous?</label>
         <div class="flex w-full gap-2 p-2 BGColorLightGrey rounded-lg">
             <img src="../assets/img/pinPoint.png" alt="Logo pour le départ">
             <input type="text" name="createItineraryDepart" id="createItineraryDepart" placeholder="Départ" required class="bg-transparent placeholder:text-black">
         </div>
-        <label for="departureTime">A quelle heure partez-vous ?</label>
-        <div class="flex">
+        <label for="departureTime" class="colorGrey font-epilogue font-medium text-sm">A quelle heure partez-vous ?</label>
+        <div class="flex w-full justify-start items-center">
             <img src="../assets/img/clock.png" alt="Logo Horloge">
             <input type="time" name="departureTime" id="departureTime" required>
         </div>
-        <label for="itineraryFinalCreate">Pour aller où?</label>
+        <label for="itineraryFinalCreate" class="colorGrey font-epilogue font-medium text-sm">Pour aller où?</label>
         <div class="flex w-full">
             <img src="../assets/img/pinPoint.png" alt="Localisation du point d'arrivée">
             <select name="itineraryFinalCreate" id="itineraryFinalCreate" class="box-border w-full" required>
@@ -21,7 +21,7 @@
                 <option value="13b Avenue du Stade Municipal, 39000 Lons-le-Saunier">13b Avenue du Stade Municipal, 39000 Lons-le-Saunier</option>
             </select>
         </div>
-        <label for="dateDepart">Quand partez-vous ?</label>
+        <label for="dateDepart" class="colorGrey font-epilogue font-medium text-sm">Quand partez-vous ?</label>
         <div class="w-full h-14 BGColorLightGrey" id="blocDateSearch">
             <div id="firstRow" class="w-full h-full flex justify-start items-center">
                 <div class="w-1/5 flex justify-center items-center">
@@ -31,7 +31,7 @@
             </div>
             <input type="date" name="dateDepart" id="dateSearch" class="BGColorLightGrey w-full h-14 hidden">
         </div>
-        <p>Type de trajet :</p>
+        <p class="colorGrey font-epilogue font-medium text-sm">Type de trajet :</p>
         <div class="flex flex-row-reverse w-full justify-end items-center gap-2">
             <label for="backForth">Allez / Retour</label>
             <input type="checkbox" name="backForth" id="backForth">
@@ -39,7 +39,7 @@
             <input type="checkbox" name="forthOnly" id="forthOnly">
         </div>
         <div class="flex flex-col">
-            <label for="placesNumber">Nombre de places disponibles</label>
+            <label for="placesNumber" class="colorGrey font-epilogue font-medium text-sm">Nombre de places disponibles</label>
             <div class="flex justify-start items-center gap-2">
                 <img src="../assets/img/group.png" alt="logo de groupes pour le splaces disponibles">
                 <select name="placesNumber" id="placesNumber" class="w-full">
@@ -52,7 +52,7 @@
                 </select>
             </div>
         </div>
-        <label for="">Étapes éventuelles</label>
+        <label for="" class="colorGrey font-epilogue font-medium text-sm">Étapes éventuelles</label>
         <div class="flex w-full" id="rowStep">
             <div id="step" class="flex w-5/6 justify-start items-center gap-2">
                 <img src="../assets/img/pinPoint.png" alt="point pour les étapes">

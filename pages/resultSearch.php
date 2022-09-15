@@ -48,8 +48,8 @@
                 <span class="blackBar absolute"></span>
             </div>
             <div class="h-full flex flex-col justify-between items-start">
-                <p class="colorFakeBlack font-boldfont-epilogue text-sm">Dole</p>
-                <p class="colorFakeBlack font-boldfont-epilogue text-sm">Lons le Saunier</p>
+                <p class="colorFakeBlack font-bold font-epilogue text-sm">Dole</p>
+                <p class="colorFakeBlack font-bold font-epilogue text-sm">Lons le Saunier</p>
             </div>
         </div>
         <div class="secondRow flex gap-3 justify-start items-center">

@@ -7,7 +7,7 @@
         <div class="p-3 w-1/5 flex justify-center items-center">
             <img src="../assets/img/pinPoint.png" alt="Cible d'un lieu">
         </div>
-        <input type="text" name="startingPointSearch" id="startingPointSearch" placeholder="Départ" class="BGColorLightGrey w-4/5font-epilogue font-medium text-base">
+        <input type="text" name="startingPointSearch" id="startingPointSearch" placeholder="Départ" class="BGColorLightGrey w-4/5 font-epilogue font-medium text-base">
     </div>
     <div class="BGColorLightGrey w-full flex rounded-lg h-14">
         <div class="p-3 w-1/5 flex justify-center items-center">
