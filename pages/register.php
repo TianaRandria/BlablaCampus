@@ -10,7 +10,7 @@
     <input type="email" name="emailRegister" placeholder="Email" class="BGColorLightGrey roundBorder p-2" required>
     <p class="epilogue colorGrey" id="underTextEmailRegister">Ajoutez votre adresse e-mail pour recevoir des notifications sur votre activité sur BlaBla Campus.</p>
     <label for="bioRegister" class=" bungee">Entrez votre biographie</label>
-    <textarea name="bioRegister" id="bioRegister" cols="30" rows="8" placeholder="Entrez votre bio ici" class="BGColorLightGrey roundBorder resize-none" maxlength="140"></textarea>
+    <textarea name="bioRegister" id="bioRegister" cols="30" rows="8" placeholder="Entrez votre bio ici" class="BGColorLightGrey roundBorder resize-none" maxlength="140" required></textarea>
     <p class=" bungee">Téléchargez une image de profil</p>
     <label for="profilePictureRegister" id="profilePictureRegisterLabel" class="BGColorLightGrey roundBorder flex flex-col justify-center items-center w-full h-48">
         <img src="../assets/img/landscape.png" alt="Logo de paysage stylisé">

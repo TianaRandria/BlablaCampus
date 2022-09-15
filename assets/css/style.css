@@ -551,10 +551,6 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.invisible {
-  visibility: hidden;
-}
-
 .absolute {
   position: absolute;
 }
@@ -604,10 +600,6 @@ video {
   height: 3.5rem;
 }
 
-.h-screen {
-  height: 100vh;
-}
-
 .min-h-screen {
   min-height: 100vh;
 }
@@ -632,16 +624,16 @@ video {
   width: 75%;
 }
 
+.w-4\/6 {
+  width: 66.666667%;
+}
+
 .w-3\/5 {
   width: 60%;
 }
 
 .w-1\/5 {
   width: 20%;
-}
-
-.w-4\/6 {
-  width: 66.666667%;
 }
 
 .cursor-pointer {
@@ -706,10 +698,6 @@ video {
 
 .gap-3\.5 {
   gap: 0.875rem;
-}
-
-.break-words {
-  overflow-wrap: break-word;
 }
 
 .rounded-3xl {
@@ -954,4 +942,17 @@ video {
 
 .accountCard{
   filter: drop-shadow(0px 8px 24px rgba(0, 0, 0, 0.25));
+}
+
+.accountCard::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 5%;
+  background-color: #fff;
+  transform: translateY(-100%);
+  width: 20px;
+  height: 15px;
+  -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+          clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 }
