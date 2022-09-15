@@ -17,9 +17,9 @@
     <div id="containerStarting" class="w-4/5">
         <a href="pages/register.php" id="starting" class="flex w-full justify-center items-center gap-2 BGColorRedOnline">
             <img src="assets/img/carStarting.png" alt="Une voiture">
-            <p class="text-white workSans ls5">COMMENCEZ</p>
+            <p class="text-white font-workSans tracking-5px">COMMENCEZ</p>
         </a>
-        <a href="pages/login.php" class="flex justify-center items-center w-full"><p class="workSans ls5 colorRedOnline">SE CONNECTER</p></a>
+        <a href="pages/login.php" class="flex justify-center items-center w-full"><p class="font-workSans tracking-5px colorRedOnline">SE CONNECTER</p></a>
     </div>
     <script src="assets/js/app.js"></script>
 </body>

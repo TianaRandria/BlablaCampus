@@ -580,8 +580,20 @@ video {
   display: flex;
 }
 
+.hidden {
+  display: none;
+}
+
 .h-32 {
   height: 8rem;
+}
+
+.h-14 {
+  height: 3.5rem;
+}
+
+.h-full {
+  height: 100%;
 }
 
 .h-48 {
@@ -592,16 +604,8 @@ video {
   height: 6rem;
 }
 
-.h-full {
-  height: 100%;
-}
-
 .h-12 {
   height: 3rem;
-}
-
-.h-14 {
-  height: 3.5rem;
 }
 
 .min-h-screen {
@@ -628,6 +632,14 @@ video {
   width: 75%;
 }
 
+.w-1\/5 {
+  width: 20%;
+}
+
+.w-1\/6 {
+  width: 16.666667%;
+}
+
 .w-4\/6 {
   width: 66.666667%;
 }
@@ -636,16 +648,16 @@ video {
   width: 60%;
 }
 
-.w-1\/5 {
-  width: 20%;
-}
-
 .cursor-pointer {
   cursor: pointer;
 }
 
 .resize-none {
   resize: none;
+}
+
+.flex-row-reverse {
+  flex-direction: row-reverse;
 }
 
 .flex-col {
@@ -662,6 +674,10 @@ video {
 
 .justify-start {
   justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
 }
 
 .justify-center {
@@ -708,6 +724,10 @@ video {
   border-radius: 1.5rem;
 }
 
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
 .rounded-xl {
   border-radius: 0.75rem;
 }
@@ -715,6 +735,10 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-transparent {
+  background-color: transparent;
 }
 
 .p-6 {
@@ -745,6 +769,14 @@ video {
 
 .text-end {
   text-align: end;
+}
+
+.font-workSans {
+  font-family: Work Sans, sans-serif;
+}
+
+.font-bungee {
+  font-family: Bungee, serif;
 }
 
 .text-sm {
@@ -793,28 +825,26 @@ video {
   font-style: italic;
 }
 
+.tracking-5px {
+  letter-spacing: 5px;
+}
+
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.placeholder\:text-black::-moz-placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.placeholder\:text-black::placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
 /*     General Classes       */
-
-.bungee{
-  font-family: 'Bungee', cursive;
-}
-
-.workSans{
-  font-family: 'Work Sans', sans-serif;
-}
-
-.epilogue{
-  font-family: 'Epilogue', sans-serif;
-}
-
-.ls5{
-  letter-spacing: 5px;
-}
 
 .colorRedOnline{
   color: #D41E45;
@@ -836,38 +866,10 @@ video {
   background-color: #F0F0F0;
 }
 
-.roundBorder{
-  border-radius: 8px;
-}
-
-.fwbold{
-  font-weight: 700;
-}
-
-.disablingA{
-  pointer-events: none;
-}
-
-.hideVisibility{
-  visibility: hidden;
-}
-
 .square40{
   height: 40px;
   width: 40px;
 }
-
-.borderNone{
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-}
-
-.dsn{
-  display: none !important;
-}
-
-/* CSS HEADER */
 
 /* CSS FOR INDEX */
 
