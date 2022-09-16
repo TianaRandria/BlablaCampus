@@ -1,7 +1,7 @@
 <?php include('header.php');
-if (!isset($_SESSION['name_user'])) {
-    header("Location:./register.php");
-}
+// if (!isset($_SESSION['nickname_user'])) {
+//     header("Location:./register.php");
+// }
 ?>
 <div class="w-4/5 p-2 flex">
     <h2 class="bungee">Rechercher un trajet</h2>

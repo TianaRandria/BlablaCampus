@@ -12,7 +12,7 @@ class User extends Database
     $connection->execute();
     $user = $connection->fetch();
     if ($user && password_verify($_POST['password'], $user['password_user'])) {
-      $_SESSION['name_user'] = $nickname;
+      $_SESSION['nickname_user'] = $nickname;
     } else {
       // echo 'Invalid nickname or password';
       header('Location: ./login.php');
@@ -44,7 +44,7 @@ class User extends Database
       $register->bindParam(':bio_user', $bio, PDO::PARAM_STR);
       $register->bindParam(':img_user', $img, PDO::PARAM_STR);
       $register->execute();
-      $_SESSION['name_user'] = $nickname;
+      $_SESSION['nickname_user'] = $nickname;
     }
   }
 
