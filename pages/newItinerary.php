@@ -32,34 +32,34 @@
             <input type="date" name="dateDepart" id="dateSearch" class="BGColorLightGrey w-full h-14 hidden">
         </div>
         <p class="colorGrey font-epilogue font-medium text-sm">Type de trajet :</p>
-        <div class="flex flex-row-reverse w-full justify-end items-center gap-2">
+        <div class="flex flex-row-reverse w-full justify-end items-center gap-2" id="typeOfTraject">
             <label for="backForth">Allez / Retour</label>
             <input type="checkbox" name="backForth" id="backForth">
             <label for="forthOnly">Allez simple</label>
             <input type="checkbox" name="forthOnly" id="forthOnly">
         </div>
-        <div class="flex flex-col">
-            <label for="placesNumber" class="colorGrey font-epilogue font-medium text-sm">Nombre de places disponibles</label>
-            <div class="flex justify-start items-center gap-2">
-                <img src="../assets/img/group.png" alt="logo de groupes pour le splaces disponibles">
-                <select name="placesNumber" id="placesNumber" class="w-full">
-                    <option value="">Places Disponibles</option>
-                    <?php
-                    for ($i=1; $i < 10; $i++) {
-                        echo '<option value="'.$i.'">'.$i.'</option>';
-                    }
-                    ?>
-                </select>
-            </div>
+        <label for="placesNumber" class="colorGrey font-epilogue font-medium text-sm">Nombre de places disponibles</label>
+        <div class="flex justify-start items-center gap-2">
+            <img src="../assets/img/group.png" alt="logo de groupes pour les places disponibles">
+            <select name="placesNumber" id="placesNumber" class="w-full">
+                <option value="">Places Disponibles</option>
+                <?php
+                for ($i=1; $i < 10; $i++) {
+                    echo '<option value="'.$i.'">'.$i.'</option>';
+                }
+                ?>
+            </select>
         </div>
         <label for="" class="colorGrey font-epilogue font-medium text-sm">Étapes éventuelles</label>
-        <div class="flex w-full" id="rowStep">
-            <div id="step" class="flex w-5/6 justify-start items-center gap-2">
-                <img src="../assets/img/pinPoint.png" alt="point pour les étapes">
-                <input type="text" name="step1Adding" id="step1Adding" placeholder="Etape">
-            </div>
-            <div id="addStep" class="w-1/6 flex justify-center items-center">
-                <img src="../assets/img/plus.png" alt="Ajout d'une étape">
+        <div class="flex w-full" id="allStepCreateItinerary">
+            <div class="flex w-full" id="rowStep1">
+                <div id="step" class="flex w-5/6 justify-start items-center gap-2">
+                    <img src="../assets/img/pinPoint.png" alt="point pour les étapes">
+                    <input type="text" name="step1Adding" id="step1New" placeholder="Etape">
+                </div>
+                <div id="addStep" class="w-1/6 flex justify-center items-center">
+                    <img src="../assets/img/plus.png" alt="Ajout d'une étape" id="step1Adding">
+                </div>
             </div>
         </div>
         <div class="flex justify-center items-center w-full">

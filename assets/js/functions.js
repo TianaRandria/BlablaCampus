@@ -24,3 +24,20 @@ function fetchTextHeader(){
         }
     }));
 }
+function switchCheckboxCreateItinerary(targetListener, targetEvent){
+    targetListener.addEventListener("click",function(){
+        if (targetEvent.checked == true) {
+            targetEvent.checked = false;
+        }
+    })
+}
+function newStepItinerary(targetFunction){
+    switch (targetFunction) {
+        case "step1Adding":
+            
+            break;
+    
+        default:
+            break;
+    }
+}
