@@ -7,16 +7,15 @@ class User extends Database
   public function login()
   {
     $nickname = $_POST['login'];
-    $connection = $this->connect()->prepare("SELECT * FROM user WHERE nickname_user = :nickname");
+    $connection = $this->connect()->prepare("SELECT * FROM compte WHERE nickname_user = :nickname_user");
     $connection->bindParam(':nickname_user', $nickname, PDO::PARAM_STR);
     $connection->execute();
     $user = $connection->fetch();
     if ($user && password_verify($_POST['password'], $user['password_user'])) {
       $_SESSION['name_user'] = $nickname;
-      echo $_SESSION['name_user'];
     } else {
-      echo 'Invalid nickname or password';
-      echo $_SESSION['name_user'];
+      // echo 'Invalid nickname or password';
+      header('Location: ./login.php');
     }
   }
 
@@ -54,6 +53,7 @@ class User extends Database
     session_destroy();
     header('Location: ./index.php');
   }
+
   public function pswdReset()
   {
     if (isset($_POST['email'])) {

@@ -1,9 +1,10 @@
-<?php include('header.php')?>
+<?php include('header.php');
+include('../assets/php/conditions.php'); ?>
 
 <main class="flex flex-col justify-start items-center w-screen min-h-screen gap-4">
     <h4 class="w-5/6 bungee">Trajets Disponibles</h4>
 
-<!--         structure à utiliser dans le echo de ta fonction de recherche pour écrire les résultats , les seuls trucs à changer dedans seront les contenu des P              -->
+    <!--         structure à utiliser dans le echo de ta fonction de recherche pour écrire les résultats , les seuls trucs à changer dedans seront les contenu des P              -->
 
 
     <div class="flex w-5/6 justify-between items-center roundBorder BGColorLightGrey p-3 h-24">
@@ -67,4 +68,4 @@
 
 </main>
 
-<?php include('footer.php')?>
+<?php include('footer.php') ?>

@@ -1,4 +1,8 @@
-<?php include('header.php')?>
+<?php include('header.php');
+if (!isset($_SESSION['name_user'])) {
+    header("Location:./register.php");
+}
+?>
 <div class="w-4/5 p-2 flex">
     <h2 class="bungee">Rechercher un trajet</h2>
 </div>
@@ -25,9 +29,9 @@
             </div>
             <p class="w-4/5">Aujourd'hui</p>
         </div>
-        
+
         <input type="date" name="dateSearch" id="dateSearch" class="BGColorLightGrey w-full h-14 dsn">
     </div>
     <input type="submit" value="RECHERCHER" class="ls5 workSans p-3 w-4/5 BGColorRedOnline roundBorder text-white">
 </form>
-<?php include('footer.php')?>
+<?php include('footer.php') ?>
