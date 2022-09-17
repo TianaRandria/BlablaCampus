@@ -6,7 +6,7 @@
                 <img src="../assets/img/humanLogo.png" alt="img du conducteur" class="img-account">
             </div>
             <div class="second-col">
-                <p class="bungee text-sm font-bold colorRedOnline">Pauline</p>
+                <p class="bungee text-sm font-bold colorRedOnline"><?php echo 'cc'?></p>
                 <p class="epilogue font-light text-xs italic">Avec moi ça passe ou ça casse</p>
             </div>
         </div>
@@ -33,7 +33,7 @@
             </div>
             <div class="flex justify-start items-center gap-2">
                 <img src="../assets/img/arrowLeft.png" alt="Fléche de déconnexion">
-                <form action="index.php" method="post">
+                <form action="../index.php" method="post">
                     <input type="submit" name="action" value="Se déconnecter" class="epilogue text-base">
                 </form>
             </div>

@@ -51,7 +51,6 @@ class User extends Database
   public function logout()
   {
     session_destroy();
-    header('Location: ./index.php');
   }
 
   public function pswdReset()
