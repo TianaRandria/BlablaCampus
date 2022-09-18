@@ -6,7 +6,7 @@
                 <img src="../assets/img/humanLogo.png" alt="img du conducteur" class="img-account">
             </div>
             <div class="second-col">
-                <p class="bungee text-sm font-bold colorRedOnline"><?php echo 'cc'?></p>
+                <p class="bungee text-sm font-bold colorRedOnline"><?php echo "Bienvenue ".$_SESSION['nickname_user']. ":)"?></p>
                 <p class="epilogue font-light text-xs italic">Avec moi ça passe ou ça casse</p>
             </div>
         </div>
