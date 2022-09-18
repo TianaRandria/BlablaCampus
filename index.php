@@ -1,5 +1,5 @@
 <?php include('./assets/php/conditions.php');
-if (!isset($_SESSION['nickname_user'])) {
+if (isset($_SESSION['nickname_user'])) {
     header("Location:pages/searchItinerary.php");
 }else{
     ?>
@@ -22,7 +22,7 @@ if (!isset($_SESSION['nickname_user'])) {
     <body class="flex flex-col justify-center items-center w-screen min-h-screen gap-20">
         <img src="assets/img/logoBlaBlaFirstPage.png" alt="Logo de BlaBla Campus">
         <div id="containerStarting" class="w-4/5">
-            <a href="./register.php" id="starting" class="flex w-full justify-center items-center gap-2 BGColorRedOnline">
+            <a href="./pages/register.php" id="starting" class="flex w-full justify-center items-center gap-2 BGColorRedOnline">
                 <img src="assets/img/carStarting.png" alt="Une voiture">
                 <p class="text-white workSans ls5">COMMENCEZ</p>
             </a>

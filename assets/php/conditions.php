@@ -11,6 +11,6 @@ if (isset($_POST['action']) && !empty($_POST['login'])  && !empty($_POST['passwo
 }
 // Condition Logout
 if (isset($_POST['action']) && !empty($_SESSION['nickname_user']) && $_POST['action'] == "Se déconnecter") {
-  $log = new User();
-  $log->Logout();
+  $logou = new User();
+  $logou->Logout();
 }
