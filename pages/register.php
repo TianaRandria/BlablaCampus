@@ -17,7 +17,7 @@
         <p>Glisser-déposer ou parcourir un fichier</p>
         <p class="text-sm w-3/4 text-center">Taille recommandée : JPG, PNG, GIF (150x150px, Max 1mb)</p>
     </label>
-    <input type="file" name="profilePictureRegister" id="profilePictureRegister" accept=".png,.jpg,.heif">
+    <input type="file" name="profilePictureRegister" id="profilePictureRegister" accept=".png,.jpg,.heif" required>
     <div class="w-full flex justify-center">
         <input type="submit" name="action" value="CRÉER MON COMPTE" class="BGColorRedOnline cursor-pointer font-workSans rounded-lg w-4/5 text-center text-sm py-2.5 text-white tracking-5px">
     </div>

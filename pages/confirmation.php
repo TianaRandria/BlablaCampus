@@ -1,6 +1,7 @@
-<?php include('header.php')?>
+<?php include('header.php');
+include('../assets/php/conditions.php'); ?>
 <div class="w-full p-2">
-    <p class="font-bungee text-lg">Félicitaions !</p>
+    <p class="bungee text-lg">Félicitations !</p>
     <p id="textToChangeConfirmation"></p>
 </div>
-<?php include('footer.php')?>
+<?php include('footer.php') ?>
