@@ -1,5 +1,4 @@
 <?php
-
 //fonction de connextion à la base
 abstract class Database
 {
