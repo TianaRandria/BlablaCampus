@@ -53,7 +53,7 @@
         <label for="" class="colorGrey font-epilogue font-medium text-sm">Étapes éventuelles</label>
         <div class="flex w-full" id="allStepCreateItinerary">
             <div class="flex w-full" id="rowStep1">
-                <div id="step" class="flex w-5/6 justify-start items-center gap-2">
+                <div id="step1" class="flex w-5/6 justify-start items-center gap-2">
                     <img src="../assets/img/pinPoint.png" alt="point pour les étapes">
                     <input type="text" name="step1Adding" id="step1New" placeholder="Etape">
                 </div>

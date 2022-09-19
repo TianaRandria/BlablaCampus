@@ -31,10 +31,18 @@ function switchCheckboxCreateItinerary(targetListener, targetEvent){
         }
     })
 }
+function createElement(typeElement, elementID, elementIDLocation, elementClass, inputType, placeholder){
+    let createElement = document.createElement(typeElement);
+    createElement.id = elementID;
+    createElement.classList = elementClass;
+    createElement.type = inputType;
+    createElement.placeholder = placeholder;
+    document.getElementById(elementIDLocation).append(createElement);
+}
 function newStepItinerary(targetFunction){
     switch (targetFunction) {
         case "step1Adding":
-            
+
             break;
     
         default:
