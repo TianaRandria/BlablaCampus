@@ -27,7 +27,7 @@ class User extends Database
     $email = $_POST['emailRegister'];
     $bio = $_POST['bioRegister'];
     $img = file_get_contents($_FILES['profilePictureRegister']);
-    $connection = $this->connect()->prepare("SELECT * FROM compte WHERE nickname_user, email_user = :nickname_user, :email_user");
+    $connection = $this->connect()->prepare("SELECT * FROM compte WHERE nickname_user = :nickname_user WHERE email_user = :email_user");
     $connection->bindParam(':nickname_user', $nickname, PDO::PARAM_STR);
     $connection->bindParam(':email_user', $email, PDO::PARAM_STR);
     $connection->execute();

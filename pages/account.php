@@ -1,4 +1,4 @@
-<?php include("header.php")?>
+<?php include("header.php") ?>
 <main class="accountCard w-5/6 rounded-3xl relative">
     <div class="w-full bg-white p-6 flex flex-col justify-center items-start gap-6 rounded-3xl">
         <div class="firstRow flex justify-start items-center gap-3">
@@ -6,7 +6,7 @@
                 <img src="../assets/img/humanLogo.png" alt="img du conducteur" class="img-account">
             </div>
             <div class="second-col">
-                <p class="bungee text-sm font-bold colorRedOnline"><?php echo "Bienvenue ".$_SESSION['nickname_user']. ":)"?></p>
+                <p class="bungee text-sm font-bold colorRedOnline"><?php echo $_SESSION['nickname_user'] ?></p>
                 <p class="epilogue font-light text-xs italic">Avec moi ça passe ou ça casse</p>
             </div>
         </div>
@@ -40,4 +40,4 @@
         </div>
     </div>
 </main>
-<?php include("footer.php")?>
+<?php include("footer.php") ?>
