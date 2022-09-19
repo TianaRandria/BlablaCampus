@@ -9,8 +9,10 @@ if ( url.includes('pages') == true && filename != "index.php") {
         case "newItinerary.php":
             switchCheckboxCreateItinerary(checkboxForth, checkboxBackAndForth);
             switchCheckboxCreateItinerary(checkboxBackAndForth, checkboxForth);
-            step1Adding.addEventListener("click", function(e){
-                newStepItinerary(e.target.id);
+            step1Adding.addEventListener("click", function(){
+                if (step1New.value !=="") {
+                    newStepItinerary();
+                }
             });
             break;
     
