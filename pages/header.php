@@ -1,5 +1,4 @@
-<?php include('../assets/class/User.php');
-session_start();?>
+<?php include('../assets/class/User.php'); ?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -18,7 +17,7 @@ session_start();?>
 <body class="flex flex-col justify-start items-center w-screen min-h-screen">
     <h1 class="hidden">Blabla Campus</h1>
     <div id="topMenu" class="sticky top-0 left-0 w-5/6 h-32 flex justify-between items-center bg-white">
-        
+
         <a href="../index.php">
             <img src="../assets/img/simplifiedLogo.png" alt="Logo simplifié de BlaBla Campus">
         </a>
