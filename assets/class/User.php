@@ -26,12 +26,16 @@ class User extends Database
     $password = password_hash($_POST['pswdRegister'],  PASSWORD_DEFAULT);
     $email = $_POST['emailRegister'];
     $bio = $_POST['bioRegister'];
-    $img = file_get_contents($_FILES['profilePictureRegister']);
+    $file_name = $_FILES['pdf_file']['name'];
+    $file_tmp = $_FILES['pdf_file']['tmp_name'];
+    $pdf_blob = fopen($file_tmp, "rb");
+
     $connection = $this->connect()->prepare("SELECT * FROM compte WHERE nickname_user = :nickname_user WHERE email_user = :email_user");
     $connection->bindParam(':nickname_user', $nickname, PDO::PARAM_STR);
     $connection->bindParam(':email_user', $email, PDO::PARAM_STR);
     $connection->execute();
     $exist = $connection->fetch();
+
     if ($exist != false) {
       // echo "desolé cet identifiant existe déja";
       header('Location: ./register.php');
@@ -42,7 +46,7 @@ class User extends Database
       $register->bindParam(':password_user', $password, PDO::PARAM_STR);
       $register->bindParam(':email_user', $email, PDO::PARAM_STR);
       $register->bindParam(':bio_user', $bio, PDO::PARAM_STR);
-      $register->bindParam(':img_user', $img, PDO::PARAM_STR);
+      $register->bindParam(':img_user', $pdf_blob, PDO::PARAM_LOB);
       $register->execute();
       $_SESSION['nickname_user'] = $nickname;
     }
