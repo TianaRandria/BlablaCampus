@@ -7,13 +7,13 @@
     <h2 class="bungee">Rechercher un trajet</h2>
 </div>
 <form action="resultSearch.php" method="post" id="searchItinerary" class="w-5/6 flex flex-col gap-3 justify-center items-center">
-    <div class="BGColorLightGrey w-full flex roundBorder h-14">
+    <div class="BGColorLightGrey w-full flex rounded-lg h-14">
         <div class="p-3 w-1/5 flex justify-center items-center">
             <img src="../assets/img/pinPoint.png" alt="Cible d'un lieu">
         </div>
-        <input type="text" name="startingPointSearch" id="startingPointSearch" placeholder="Départ" class="BGColorLightGrey w-4/5 epilogue font-medium text-base">
+        <input type="text" name="startingPointSearch" id="startingPointSearch" placeholder="Départ" class="BGColorLightGrey w-4/5 font-epilogue font-medium text-base">
     </div>
-    <div class="BGColorLightGrey w-full flex roundBorder h-14">
+    <div class="BGColorLightGrey w-full flex rounded-lg h-14">
         <div class="p-3 w-1/5 flex justify-center items-center">
             <img src="../assets/img/pinPoint.png" alt="Cible d'un lieu">
         </div>
@@ -29,9 +29,8 @@
             </div>
             <p class="w-4/5">Aujourd'hui</p>
         </div>
-
-        <input type="date" name="dateSearch" id="dateSearch" class="BGColorLightGrey w-full h-14 dsn">
+        <input type="date" name="dateSearch" id="dateSearch" class="BGColorLightGrey w-full h-14 hidden">
     </div>
-    <input type="submit" value="RECHERCHER" class="ls5 workSans p-3 w-4/5 BGColorRedOnline roundBorder text-white">
+    <input type="submit" value="RECHERCHER" class="tracking-5px font-workSans p-3 w-4/5 BGColorRedOnline rounded-lg text-white">
 </form>
 <?php include('footer.php') ?>
