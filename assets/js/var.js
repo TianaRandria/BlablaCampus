@@ -8,3 +8,7 @@ let dateSearch = document.querySelector('#dateSearch');
 let blockSearch = document.querySelector('#blocDateSearch');
 let FirstRowInBlockSearch = document.querySelector('#blocDateSearch > #firstRow');
 let PInBlocDateSearch = document.querySelector('#blocDateSearch > #firstRow > p');
+let checkboxForth = document.querySelector('#forthOnly');
+let checkboxBackAndForth = document.querySelector('#backForth');
+let step1Adding = document.querySelector('#step1Adding');
+let rowStep1 = document.querySelector('#rowStep1');
