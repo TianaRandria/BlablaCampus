@@ -1,4 +1,5 @@
-<?php include('../assets/class/User.php'); ?>
+<?php include('../assets/class/User.php');
+session_start();?>
 <!DOCTYPE html>
 <html lang="fr">
 

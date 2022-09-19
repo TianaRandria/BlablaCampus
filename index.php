@@ -1,6 +1,11 @@
-<?php include('assets/php/conditions.php'); ?>
+<?php include('./assets/php/conditions.php');
+if (isset($_SESSION['nickname_user'])) {
+    header("Location:pages/searchItinerary.php");
+}else{
+?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,6 +17,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <title>BlaBla Campus</title>
 </head>
+
 <body class="flex flex-col justify-center items-center w-screen min-h-screen gap-20">
     <img src="assets/img/logoBlaBlaFirstPage.png" alt="Logo de BlaBla Campus">
     <div id="containerStarting" class="w-4/5">
@@ -28,3 +34,6 @@
 </body>
 
 </html>
+<?php
+}
+?>
