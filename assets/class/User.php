@@ -51,3 +51,4 @@ class User extends Database
     header('Location: ./index.php');
   }
 }
+
