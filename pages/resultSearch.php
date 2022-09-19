@@ -2,16 +2,16 @@
 include('../assets/php/conditions.php'); ?>
 
 <main class="flex flex-col justify-start items-center w-screen min-h-screen gap-4">
-    <h4 class="w-5/6 bungee">Trajets Disponibles</h4>
+    <h4 class="w-5/6font-bungee">Trajets Disponibles</h4>
 
     <!--         structure à utiliser dans le echo de ta fonction de recherche pour écrire les résultats , les seuls trucs à changer dedans seront les contenu des P              -->
 
 
-    <div class="flex w-5/6 justify-between items-center roundBorder BGColorLightGrey p-3 h-24">
+    <div class="flex w-5/6 justify-between items-center rounded-lg BGColorLightGrey p-3 h-24">
         <div class="flex w-3/5 justify-between items-center h-full">
             <div class="flex flex-col">
-                <p class="jourDate bungee colorRedOnline text-4xl">05</p>
-                <p class="moisDate bungee text-xl">SEP</p>
+                <p class="jourDatefont-bungee colorRedOnline text-4xl">05</p>
+                <p class="moisDatefont-bungee text-xl">SEP</p>
             </div>
             <div class="h-full flex flex-col items-start justify-center">
                 <p class="startingPoint colorGrey font-medium text-sm">Dole</p>
@@ -36,8 +36,8 @@ include('../assets/php/conditions.php'); ?>
 
 
     <!-- les endroits à changer avec tes fonctions sont le nombre de place disponibles ( le chiffre uniquement ) , les lieux de destinations/départ , l'image du conducteur , son nom et la petite phrase. Pour l'image de l'utilisateur si il te faut une autre balise qu'une img hésite pas à me prévenir , que je puisse adapter ça proprement -->
-    <div class="card w-5/6 BGColorLightGrey roundBorder flex flex-col p-3 gap-3.5">
-        <p class="text-xs workSans text-end w-full">places disponibles : <span class="colorRedOnline font-bold">2</span></p>
+    <div class="card w-5/6 BGColorLightGrey rounded-lg flex flex-col p-3 gap-3.5">
+        <p class="text-xs font-workSans text-end w-full">places disponibles : <span class="colorRedOnline font-bold">2</span></p>
         <div class="firstRow w-full flex h-12 gap-2">
             <div class="flex flex-col justify-between h-full">
                 <p class="colorRedOnline font-bold text-sm">6H30</p>
@@ -49,8 +49,8 @@ include('../assets/php/conditions.php'); ?>
                 <span class="blackBar absolute"></span>
             </div>
             <div class="h-full flex flex-col justify-between items-start">
-                <p class="colorFakeBlack font-bold epilogue text-sm">Dole</p>
-                <p class="colorFakeBlack font-bold epilogue text-sm">Lons le Saunier</p>
+                <p class="colorFakeBlack font-bold font-epilogue text-sm">Dole</p>
+                <p class="colorFakeBlack font-bold font-epilogue text-sm">Lons le Saunier</p>
             </div>
         </div>
         <div class="secondRow flex gap-3 justify-start items-center">
