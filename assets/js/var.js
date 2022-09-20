@@ -12,8 +12,9 @@ let checkboxForth = document.querySelector('#forthOnly');
 let checkboxBackAndForth = document.querySelector('#backForth');
 let step1Adding = document.querySelector('#step1Adding');
 let rowStep1 = document.querySelector('#rowStep1');
-let step1New = document.querySelector('#step1New')
-
+let step1New = document.querySelector('#step1New');
+let cardTraject = document.querySelectorAll('.cardTraject');
+console.log(cardTraject);
 const rowStep2 = [
     {"type":"div","ID":"rowStep2", "location":"allStepCreateItinerary","class":"flex w-full","inputType":"","placeholder":"","src":"","alt":"","name":""},
     {"type":"div","ID":"step2", "location":"rowStep2","class":"flex w-5/6 justify-start items-center gap-2 BGColorLightGrey p-2 rounded-lg","inputType":"","placeholder":"","src":"","alt":"","name":""},
