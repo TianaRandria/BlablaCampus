@@ -728,6 +728,10 @@ video {
   gap: 0.875rem;
 }
 
+.gap-5 {
+  gap: 1.25rem;
+}
+
 .rounded-3xl {
   border-radius: 1.5rem;
 }

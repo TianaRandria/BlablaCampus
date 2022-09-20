@@ -65,4 +65,7 @@ function modalMyItinerary(index){
         }        
     }
     modalTraject[index].classList.remove('hidden');
+    setTimeout(() => {
+        modalTraject[index].classList.add('hidden')
+    }, 5000);
 }

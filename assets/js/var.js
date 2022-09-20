@@ -16,6 +16,7 @@ let step1New = document.querySelector('#step1New');
 let cardTraject = document.querySelectorAll('.cardTraject');
 let modalTraject = document.querySelectorAll('.modalTraject');
 let mainMyItinerary = document.querySelector('.mainMyItinerary');
+
 const rowStep2 = [
     {"type":"div","ID":"rowStep2", "location":"allStepCreateItinerary","class":"flex w-full","inputType":"","placeholder":"","src":"","alt":"","name":""},
     {"type":"div","ID":"step2", "location":"rowStep2","class":"flex w-5/6 justify-start items-center gap-2 BGColorLightGrey p-2 rounded-lg","inputType":"","placeholder":"","src":"","alt":"","name":""},
@@ -24,7 +25,6 @@ const rowStep2 = [
     {"type":"div","ID":"addStep2", "location":"rowStep2","class":"w-1/6 flex justify-center items-center","inputType":"","placeholder":"","src":"","alt":"","name":""},
     {"type":"img","ID":"step2Adding", "location":"addStep2","class":"","inputType":"","placeholder":"","src":"../assets/img/plus.png","alt":"Ajout d'une étape","name":""}
 ]
-
 const rowStep3 = [
     {"type":"div","ID":"rowStep3", "location":"allStepCreateItinerary","class":"flex w-full","inputType":"","placeholder":"","src":"","alt":"","name":""},
     {"type":"div","ID":"step3", "location":"rowStep3","class":"flex w-5/6 justify-start items-center gap-2 BGColorLightGrey p-2 rounded-lg","inputType":"","placeholder":"","src":"","alt":"","name":""},
