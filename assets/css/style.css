@@ -588,12 +588,12 @@ video {
   height: 8rem;
 }
 
-.h-14 {
-  height: 3.5rem;
-}
-
 .h-full {
   height: 100%;
+}
+
+.h-14 {
+  height: 3.5rem;
 }
 
 .h-48 {
@@ -632,10 +632,6 @@ video {
   width: 75%;
 }
 
-.w-1\/5 {
-  width: 20%;
-}
-
 .w-1\/6 {
   width: 16.666667%;
 }
@@ -646,6 +642,10 @@ video {
 
 .w-3\/5 {
   width: 60%;
+}
+
+.w-1\/5 {
+  width: 20%;
 }
 
 .cursor-pointer {
@@ -779,12 +779,12 @@ video {
   font-family: Work Sans, sans-serif;
 }
 
-.font-bungee {
-  font-family: Bungee, serif;
-}
-
 .font-epilogue {
   font-family: Epilogue, sans-serif;
+}
+
+.font-bungee {
+  font-family: Bungee, serif;
 }
 
 .text-sm {

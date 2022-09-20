@@ -39,7 +39,7 @@
             </div>
             <div class="flex flex-row-reverse justify-start items-center gap-2">
                 <label for="forthOnly" class="font-epilogue text-sm">Allez simple</label>
-                <input type="checkbox" name="typeTrajetTest" id="forthOnly" value="1">
+                <input type="checkbox" name="typeTrajetTest" id="forthOnly" value="0">
             </div>
         </fieldset>
         <label for="placesNumber" class="colorGrey font-epilogue font-medium text-xs">Nombre de places disponibles</label>
