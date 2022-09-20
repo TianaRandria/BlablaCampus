@@ -13,7 +13,7 @@
                 <p class="epilogue font-light text-xs italic">Avec moi ça passe ou ça casse</p>
             </div>
         </div>
-        <a href="newItinerary.php" class="buttonForProposal rounded-lg BGColorRedOnline w-full p-2 flex justify-start items-center gap-2">
+        <a href="newItinerary.php" class="buttonForProposal rounded-lg bg-redOnline w-full p-2 flex justify-start items-center gap-2">
             <img src="../assets/img/newItinerary.png" alt="Logo pour le bouton de nouvel itinéraire">
             <p class="tracking-5pxfont-workSans text-xs text-white">PROPOSER UN TRAJET</p>
         </a>

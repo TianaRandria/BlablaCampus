@@ -19,7 +19,7 @@
     </label>
     <input type="file" name="profilePictureRegister" id="profilePictureRegister" accept=".png,.jpg,.heif" required>
     <div class="w-full flex justify-center">
-        <input type="submit" name="action" value="CRÉER MON COMPTE" class="BGColorRedOnline cursor-pointer font-workSans rounded-lg w-4/5 text-center text-sm py-2.5 text-white tracking-5px">
+        <input type="submit" name="action" value="CRÉER MON COMPTE" class="bg-redOnline cursor-pointer font-workSans rounded-lg w-4/5 text-center text-sm py-2.5 text-white tracking-5px">
     </div>
 </form>
 

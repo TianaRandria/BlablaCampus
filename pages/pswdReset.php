@@ -6,7 +6,7 @@
     </div>
     <form action="index.php" method="post" id="formResetMDP" class="w-full flex flex-col justify-center items-center gap-6">
         <input type="email" name="emailReset" id="emailReset" required placeholder="Email" class="w-full BGColorLightGrey rounded-lg p-2">
-        <button type="submit" name="action" class="w-4/6 tracking-5pxfont-workSans text-xs BGColorRedOnline text-white rounded-xl p-2">RÉINITIALISER LE MOT DE PASSE</button>
+        <button type="submit" name="action" class="w-4/6 tracking-5pxfont-workSans text-xs bg-redOnline text-white rounded-xl p-2">RÉINITIALISER LE MOT DE PASSE</button>
     </form>
 </main>
 <?php include("footer.php")?>

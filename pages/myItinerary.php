@@ -23,11 +23,11 @@
         </div>
         <img src="../assets//img/upDown.png" alt="doubles inversés haut et bas" class="fleche">
         <div class="modalTraject h-full w-full absolute flex top-0 left-0 rounded-lg hidden modal1">
-            <form action="modifyItinerary.php" class="w-1/2 h-full BGColorRedOnline rounded-l-lg flex justify-center items-center" method="post">
+            <form action="modifyItinerary.php" class="w-1/2 h-full bg-redOnline rounded-l-lg flex justify-center items-center" method="post">
                 <input type="hidden" name="idToTransfer" value="1">
                 <input type="submit" value="editer" name="action" class="font-bungee text-white text-xl">
             </form>
-            <form action="removeItinerary.php" class="w-1/2 h-full bg-black rounded-r-lg flex justify-center items-center" method="post">
+            <form action="deleteItinerary.php" class="w-1/2 h-full bg-black rounded-r-lg flex justify-center items-center" method="post">
                 <input type="hidden" name="idToTransfer" value="1">
                 <input type="submit" value="supprimer" name="action" class="font-bungee text-white text-xl">
             </form>
@@ -48,11 +48,11 @@
         </div>
         <img src="../assets//img/upDown.png" alt="doubles inversés haut et bas" class="fleche">
         <div class="modalTraject h-full w-full absolute flex top-0 left-0 rounded-lg hidden modal2">
-            <form action="modifyItinerary.php" class="w-1/2 h-full BGColorRedOnline rounded-l-lg flex justify-center items-center" method="post">
+            <form action="modifyItinerary.php" class="w-1/2 h-full bg-redOnline rounded-l-lg flex justify-center items-center" method="post">
                 <input type="hidden" name="idToTransfer" value="2">
                 <input type="submit" value="editer" name="action" class="font-bungee text-white text-xl">
             </form>
-            <form action="removeItinerary.php" class="w-1/2 h-full bg-black rounded-r-lg flex justify-center items-center" method="post">
+            <form action="deleteItinerary.php" class="w-1/2 h-full bg-black rounded-r-lg flex justify-center items-center" method="post">
                 <input type="hidden" name="idToTransfer" value="2">
                 <input type="submit" value="supprimer" name="action" class="font-bungee text-white text-xl">
             </form>
@@ -72,11 +72,11 @@
         </div>
         <img src="../assets//img/upDown.png" alt="doubles inversés haut et bas" class="fleche">
         <div class="modalTraject h-full w-full absolute flex top-0 left-0 rounded-lg hidden modal3">
-            <form action="modifyItinerary.php" class="w-1/2 h-full BGColorRedOnline rounded-l-lg flex justify-center items-center" method="post">
+            <form action="modifyItinerary.php" class="w-1/2 h-full bg-redOnline rounded-l-lg flex justify-center items-center" method="post">
                 <input type="hidden" name="idToTransfer" value="3">
                 <input type="submit" value="editer" name="action" class="font-bungee text-white text-xl">
             </form>
-            <form action="removeItinerary.php" class="w-1/2 h-full bg-black rounded-r-lg flex justify-center items-center" method="post">
+            <form action="deleteItinerary.php" class="w-1/2 h-full bg-black rounded-r-lg flex justify-center items-center" method="post">
                 <input type="hidden" name="idToTransfer" value="3">
                 <input type="submit" value="supprimer" name="action" class="font-bungee text-white text-xl">
             </form>

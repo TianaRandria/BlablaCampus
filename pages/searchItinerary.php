@@ -27,6 +27,6 @@
         </div>
         <input type="date" name="dateSearch" id="dateSearch" class="BGColorLightGrey w-full h-14 hidden">
     </div>
-    <input type="submit" value="RECHERCHER" class="tracking-5px font-workSans p-3 w-4/5 BGColorRedOnline rounded-lg text-white">
+    <input type="submit" value="RECHERCHER" class="tracking-5px font-workSans p-3 w-4/5 bg-redOnline rounded-lg text-white">
 </form>
 <?php include('footer.php') ?>
