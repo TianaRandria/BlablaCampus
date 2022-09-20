@@ -1,7 +1,7 @@
-<?php include("header.php")?>
+<?php include("header.php") ?>
 <main class="w-5/6">
     <h2 class="font-bungee">Proposer un trajet</h2>
-    <form action="" method="post" class="w-full flex flex-col items-start justify-start gap-3">
+    <form action="conditions.php" method="post" class="w-full flex flex-col items-start justify-start gap-3">
         <label for="createItineraryDepart" class="colorGrey font-epilogue font-medium text-sm">D'où partez vous?</label>
         <div class="flex w-full gap-2 p-2 BGColorLightGrey rounded-lg">
             <img src="../assets/img/pinPoint.png" alt="Logo pour le départ">
@@ -48,8 +48,8 @@
             <select name="placesNumber" id="placesNumber" class="w-full bg-transparent">
                 <option>Places Disponibles</option>
                 <?php
-                for ($i=1; $i < 10; $i++) {
-                    echo '<option value="'.$i.'">'.$i.'</option>';
+                for ($i = 1; $i < 10; $i++) {
+                    echo '<option value="' . $i . '">' . $i . '</option>';
                 }
                 ?>
             </select>
@@ -71,4 +71,4 @@
         </div>
     </form>
 </main>
-<?php include("footer.php")?>
+<?php include("footer.php") ?>

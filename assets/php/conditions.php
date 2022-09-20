@@ -14,3 +14,8 @@ if (isset($_POST['action']) && !empty($_SESSION['nickname_user']) && $_POST['act
   $logou = new User();
   $logou->Logout();
 }
+// Condition NewItinary
+if (isset($_POST['action']) && !empty($_POST['createItineraryDepart'])  && !empty($_POST['itineraryFinalCreate']) && !empty($_POST['step1Adding']) && !empty($_POST['step2Adding']) && !empty($_POST['step3Adding']) && !empty($_POST['dateDepart']) && !empty($_POST['departureTime']) && !empty($_POST['placesNumber']) && !empty($_POST['typeTrajetTest']) && $_POST['action'] == "Proposer un trajet") {
+  $newiti = new Trajet();
+  $newiti->propose();
+}
