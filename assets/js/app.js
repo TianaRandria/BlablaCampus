@@ -15,7 +15,14 @@ if ( url.includes('pages') == true && filename != "index.php") {
                 }
             });
             break;
-    
+            
+        case "myItinerary.php":
+            for (let i = 0; i < cardTraject.length; i++) {
+                cardTraject[i].addEventListener("click", function(){
+                    modalMyItinerary(i);
+                });
+            }
+            break;
         default:
             break;
     }

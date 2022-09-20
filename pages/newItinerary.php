@@ -60,7 +60,7 @@
             </div>
         </div>
         <div class="flex justify-center items-center w-full p-3">
-            <input type="submit" value="Proposer un trajet" class="w-full font-workSans tracking-5px uppercase text-sm BGColorRedOnline text-white p-5 rounded-lg">
+            <input type="submit" name="action" value="Proposer un trajet" class="w-full font-workSans tracking-5px uppercase text-sm BGColorRedOnline text-white p-5 rounded-lg">
         </div>
     </form>
 </main>

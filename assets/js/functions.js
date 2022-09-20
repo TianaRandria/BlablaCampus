@@ -56,3 +56,13 @@ function newStepItinerary(){
         }
     })
 }
+function modalMyItinerary(index){
+    let arraySplice = Array.prototype.slice.call(modalTraject);
+    arraySplice.splice(index , 1);
+    for (let i = 0; i < arraySplice.length; i++) {
+        if (!arraySplice[i].classList.contains('hidden')) {
+            arraySplice[i].classList.add('hidden');
+        }        
+    }
+    modalTraject[index].classList.remove('hidden');
+}
