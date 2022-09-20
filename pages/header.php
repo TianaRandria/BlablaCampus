@@ -24,5 +24,5 @@ session_start();?>
         <a href="../index.php">
             <img src="../assets/img/simplifiedLogo.png" alt="Logo simplifié de BlaBla Campus">
         </a>
-        <a href="account.php" id="changingZone" class="colorRedOnline workSans"></a>
+        <a href="account.php" id="changingZone" class="text-redOnline workSans"></a>
     </div>

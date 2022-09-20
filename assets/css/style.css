@@ -750,14 +750,14 @@ video {
   border-bottom-right-radius: 0.5rem;
 }
 
-.bg-white {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
 .bg-redOnline {
   --tw-bg-opacity: 1;
   background-color: rgb(212 30 69 / var(--tw-bg-opacity));
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .bg-black {
@@ -767,6 +767,11 @@ video {
 
 .bg-transparent {
   background-color: transparent;
+}
+
+.bg-xtraLightGrey {
+  --tw-bg-opacity: 1;
+  background-color: rgb(240 240 240 / var(--tw-bg-opacity));
 }
 
 .p-6 {
@@ -882,6 +887,16 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.text-redOnline {
+  --tw-text-opacity: 1;
+  color: rgb(212 30 69 / var(--tw-text-opacity));
+}
+
+.text-lightGrey {
+  --tw-text-opacity: 1;
+  color: rgb(136 136 136 / var(--tw-text-opacity));
+}
+
 .placeholder\:text-black::-moz-placeholder {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
@@ -894,25 +909,9 @@ video {
 
 /*     General Classes       */
 
-.colorRedOnline{
-  color: #D41E45;
-}
-
-.colorGrey{
-  color: #888888;
-}
-
-.colorFakeBlack{
-  color: #333333;
-}
-
-/* .BGColorRedOnline{
-    background-color: #D41E45 !important;
+/* .BGColorLightGrey{
+    background-color: #F0F0F0;
 } */
-
-.BGColorLightGrey{
-  background-color: #F0F0F0;
-}
 
 .square40{
   height: 40px;

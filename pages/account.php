@@ -9,7 +9,7 @@
             </div>
             <!-- Nom du conducteur à remplacer avec tes fonctions ainsi que sa bio -->
             <div class="second-col">
-                <p class="bungee text-sm font-bold colorRedOnline"><?php echo $_SESSION['nickname_user'] ?></p>
+                <p class="bungee text-sm font-bold text-redOnline"><?php echo $_SESSION['nickname_user'] ?></p>
                 <p class="epilogue font-light text-xs italic">Avec moi ça passe ou ça casse</p>
             </div>
         </div>
