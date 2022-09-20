@@ -1,4 +1,5 @@
 <?php include('../assets/class/User.php');
+include('../assets/php/conditions.php');
 session_start();?>
 <!DOCTYPE html>
 <html lang="fr">

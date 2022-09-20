@@ -1,5 +1,4 @@
-<?php include('header.php');
-include('../assets/php/conditions.php'); ?>
+<?php include('header.php'); ?>
 
 <main class="flex flex-col justify-start items-center w-screen min-h-screen gap-4">
     <h4 class="w-5/6font-bungee">Trajets Disponibles</h4>
