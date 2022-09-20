@@ -1,5 +1,7 @@
-<?php include('../assets/class/User.php');
-include('../assets/class/Trajet.php'); ?>
+<?php
+include('../assets/class/User.php');
+include('../assets/class/Trajet.php');
+?>
 <!DOCTYPE html>
 <html lang="fr">
 

@@ -10,4 +10,6 @@
         <a href="pswdReset.php" class="ls5 colorRedOnline workSans text-xs">MOT DE PASSE OUBLIÉ</a>
     </div>
 </form>
-<?php include('footer.php') ?>
+
+<?php var_dump(uniqid());
+include('footer.php') ?>
