@@ -6,8 +6,7 @@
     <!--         structure à utiliser dans le echo de ta fonction de recherche pour écrire les résultats , les seuls trucs à changer dedans seront les contenu des P ansi que la value de l'input hidden         -->
 
 
-    <form action="reservation.php" method="post">
-        <label for="traject_ID" class="flex w-5/6 justify-between items-center rounded-lg bg-xtraLightGrey p-3 h-24">
+        <div class="flex w-5/6 justify-between items-center rounded-lg bg-xtraLightGrey p-3 h-24">
             <div class="flex w-3/5 justify-between items-center h-full">
                 <div class="flex flex-col">
                     <p class="jourDate font-bungee text-redOnline text-4xl">05</p>
@@ -19,9 +18,7 @@
                 </div>
             </div>
             <img src="../assets//img/upDown.png" alt="doubles inversés haut et bas" class="fleche">
-        </label>
-        <input type="submit" value="1" name="traject_ID">
-    </form>
+        </div>
 
     <!--       Seule modif à faire ici pour toi Vincent , c'est dans la span , remplacé par probablement un count du nombre de résultats retourné par ton select -->
 
@@ -37,34 +34,42 @@
     <!--     Template pour les cards que tu devras générer via tes fonctions de recherches -->
 
 
-    <!-- les endroits à changer avec tes fonctions sont le nombre de place disponibles ( le chiffre uniquement ) , les lieux de destinations/départ , l'image du conducteur , son nom et la petite phrase. Pour l'image de l'utilisateur si il te faut une autre balise qu'une img hésite pas à me prévenir , que je puisse adapter ça proprement -->
-    <div class="card w-5/6 bg-xtraLightGrey rounded-lg flex flex-col p-3 gap-3.5">
-        <p class="text-xs font-workSans text-end w-full">places disponibles : <span class="text-redOnline font-bold">2</span></p>
-        <div class="firstRow w-full flex h-12 gap-2">
-            <div class="flex flex-col justify-between h-full">
-                <p class="text-redOnline font-bold text-sm">6H30</p>
-                <p class="text-redOnline font-bold text-sm">7H30</p>
+    <!-- les endroits à changer avec tes fonctions sont le nombre de place disponibles ( le chiffre uniquement ) , les lieux de destinations/départ , l'image du conducteur , son nom et la petite phrase. Pour l'image de l'utilisateur si il te faut une autre balise qu'une img hésite pas à me prévenir , que je puisse adapter ça proprement 
+
+    edit 1 : changement pour un form , devra changer la value de l'input hidden pour pouvoir faire la récup après
+
+-->
+    <form action="reservation.php" class="w-full flex justify-center">
+        <div class="card w-5/6 bg-xtraLightGrey rounded-lg flex flex-col p-3 gap-3.5 relative">
+            <p class="text-xs font-workSans text-end w-full">places disponibles : <span class="text-redOnline font-bold">2</span></p>
+            <div class="firstRow w-full flex h-12 gap-2">
+                <div class="flex flex-col justify-between h-full">
+                    <p class="text-redOnline font-bold text-sm">6H30</p>
+                    <p class="text-redOnline font-bold text-sm">7H30</p>
+                </div>
+                <div class="flex flex-col relative justify-between h-full">
+                    <span class="circleSearchResult"></span>
+                    <span class="circleSearchResult"></span>
+                    <span class="blackBar absolute"></span>
+                </div>
+                <div class="h-full flex flex-col justify-between items-start">
+                    <p class="colorFakeBlack font-bold font-epilogue text-sm">Dole</p>
+                    <p class="colorFakeBlack font-bold font-epilogue text-sm">Lons le Saunier</p>
+                </div>
             </div>
-            <div class="flex flex-col relative justify-between h-full">
-                <span class="circleSearchResult"></span>
-                <span class="circleSearchResult"></span>
-                <span class="blackBar absolute"></span>
+            <div class="secondRow flex gap-3 justify-start items-center">
+                <div class="first-col">
+                    <img src="../assets/img/humanLogo.png" alt="img du conducteur" class="img-cardSearch">
+                </div>
+                <div class="second-col">
+                    <p class="epilogue text-sm font-bold">Pauline</p>
+                    <p class="epilogue font-light text-xs italic">Avec moi ça passe ou ça casse</p>
+                </div>
             </div>
-            <div class="h-full flex flex-col justify-between items-start">
-                <p class="colorFakeBlack font-bold font-epilogue text-sm">Dole</p>
-                <p class="colorFakeBlack font-bold font-epilogue text-sm">Lons le Saunier</p>
-            </div>
+            <input type="submit" value="" name="action" class="absolute top-0 left-0 w-full h-full rounded-lg text-transparent" value="goToDetails">
         </div>
-        <div class="secondRow flex gap-3 justify-start items-center">
-            <div class="first-col">
-                <img src="../assets/img/humanLogo.png" alt="img du conducteur" class="img-cardSearch">
-            </div>
-            <div class="second-col">
-                <p class="epilogue text-sm font-bold">Pauline</p>
-                <p class="epilogue font-light text-xs italic">Avec moi ça passe ou ça casse</p>
-            </div>
-        </div>
-    </div>
+        <input type="hidden" name="idToTransfer" value="1">
+    </form>
 
 
 
