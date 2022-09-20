@@ -1,6 +1,6 @@
 <?php
-
-include("../assets/class/Database.php");
+session_start();
+require_once("../assets/class/Database.php");
 
 class User extends Database
 {

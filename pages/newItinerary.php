@@ -1,7 +1,8 @@
-<?php include("header.php") ?>
+<?php include("header.php");
+include('../assets/php/conditions.php'); ?>
 <main class="w-5/6">
     <h2 class="font-bungee">Proposer un trajet</h2>
-    <form action="conditions.php" method="post" class="w-full flex flex-col items-start justify-start gap-3">
+    <form method="post" class="w-full flex flex-col items-start justify-start gap-3">
         <label for="createItineraryDepart" class="colorGrey font-epilogue font-medium text-sm">D'où partez vous?</label>
         <div class="flex w-full gap-2 p-2 BGColorLightGrey rounded-lg">
             <img src="../assets/img/pinPoint.png" alt="Logo pour le départ">
@@ -67,7 +68,7 @@
             </div>
         </div>
         <div class="flex justify-center items-center w-full">
-            <input type="submit" value="Proposer un trajet">
+            <input type="submit" name="action" value="Proposer un trajet" class="w-full font-workSans tracking-5px uppercase text-sm BGColorRedOnline text-white p-5 rounded-lg">
         </div>
     </form>
 </main>

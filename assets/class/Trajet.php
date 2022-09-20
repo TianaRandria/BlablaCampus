@@ -1,8 +1,7 @@
 <?php
+require_once("../assets/class/User.php");
 
-include("./assets/class/Database.php");
-
-class Trajet extends Database
+class Trajet extends User
 {
   public function propose()
   {
@@ -25,6 +24,16 @@ class Trajet extends Database
     $register->bindParam(':hour_traject', $hour, PDO::PARAM_STR);
     $register->bindParam(':numberplace_traject', $numPlace, PDO::PARAM_STR);
     $register->bindParam(':type_traject', $type, PDO::PARAM_STR);
+    var_dump($start);
+    var_dump($end);
+    var_dump($step1);
+    var_dump($step2);
+    var_dump($step3);
+    var_dump($date);
+    var_dump($hour);
+    var_dump($numPlace);
+    var_dump($type);
     $register->execute();
+    // header('Location: ../pages/searchItinerary.php');
   }
 }

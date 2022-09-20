@@ -1,5 +1,4 @@
 <?php
-session_start();
 //fonction de connextion à la base
 abstract class Database
 {
