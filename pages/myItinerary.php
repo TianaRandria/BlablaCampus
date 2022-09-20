@@ -1,5 +1,5 @@
 <?php include("header.php")?>
-<main class="flex flex-col justify-start items-start w-5/6 gap-3">
+<main class="flex flex-col justify-start items-start w-5/6 gap-3 mainMyItinerary">
     <h2 class="font-bungee text-lg">Mes trajets</h2>
 
     <!-- Template à utiliser pour la généréation des trajets récupéré 
