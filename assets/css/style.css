@@ -720,16 +720,16 @@ video {
   gap: 0.625rem;
 }
 
+.gap-5 {
+  gap: 1.25rem;
+}
+
 .gap-4 {
   gap: 1rem;
 }
 
 .gap-3\.5 {
   gap: 0.875rem;
-}
-
-.gap-5 {
-  gap: 1.25rem;
 }
 
 .rounded-3xl {
@@ -971,8 +971,8 @@ video {
 /*  CSS FOR SEARCHRESULT */
 
 .circleSearchResult{
-  height: 0.875rem;
-  width: 0.875rem;
+  height: 22px;
+  width: 22px;
   border: solid 3px #333333;
   background-color: white;
   border-radius: 50px;

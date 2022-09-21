@@ -28,6 +28,31 @@ if ( url.includes('pages') == true && filename != "index.php") {
                     modalMyReservation(i);
                 });
             };
+            break;
+        case "confirmation.php":
+            switch(fileReferrer){
+                case "login.php":
+                    redirectTimed("/searchitinerary.php");
+                    break;
+                case "register.php":
+                    setTimeout(() => {
+                        window.location.replace(baseUrl+"/searchitinerary.php");
+                    }, 800);
+                    break;
+                case "changeItinerary.php":
+                    setTimeout(() => {
+                        window.location.replace(baseUrl+"/myItinerary.php");
+                    }, 800);
+                    break;
+                case "reservation.php":
+                    setTimeout(() => {
+                        window.location.replace(baseUrl+"/searchitinerary.php");
+                    }, 800);
+                    break;
+                default:
+                    break;
+            }
+            break;
         default:
             break;
     }

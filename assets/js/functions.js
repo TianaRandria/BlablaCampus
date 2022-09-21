@@ -57,6 +57,7 @@ function newStepItinerary(){
     })
 }
 function modalMyItinerary(index){
+    clearTimeout();
     let arraySplice = Array.prototype.slice.call(modalTraject);
     arraySplice.splice(index , 1);
     for (let i = 0; i < arraySplice.length; i++) {
@@ -81,4 +82,9 @@ function modalMyReservation(index){
     setTimeout(() => {
         modalReservations[index].classList.add('hidden')
     }, 5000);
+}
+function redirectTimed(e){
+    setTimeout(() => {
+        window.location.replace(baseUrl+e);
+    }, 800);
 }
