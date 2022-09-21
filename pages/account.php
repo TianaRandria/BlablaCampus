@@ -3,7 +3,7 @@
     <div class="w-full bg-white p-6 flex flex-col justify-center items-start gap-6 rounded-3xl">
         <div class="firstRow flex justify-start items-center gap-3">
 
-        <!-- chemin d'image à remplacer par l'image du conducteur avec tes fonctions -->
+            <!-- chemin d'image à remplacer par l'image du conducteur avec tes fonctions -->
             <div class="first-col">
                 <img src="../assets/img/humanLogo.png" alt="img du conducteur" class="img-account">
             </div>
