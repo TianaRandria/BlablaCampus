@@ -1,3 +1,4 @@
+<!-- de manière général ça seras surtout des appels sur une variable au début probablement afin de se servir de celle ci pour  pouvoir réécrire les données nécessaires -->
 <?php include('header.php');?>
 <main class="w-5/6 flex flex-col gap-10">
 
@@ -18,10 +19,15 @@
     </div>
 
     <div class="flex flex-col justify-start items-start gap-10 font-epilogue">
-        <p>Bonjour <span class="text-redOnline font-bold">Pauline</span></p>
-        <p>Je souhaiterai réserver une place dans ta voiture pour le trajet <span class="text-redOnline font-bold">Dole - Lons le Saunier</span></p>
-        <p>En te remerciant.</p>
+        <p class="font-epilogue text-lightGrey font-medium">Bonjour <span class="text-redOnline font-bold">Pauline</span></p>
+        <p class="font-epilogue text-lightGrey font-medium">Je souhaiterai réserver une place dans ta voiture pour le trajet <span class="text-redOnline font-bold">Dole - Lons le Saunier</span></p>
+        <p class="font-epilogue text-lightGrey font-medium">En te remerciant.</p>
     </div>
-
+<!-- modifier la valeur des inputs caché avec l'id de l'utilisateur qui envoit le message ( celui qui réserve donc ) et l'id du trajet  -->
+    <form action="confirmation.php" method="post" class="flex justify-center items-center">
+        <input type="hidden" name="idUserForLinkMessage" value="">
+        <input type="hidden" name="idItineraryForMessage" value="">
+        <input type="submit" value="Envoyer ma demande" class="font-workSans text-sm p-5 tracking-5px bg-redOnline text-white rounded-lg uppercase">
+    </form>
 </main>
 <?php include('footer.php');?>
