@@ -1,7 +1,5 @@
 <?php
 session_start();
-include('../assets/class/User.php');
-include('../assets/class/Trajet.php');
 ?>
 <!DOCTYPE html>
 <html lang="fr">

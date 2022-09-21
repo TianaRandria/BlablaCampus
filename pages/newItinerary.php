@@ -1,4 +1,4 @@
-<?php include("header.php")?>
+<?php include("header.php") ?>
 <main class="w-5/6 py-2">
     <h2 class="font-bungee">Proposer un trajet</h2>
     <form action="searchItinerary.php" method="post" class="w-full flex flex-col items-start justify-start gap-3">
@@ -46,14 +46,6 @@
         <div class="flex justify-start items-center gap-2 w-full bg-xtraLightGrey p-2">
             <img src="../assets/img/group.png" alt="logo de groupes pour les places disponibles">
             <input type="number" name="placesNumber" id="placesNumber" min="2" placeholder="Places disponibles" class="bg-transparent w-full">
-            <select name="placesNumber" id="placesNumber" class="w-full bg-transparent">
-                <option>Places Disponibles</option>
-                <?php
-                for ($i = 1; $i < 10; $i++) {
-                    echo '<option value="' . $i . '">' . $i . '</option>';
-                }
-                ?>
-            </select>
         </div>
         <label for="" class="text-lightGrey font-epilogue font-medium text-xs">Étapes éventuelles</label>
         <div class="flex w-full flex-col gap-2" id="allStepCreateItinerary">

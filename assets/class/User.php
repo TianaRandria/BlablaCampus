@@ -1,9 +1,12 @@
 <?php
-session_start();
-require_once("../assets/class/Database.php");
+// session_start();
+require_once("Database.php");
+
 
 class User extends Database
 {
+  public $bio;
+
   public function login()
   {
     $nickname = $_POST['login'];
@@ -12,7 +15,9 @@ class User extends Database
     $connection->execute();
     $user = $connection->fetch();
     if ($user && password_verify($_POST['password'], $user['password_user'])) {
-      $_SESSION['nickname_user'] = $nickname;
+      session_start();
+      $_SESSION['nickname_user'] = $user['nickname_user'];
+      header('Location: ../../pages/confirmation.php');
     } else {
       // echo 'Invalid nickname or password';
       header('Location: ./login.php');
@@ -26,8 +31,6 @@ class User extends Database
     $password = password_hash($_POST['pswdRegister'],  PASSWORD_DEFAULT);
     $email = $_POST['emailRegister'];
     $bio = $_POST['bioRegister'];
-    $file_tmp = $_FILES['profilePictureRegister']['tmp_name'];
-    $img_user = fopen($file_tmp, "rb");
 
     $connection = $this->connect()->prepare("SELECT * FROM compte WHERE nickname_user = :nickname_user WHERE email_user = :email_user");
     $connection->bindParam(':nickname_user', $nickname, PDO::PARAM_STR);
@@ -39,21 +42,24 @@ class User extends Database
       // echo "desolé cet identifiant existe déja";
       header('Location: ./register.php');
     } else {
-      $register = $this->connect()->prepare("INSERT INTO compte (name_user, nickname_user, password_user, email_user, bio_user, img_user) VALUES (:name_user, :nickname_user, :password_user, :email_user, :bio_user, :img_user)");
+      $register = $this->connect()->prepare("INSERT INTO compte (name_user, nickname_user, password_user, email_user, bio_user, img_user) VALUES (:name_user, :nickname_user, :password_user, :email_user, :bio_user)");
       $register->bindParam(':name_user', $name, PDO::PARAM_STR);
       $register->bindParam(':nickname_user', $nickname, PDO::PARAM_STR);
       $register->bindParam(':password_user', $password, PDO::PARAM_STR);
       $register->bindParam(':email_user', $email, PDO::PARAM_STR);
       $register->bindParam(':bio_user', $bio, PDO::PARAM_STR);
-      $register->bindParam(':img_user', $img_user, PDO::PARAM_LOB);
       $register->execute();
+      session_start();
       $_SESSION['nickname_user'] = $nickname;
+      header('Location: ../../pages/confirmation.php');
     }
   }
 
   public function logout()
   {
+    session_start();
     session_destroy();
+    header('Location: ../../index.php');
   }
 
   public function pswdReset()
