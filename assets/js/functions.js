@@ -19,7 +19,7 @@ function fetchTextHeader(){
                 }
             }
         }
-        if ( filename ==="account.php"){
+        if ( filename ==="account.php" || filename ==="confirmation.php"){
             changingZone.href = "";
         }
     }));
@@ -67,5 +67,18 @@ function modalMyItinerary(index){
     modalTraject[index].classList.remove('hidden');
     setTimeout(() => {
         modalTraject[index].classList.add('hidden')
+    }, 5000);
+}
+function modalMyReservation(index){
+    let arraySplice = Array.prototype.slice.call(modalReservations);
+    arraySplice.splice(index , 1);
+    for (let i = 0; i < arraySplice.length; i++) {
+        if (!arraySplice[i].classList.contains('hidden')) {
+            arraySplice[i].classList.add('hidden');
+        }        
+    }
+    modalReservations[index].classList.remove('hidden');
+    setTimeout(() => {
+        modalReservations[index].classList.add('hidden')
     }, 5000);
 }

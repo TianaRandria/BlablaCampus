@@ -22,6 +22,12 @@ if ( url.includes('pages') == true && filename != "index.php") {
                 });
             };
             break;
+        case "myReservations.php":
+            for (let i = 0; i < cardReservation.length; i++) {
+                cardReservation[i].addEventListener("click", function(){
+                    modalMyReservation(i);
+                });
+            };
         default:
             break;
     }
