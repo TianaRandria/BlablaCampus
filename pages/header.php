@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('../assets/class/User.php');
 include('../assets/class/Trajet.php');
 ?>
@@ -25,5 +26,5 @@ include('../assets/class/Trajet.php');
         <a href="../index.php">
             <img src="../assets/img/simplifiedLogo.png" alt="Logo simplifié de BlaBla Campus">
         </a>
-        <a href="account.php" id="changingZone" class="colorRedOnline workSans"></a>
+        <a href="account.php" id="changingZone" class="text-redOnline workSans"></a>
     </div>

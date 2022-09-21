@@ -9,11 +9,11 @@
             </div>
             <!-- Nom du conducteur à remplacer avec tes fonctions ainsi que sa bio -->
             <div class="second-col">
-                <p class="bungee text-sm font-bold colorRedOnline"><?php echo $_SESSION['nickname_user'] ?></p>
+                <p class="bungee text-sm font-bold text-redOnline"><?php echo $_SESSION['nickname_user'] ?></p>
                 <p class="epilogue font-light text-xs italic">Avec moi ça passe ou ça casse</p>
             </div>
         </div>
-        <a href="newItinerary.php" class="buttonForProposal rounded-lg BGColorRedOnline w-full p-2 flex justify-start items-center gap-2">
+        <a href="newItinerary.php" class="buttonForProposal rounded-lg bg-redOnline w-full p-2 flex justify-start items-center gap-2">
             <img src="../assets/img/newItinerary.png" alt="Logo pour le bouton de nouvel itinéraire">
             <p class="tracking-5pxfont-workSans text-xs text-white">PROPOSER UN TRAJET</p>
         </a>
