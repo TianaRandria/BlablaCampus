@@ -11,5 +11,5 @@
     </div>
 </form>
 
-<?php var_dump(uniqid());
+<?php
 include('footer.php') ?>
