@@ -105,8 +105,14 @@ function fileChecker(e){
         childRemove(profilePictureRegisterLabel);
         profilePictureRegisterLabel.textContent = "Mauvais type de fichier , veuillez choisir un autre fichier";
     }
+    if(files[0].size > 1048576){
+        profilePictureRegister.value ="";
+        childRemove(profilePictureRegisterLabel);
+        profilePictureRegisterLabel.textContent = "Fichier trop lourd , veuillez choisir un autre fichier";
+    }
     else{
         childRemove(profilePictureRegisterLabel);
         profilePictureRegisterLabel.textContent = files[0].name;
     }
+    console.log(files[0]);
 }

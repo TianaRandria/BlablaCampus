@@ -748,6 +748,14 @@ video {
   gap: 0.875rem;
 }
 
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.break-words {
+  overflow-wrap: break-word;
+}
+
 .rounded-3xl {
   border-radius: 1.5rem;
 }
