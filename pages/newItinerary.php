@@ -1,7 +1,7 @@
 <?php include("header.php") ?>
 <main class="w-5/6 py-2">
     <h2 class="font-bungee">Proposer un trajet</h2>
-    <form action="searchItinerary.php" method="post" class="w-full flex flex-col items-start justify-start gap-3">
+    <form action="../assets/php/conditions.php" method="post" class="w-full flex flex-col items-start justify-start gap-3">
         <label for="createItineraryDepart" class="text-lightGrey font-epilogue font-medium text-xs">D'où partez vous?</label>
         <div class="flex w-full gap-2 p-2 bg-xtraLightGrey rounded-lg">
             <img src="../assets/img/pinPoint.png" alt="Logo pour le départ">
