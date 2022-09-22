@@ -1,4 +1,4 @@
-<?php include("header.php") ?>
+<?php include("header.php"); ?>
 <main class="accountCard w-5/6 rounded-3xl relative">
     <div class="w-full bg-white p-6 flex flex-col justify-center items-start gap-6 rounded-3xl">
         <div class="firstRow flex justify-start items-center gap-3">
@@ -36,7 +36,7 @@
             </div>
             <div class="flex justify-start items-center gap-2">
                 <img src="../assets/img/arrowLeft.png" alt="Fléche de déconnexion">
-                <form action="../index.php" method="post">
+                <form action="../assets/php/conditions.php" method="get">
                     <input type="submit" name="action" value="Se déconnecter" class="epilogue text-base">
                 </form>
             </div>
