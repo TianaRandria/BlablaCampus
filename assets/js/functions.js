@@ -88,3 +88,25 @@ function redirectTimed(e){
         window.location.replace(baseUrl+e);
     }, 800);
 }
+function childRemove(target) {
+    while(target.firstChild){
+        target.removeChild(target.firstChild);
+    }
+}
+function fileChecker(e){
+    let fileType;
+    const files = e.target.files;
+    for (const file of files) {
+        fileType = file.type;
+        fileType = fileType.split('/');                    
+    }
+    if(fileType[0] != 'image'){
+        profilePictureRegister.value ="";
+        childRemove(profilePictureRegisterLabel);
+        profilePictureRegisterLabel.textContent = "Mauvais type de fichier , veuillez choisir un autre fichier";
+    }
+    else{
+        childRemove(profilePictureRegisterLabel);
+        profilePictureRegisterLabel.textContent = files[0].name;
+    }
+}

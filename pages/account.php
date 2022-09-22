@@ -28,11 +28,11 @@
             </div>
             <div class="flex justify-start items-center gap-2">
                 <img src="../assets/img/humanLogoNoBGBlack.png" alt="Humain stylisé">
-                <a href="" class="epilogue text-base">Modifier mes informations</a>
+                <a href="editAccount.php" class="epilogue text-base">Modifier mes informations</a>
             </div>
             <div class="flex justify-start items-center gap-2">
                 <img src="../assets/img/message.png" alt="Bulle de Message">
-                <a href="" class="epilogue text-base">Messagerie</a>
+                <a href="mailbox.php" class="epilogue text-base">Messagerie</a>
             </div>
             <div class="flex justify-start items-center gap-2">
                 <img src="../assets/img/arrowLeft.png" alt="Fléche de déconnexion">
