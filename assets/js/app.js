@@ -35,21 +35,22 @@ if ( url.includes('pages') == true && filename != "index.php") {
                     redirectTimed("/searchitinerary.php");
                     break;
                 case "register.php":
-                    setTimeout(() => {
-                        window.location.replace(baseUrl+"/searchitinerary.php");
-                    }, 800);
+                    redirectTimed("/searchitinerary.php");
                     break;
                 case "changeItinerary.php":
-                    setTimeout(() => {
-                        window.location.replace(baseUrl+"/myItinerary.php");
-                    }, 800);
+                    redirectTimed("/myItinerary.php");
                     break;
                 case "reservation.php":
-                    setTimeout(() => {
-                        window.location.replace(baseUrl+"/searchitinerary.php");
-                    }, 800);
+                    redirectTimed("/searchitinerary.php");
                     break;
-                default:
+                case "validation.php":
+                    redirectTimed("/searchitinerary.php");
+                    break;
+                case "deleteItinerary.php":
+                    redirectTimed("/myItinerary.php");
+                    break;
+                case "reservationCancel.php":
+                    redirectTimed("/myReservations.php");
                     break;
             }
             break;
