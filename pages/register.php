@@ -1,6 +1,6 @@
 <?php include('header.php') ?>
 
-<form action="confirmation.php" method="post" class="flex flex-col w-5/6 gap-3" id="formRegister">
+<form action="../assets/php/conditions.php" method="post" class="flex flex-col w-5/6 gap-3" id="formRegister">
     <label for="nameRegister" class="font-bungee">Entrez vos coordonnées</label>
     <input type="text" name="nameRegister" placeholder="Nom" class="bg-xtraLightGrey rounded-lg p-2" required>
     <input type="text" name="nicknameRegister" placeholder="Nom d'utilisateur" class="bg-xtraLightGrey rounded-lg p-2" required>

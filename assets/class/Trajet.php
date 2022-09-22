@@ -1,5 +1,5 @@
 <?php
-require_once("../assets/class/User.php");
+include("User.php");
 
 class Trajet extends User
 {
