@@ -22,6 +22,41 @@ if ( url.includes('pages') == true && filename != "index.php") {
                 });
             };
             break;
+        case "myReservations.php":
+            for (let i = 0; i < cardReservation.length; i++) {
+                cardReservation[i].addEventListener("click", function(){
+                    modalMyReservation(i);
+                });
+            };
+            break;
+        case "confirmation.php":
+            switch(fileReferrer){
+                case "login.php":
+                    redirectTimed("/searchitinerary.php");
+                    break;
+                case "register.php":
+                    redirectTimed("/searchitinerary.php");
+                    break;
+                case "changeItinerary.php":
+                    redirectTimed("/myItinerary.php");
+                    break;
+                case "reservation.php":
+                    redirectTimed("/searchitinerary.php");
+                    break;
+                case "validation.php":
+                    redirectTimed("/searchitinerary.php");
+                    break;
+                case "deleteItinerary.php":
+                    redirectTimed("/myItinerary.php");
+                    break;
+                case "reservationCancel.php":
+                    redirectTimed("/myReservations.php");
+                    break;
+                case "editAccount.php":
+                    redirectTimed("/searchitinerary.php");
+                    break;
+            }
+            break;
         default:
             break;
     }
