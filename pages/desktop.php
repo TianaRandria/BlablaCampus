@@ -59,10 +59,10 @@
 				content: url('../assets/img/mapspm.png');
 				z-index: 1;
 			}
-			.carte::before {
+			/*.carte::before {
 				content: url('../assets/img/carte.png');
 				z-index: 2;
-			}
+			}*/
 			.mobile::before {
 				content: url('../assets/img/mobile.png');
 				width: 50%;
