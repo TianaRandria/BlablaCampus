@@ -45,7 +45,7 @@
         <label for="placesNumber" class="text-lightGrey font-epilogue font-medium text-xs">Nombre de places disponibles</label>
         <div class="flex justify-start items-center gap-2 w-full bg-xtraLightGrey p-2">
             <img src="../assets/img/group.png" alt="logo de groupes pour les places disponibles">
-            <input type="number" name="placesNumber" id="placesNumber" min="2" placeholder="Places disponibles" class="bg-transparent w-full">
+            <input type="number" name="placesNumber" id="placesNumber" min="2" placeholder="Places disponibles" class="bg-transparent w-full" min="0">
         </div>
         <label for="" class="text-lightGrey font-epilogue font-medium text-xs">Étapes éventuelles</label>
         <div class="flex w-full flex-col gap-2" id="allStepCreateItinerary">
