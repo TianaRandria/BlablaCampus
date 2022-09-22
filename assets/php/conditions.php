@@ -16,6 +16,11 @@ if (isset($_GET['action']) && $_GET['action'] == "Se déconnecter") {
   $logou = new User();
   $logou->Logout();
 }
+// Condition Logout
+if (isset($_POST['action']) && $_POST['action'] == "RÉINITIALISER LE MOT DE PASSE") {
+  $pswdR = new User();
+  $pswdR->pswdReset();
+}
 // Condition NewItinary
 if (isset($_POST['action']) && !empty($_POST['createItineraryDepart'])  && !empty($_POST['itineraryFinalCreate']) && !empty($_POST['dateDepart']) && !empty($_POST['departureTime']) && !empty($_POST['placesNumber']) && !empty($_POST['typeTrajetTest']) && $_POST['action'] == "Proposer un trajet") {
   $newiti = new Trajet();
