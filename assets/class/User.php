@@ -31,30 +31,35 @@ class User extends Database
     $password = password_hash($_POST['pswdRegister'],  PASSWORD_DEFAULT);
     $email = $_POST['emailRegister'];
     $bio = $_POST['bioRegister'];
-
-    // $connection = $this->connect()->prepare("SELECT nickname_user FROM compte WHERE nickname_user = :nickname_user");
-    // $connection->bindParam(':nickname_user', $nickname, PDO::PARAM_STR);
-    // $connection->execute();
-    // $exist = $connection->fetch();
-    // if ($exist != false) {
-    //   // echo "desolé cet identifiant existe déja";
-    //   header('Location: ../../pages/register.php');
-    // } else {
-
-    $register = $this->connect()->prepare("INSERT INTO compte (name_user, nickname_user, password_user, email_user, bio_user) VALUES (:name_user, :nickname_user, :password_user, :email_user, :bio_user)");
-    $register->bindParam(':name_user', $name, PDO::PARAM_STR);
-    $register->bindParam(':nickname_user', $nickname, PDO::PARAM_STR);
-    $register->bindParam(':password_user', $password, PDO::PARAM_STR);
-    $register->bindParam(':email_user', $email, PDO::PARAM_STR);
-    $register->bindParam(':bio_user', $bio, PDO::PARAM_STR);
-    $register->debugDumpParams();
-    // $register->execute();
-    session_start();
-    $_SESSION['nickname_user'] = $nickname;
-    $_SESSION['bio_user'] = $bio;
-    // $_SESSION['img_user'] = $img;
-    header('Location: ../../pages/confirmation.php');
-    // }
+    $existName = $this->connect()->prepare("SELECT * FROM compte WHERE nickname_user = :nickname_user");
+    $existName->bindValue(':nickname_user', $nickname, PDO::PARAM_STR);
+    $existName->execute();
+    $existEmail = $this->connect()->prepare("SELECT * FROM compte WHERE email_user = :email_user");
+    $existEmail->bindValue(':email_user', $email, PDO::PARAM_STR);
+    $existEmail->execute();
+    $nicknameExist = $existName->fetch();
+    $emailExist = $existEmail->fetch();
+    if ($nicknameExist != false) {
+      header('Location: ../../pages/register.php');
+      session_destroy();
+    } else if ($emailExist != false) {
+      header('Location: ../../pages/register.php');
+      session_destroy();
+    } else {
+      $register = $this->connect()->prepare("INSERT INTO compte (name_user, nickname_user, password_user, email_user, bio_user, img_user) VALUES (:name_user, :nickname_user, :password_user, :email_user, :bio_user, :img_user )");
+      $register->bindParam(':name_user', $name, PDO::PARAM_STR);
+      $register->bindParam(':nickname_user', $nickname, PDO::PARAM_STR);
+      $register->bindParam(':password_user', $password, PDO::PARAM_STR);
+      $register->bindParam(':email_user', $email, PDO::PARAM_STR);
+      $register->bindParam(':bio_user', $bio, PDO::PARAM_STR);
+      $register->bindParam(':img_user', $img, PDO::PARAM_STR);
+      $register->execute();
+      session_start();
+      $_SESSION['nickname_user'] = $nickname;
+      $_SESSION['bio_user'] = $bio;
+      $_SESSION['img_user'] = $img;
+      header('Location: ../../pages/confirmation.php');
+    }
   }
 
   public function logout()
@@ -81,6 +86,43 @@ class User extends Database
       } else {
         echo "Une erreur est survenue";
       }
+    }
+  }
+  public function editUser()
+  {
+    $name = $_POST['nameEdit'];
+    $nickname = $_POST['nicknameEdit'];
+    $password = password_hash($_POST['pswdEdit'],  PASSWORD_DEFAULT);
+    $email = $_POST['emailEdit'];
+    $bio = $_POST['bioEdit'];
+    $existName = $this->connect()->prepare("SELECT * FROM compte WHERE nickname_user = :nickname_user");
+    $existName->bindValue(':nickname_user', $nickname, PDO::PARAM_STR);
+    $existName->execute();
+    $existEmail = $this->connect()->prepare("SELECT * FROM compte WHERE email_user = :email_user");
+    $existEmail->bindValue(':email_user', $email, PDO::PARAM_STR);
+    $existEmail->execute();
+    $nicknameExist = $existName->fetch();
+    $emailExist = $existEmail->fetch();
+    if ($nicknameExist != false) {
+      header('Location: ../../pages/register.php');
+      session_destroy();
+    } else if ($emailExist != false) {
+      header('Location: ../../pages/register.php');
+      session_destroy();
+    } else {
+      $Edit = $this->connect()->prepare("UPDATE compte SET nickname_user = :nickname_user , email_user = :email_user , bio_user = :bio_user , img_user = :img_user WHERE id_user = :id");
+      $Edit->bindParam(':name_user', $name, PDO::PARAM_STR);
+      $Edit->bindParam(':nickname_user', $nickname, PDO::PARAM_STR);
+      $Edit->bindParam(':password_user', $password, PDO::PARAM_STR);
+      $Edit->bindParam(':email_user', $email, PDO::PARAM_STR);
+      $Edit->bindParam(':bio_user', $bio, PDO::PARAM_STR);
+      $Edit->bindParam(':img_user', $img, PDO::PARAM_STR);
+      $Edit->execute();
+      session_start();
+      $_SESSION['nickname_user'] = $nickname;
+      $_SESSION['bio_user'] = $bio;
+      $_SESSION['img_user'] = $img;
+      header('Location: ../../pages/confirmation.php');
     }
   }
 }
