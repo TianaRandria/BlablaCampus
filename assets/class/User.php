@@ -88,6 +88,7 @@ class User extends Database
       }
     }
   }
+
   public function editUser()
   {
     $name = $_POST['nameEdit'];
