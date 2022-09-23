@@ -551,10 +551,6 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.invisible {
-  visibility: hidden;
-}
-
 .absolute {
   position: absolute;
 }
@@ -574,10 +570,6 @@ video {
 
 .left-0 {
   left: 0px;
-}
-
-.z-40 {
-  z-index: 40;
 }
 
 .box-border {
@@ -600,6 +592,10 @@ video {
   height: 8rem;
 }
 
+.h-10vh {
+  height: 10vh;
+}
+
 .h-full {
   height: 100%;
 }
@@ -614,10 +610,6 @@ video {
 
 .h-12 {
   height: 3rem;
-}
-
-.h-10vh {
-  height: 10vh;
 }
 
 .min-h-screen {
