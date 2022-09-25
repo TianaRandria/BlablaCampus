@@ -41,7 +41,7 @@ class Trajet extends User
     // header('Location: ../pages/searchItinerary.php');
   }
 
-  public function newItinerary() {
+  public function editItinerary() {
     $start = $_POST['createItineraryDepart'];
     $end = $_POST['itineraryFinalCreate'];
     $dateCreate = $_POST['dateDepart'];
@@ -112,8 +112,6 @@ class Trajet extends User
     $_SESSION['confirmMessage'] = 'Votre trajet a bien été supprimé !';
     header('Location: ./confirmation.php');
   }
-
-
 
   public function month() {
     if($month == '01') {

@@ -1,8 +1,9 @@
-<?php include("header.php"); ?>
+<?php include("header.php"); 
+?>
 <main class="accountCard w-5/6 rounded-3xl relative">
     <div class="w-full bg-white p-6 flex flex-col justify-center items-start gap-6 rounded-3xl">
         <div class="firstRow flex justify-start items-center gap-3">
-
+ 
             <!-- chemin d'image à remplacer par l'image du conducteur avec tes fonctions -->
             <div class="first-col w-1/6">
                 <img src="../assets/img/humanLogo.png" alt="img du conducteur" class="img-account">

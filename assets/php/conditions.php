@@ -1,6 +1,9 @@
 <?php
 
 include('../class/Trajet.php');
+
+// ================= User =================
+
 // Condition Register
 if (isset($_POST['action']) && !empty($_POST['nameRegister'])  && !empty($_POST['nicknameRegister']) && !empty($_POST['pswdRegister']) && !empty($_POST['emailRegister']) && !empty($_POST['bioRegister']) && $_POST['action'] == "CRÉER MON COMPTE") {
   $reg = new User();
@@ -16,13 +19,36 @@ if (isset($_GET['action']) && $_GET['action'] == "Se déconnecter") {
   $logou = new User();
   $logou->Logout();
 }
-// Condition Logout
+// Condition editAccount
+if (isset($_POST['action']) && $_POST['action'] == "ÉDITER MON COMPTE") {
+  $editA = new User();
+  $editA->editAccount();
+}
+// Condition passwordReset
 if (isset($_POST['action']) && $_POST['action'] == "RÉINITIALISER LE MOT DE PASSE") {
   $pswdR = new User();
   $pswdR->pswdReset();
 }
-// Condition NewItinary
+// Condition
+if (isset($_POST['action']) && $_POST['action'] == "") {
+  $pswdR = new User();
+  $pswdR->pswdReset();
+}
+
+// ================= Trajet ==================
+
+// Condition deletItinerary
+if (isset($_POST['confirmation']) && $_POST['confirmation'] == "Supprimer") {
+  $deletI = new Trajet();
+  $deletI->editItinerary();
+}
+// Condition newItinerary
 if (isset($_POST['action']) && !empty($_POST['createItineraryDepart'])  && !empty($_POST['itineraryFinalCreate']) && !empty($_POST['dateDepart']) && !empty($_POST['departureTime']) && !empty($_POST['placesNumber']) && !empty($_POST['typeTrajetTest']) && $_POST['action'] == "Proposer un trajet") {
-  $newiti = new Trajet();
-  $newiti->newItinerary();
+  $newI = new Trajet();
+  $newI->newItinerary();
+}
+// Condition editItinerary
+if (isset($_POST['action']) && !empty($_POST['createItineraryDepart'])  && !empty($_POST['itineraryFinalCreate']) && !empty($_POST['dateDepart']) && !empty($_POST['departureTime']) && !empty($_POST['placesNumber']) && !empty($_POST['typeTrajetTest']) && $_POST['action'] == "Modifié un trajet") {
+  $editI = new Trajet();
+  $editI->editItinerary();
 }

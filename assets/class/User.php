@@ -31,6 +31,7 @@ class User extends Database
     $password = password_hash($_POST['pswdRegister'],  PASSWORD_DEFAULT);
     $email = $_POST['emailRegister'];
     $bio = $_POST['bioRegister'];
+    $img = 'cc';
     $existName = $this->connect()->prepare("SELECT * FROM compte WHERE nickname_user = :nickname_user");
     $existName->bindValue(':nickname_user', $nickname, PDO::PARAM_STR);
     $existName->execute();
@@ -89,7 +90,7 @@ class User extends Database
     }
   }
 
-  public function editUser()
+  public function editAccount()
   {
     $name = $_POST['nameEdit'];
     $nickname = $_POST['nicknameEdit'];
