@@ -12,20 +12,20 @@ class Trajet extends User
     $hour = $_POST['departureTime'];
     $numPlace = $_POST['placesNumber'];
     $type = $_POST['typeTrajetTest'];
-    $step1 = $_POST['step1Adding'];
-    $step2 = $_POST['step2Adding'];
-    $step3 = $_POST['step3Adding'];
     $addReq = array();
     $addSelect = array();
     if (isset($_POST['step1Adding']) && !empty($_POST['step1Adding'])) {
+      $step1 = $_POST['step1Adding'];
       array_push($addSelect, 'point1_traject');
       array_push($addReq, ':point1_traject');
     }
     if (isset($_POST['step2Adding']) && !empty($_POST['step2Adding'])) {
+      $step2 = $_POST['step2Adding'];
       array_push($addSelect, 'point2_traject');
       array_push($addReq, ':point2_traject');
     }
     if (isset($_POST['step3Adding']) && !empty($_POST['step3Adding'])) {
+      $step3 = $_POST['step3Adding'];
       array_push($addSelect, 'point3_traject');
       array_push($addReq, ':point3_traject');
     }
@@ -41,7 +41,7 @@ class Trajet extends User
     $registertraj->bindParam(':point1_traject', $step1, PDO::PARAM_STR);
     $registertraj->bindParam(':point2_traject', $step2, PDO::PARAM_STR);
     $registertraj->bindParam(':point3_traject', $step3, PDO::PARAM_STR);
-    $registertraj->execute();
+    // $registertraj->execute();
     $registertraj->debugDumpParams();
     var_dump($start);
     var_dump($end);
