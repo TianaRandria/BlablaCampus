@@ -6,6 +6,11 @@ if (filename === "searchItinerary.php" || filename === "newItinerary.php"){
 if ( url.includes('pages') == true && filename != "index.php") {
     fetchTextHeader();
     switch (filename) {
+        case "register.php":
+            profilePictureRegister.addEventListener('change', function(e){
+                fileChecker(e);
+            })
+            break;
         case "newItinerary.php":
             switchCheckboxCreateItinerary(checkboxForth, checkboxBackAndForth);
             switchCheckboxCreateItinerary(checkboxBackAndForth, checkboxForth);
