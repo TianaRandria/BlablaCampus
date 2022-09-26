@@ -76,6 +76,16 @@ if ( url.includes('pages') == true && filename != "index.php") {
                         newStepItinerary();
                     }
                 });
+            }else{
+                document.querySelector('#step2Adding').addEventListener('click', function(){
+                    if(document.querySelector('#step2New').value !==""){
+                        document.querySelector('#step2Adding').classList.add('hidden');
+                        for (let i = 0; i < rowStep3.length; i++) {
+                            createElement(rowStep3[i].type, rowStep3[i].ID, rowStep3[i].location, rowStep3[i].class, rowStep3[i].inputType, rowStep3[i].placeholder,rowStep3[i].src, rowStep3[i].alt,rowStep3[i].name)
+                        }
+                        autocomplete('#step3New');
+                    }
+                })
             }
             autocomplete('#modifyItineraryDepart');
             break;
