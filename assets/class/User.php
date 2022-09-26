@@ -31,7 +31,6 @@ class User extends Database
     $password = password_hash($_POST['pswdRegister'],  PASSWORD_DEFAULT);
     $email = $_POST['emailRegister'];
     $bio = $_POST['bioRegister'];
-    $img = 'cc';
     $existName = $this->connect()->prepare("SELECT * FROM compte WHERE nickname_user = :nickname_user");
     $existName->bindValue(':nickname_user', $nickname, PDO::PARAM_STR);
     $existName->execute();
@@ -58,7 +57,7 @@ class User extends Database
       session_start();
       $_SESSION['nickname_user'] = $nickname;
       $_SESSION['bio_user'] = $bio;
-      $_SESSION['img_user'] = $img;
+      // $_SESSION['img_user'] = $img;
       header('Location: ../../pages/confirmation.php');
     }
   }
