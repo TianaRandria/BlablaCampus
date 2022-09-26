@@ -2,7 +2,7 @@
 
 <!-- à remplir par défaut avec les données concernant l'utilisateur en utilsant les attributs value  , l'utilisateur devra rentrer à nouveau son mot de passe donc faut faire un check en même temps que la mise à jour des informations. L'image ne sera pas en require pour éviter les soucis de récupérations de données / remise à nouveau de l'image par l'utilisateur de façon forcé -->
 
-<form action="confirmation.php" method="post" class="flex flex-col w-5/6 gap-3" id="formEdit">
+<form action="../assets/php/conditions.php" method="post" class="flex flex-col w-5/6 gap-3" id="formEdit">
     <label for="nameEdit" class="font-bungee">Entrez vos coordonnées</label>
     <input type="text" name="nameEdit" placeholder="Nom" class="bg-xtraLightGrey rounded-lg p-2" required value="">
     <input type="text" name="nicknameEdit" placeholder="Nom d'utilisateur" class="bg-xtraLightGrey rounded-lg p-2" required value="">
@@ -21,7 +21,7 @@
     </label>
     <input type="file" name="profilePictureEdit" id="profilePictureEdit" accept=".png,.jpg,.heif">
     <div class="w-full flex justify-center">
-        <input type="submit" name="action" value="CRÉER MON COMPTE" class="bg-redOnline cursor-pointer font-workSans rounded-lg w-4/5 text-center text-sm py-2.5 text-white tracking-5px">
+        <input type="submit" name="action" value="ÉDITER MON COMPTE" class="bg-redOnline cursor-pointer font-workSans rounded-lg w-4/5 text-center text-sm py-2.5 text-white tracking-5px">
     </div>
 </form>
 
