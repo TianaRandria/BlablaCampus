@@ -26,6 +26,7 @@ if (isset($_SESSION['nickname_user']) && !empty($_SESSION['nickname_user'])) {
     </head>
 
     <body class="flex flex-col justify-center items-center w-screen min-h-screen gap-20">
+        <h1 class="hidden bottom-0 right-0 translate-y-full z-10">Blabla Campus</h1>
         <img src="assets/img/logoBlaBlaFirstPage.png" alt="Logo de BlaBla Campus">
         <div id="containerStarting" class="w-4/5">
             <a href="pages/register.php" id="starting" class="flex w-full justify-center items-center gap-2 bg-redOnline">

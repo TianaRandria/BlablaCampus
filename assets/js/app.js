@@ -1,4 +1,4 @@
-if (filename === "searchItinerary.php" || filename === "newItinerary.php"){
+if (filename === "searchItinerary.php" || filename === "newItinerary.php" || filename === "modifyItinerary.php"){
     let searching = new SearchItinerary();
     searching.blockSearchSwitchChange();
     searching.blockSearchSwitchClick();
@@ -6,6 +6,9 @@ if (filename === "searchItinerary.php" || filename === "newItinerary.php"){
 if ( url.includes('pages') == true && filename != "index.php") {
     fetchTextHeader();
     switch (filename) {
+        case "searchItinerary.php":
+            autocomplete('#startingPointSearch');
+            break;
         case "register.php":
             profilePictureRegister.addEventListener('change', function(e){
                 fileChecker(e);
@@ -19,7 +22,9 @@ if ( url.includes('pages') == true && filename != "index.php") {
                     newStepItinerary();
                 }
             });
-            break; 
+            autocomplete('#createItineraryDepart');
+            autocomplete('#step1New');
+            break;
         case "myItinerary.php":
             for (let i = 0; i < cardTraject.length; i++) {
                 cardTraject[i].addEventListener("click", function(){
@@ -61,6 +66,18 @@ if ( url.includes('pages') == true && filename != "index.php") {
                     redirectTimed("/searchitinerary.php");
                     break;
             }
+            break;
+        case "modifyItinerary.php":
+            switchCheckboxCreateItinerary(checkboxForth, checkboxBackAndForth);
+            switchCheckboxCreateItinerary(checkboxBackAndForth, checkboxForth);
+            if (!document.querySelector('#step2New')) {
+                step1Adding.addEventListener("click", function(){
+                    if (step1New.value !=="") {
+                        newStepItinerary();
+                    }
+                });
+            }
+            autocomplete('#modifyItineraryDepart');
             break;
         default:
             break;
