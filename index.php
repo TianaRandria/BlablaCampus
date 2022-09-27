@@ -1,10 +1,5 @@
 <?php
 session_start();
-// include('assets/class/Trajet.php');
-// if (isset($_GET['action']) && $_GET['action'] == "Se déconnecter") {
-//     $logou = new User();
-//     $logou->Logout();
-// }
 if (isset($_SESSION['nickname_user']) && !empty($_SESSION['nickname_user'])) {
     header("Location:pages/searchItinerary.php");
 } else {
