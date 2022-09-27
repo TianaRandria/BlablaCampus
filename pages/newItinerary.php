@@ -17,8 +17,8 @@
             <img src="../assets/img/pinPoint.png" alt="Localisation du point d'arrivée">
             <select name="itineraryFinalCreate" id="itineraryFinalCreate" class="box-border w-full bg-transparent" required>
                 <option value="">Arrivée</option>
-                <option value="2 Rte de Montaigu, 39000 Lons-le-Saunier">2 Rte de Montaigu, 39000 Lons-le-Saunier</option>
-                <option value="13b Avenue du Stade Municipal, 39000 Lons-le-Saunier">13b Avenue du Stade Municipal, 39000 Lons-le-Saunier</option>
+                <option value="2 Route De Montaigu, 39000 Lons-le-Saunier, France">2 Route De Montaigu, 39000 Lons-le-Saunier, France</option>
+                <option value="13 bis Avenue du Stade Municipal, 39000 Lons-le-Saunier, France">13b Avenue du Stade Municipal, 39000 Lons-le-Saunier</option>
             </select>
         </div>
         <label for="dateDepart" class="text-lightGrey font-epilogue font-medium text-xs">Quand partez-vous ?</label>
