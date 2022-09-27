@@ -1,10 +1,11 @@
+<?php include("header.php") ?>
 <main class="w-5/6 py-2">
     <h2 class="font-bungee uppercase">Editer un trajet</h2>
     <form action="../assets/php/conditions.php" method="post" class="w-full flex flex-col items-start justify-start gap-3">
         <label for="createItineraryDepart" class="text-lightGrey font-epilogue font-medium text-xs">D'où partez vous?</label>
-        <div class="flex w-full gap-2 p-2 bg-xtraLightGrey rounded-lg">
+        <div class="flex w-full gap-2 p-2 bg-xtraLightGrey rounded-lg relative" id="rowModifyDepart">
             <img src="../assets/img/pinPoint.png" alt="Logo pour le départ">
-            <input type="text" name="createItineraryDepart" id="createItineraryDepart" placeholder="Départ" required class="bg-transparent placeholder:text-black w-full">
+            <input type="text" name="modifyItineraryDepart" id="modifyItineraryDepart" placeholder="Départ" required class="bg-transparent placeholder:text-black w-full">
         </div>
         <label for="departureTime" class="text-lightGrey font-epilogue font-medium text-xs">A quelle heure partez-vous ?</label>
         <div class="flex w-full justify-start items-center bg-xtraLightGrey rounded-lg p-2 gap-2">
@@ -63,3 +64,4 @@
         </div>
     </form>
 </main>
+<?php include("footer.php") ?>
