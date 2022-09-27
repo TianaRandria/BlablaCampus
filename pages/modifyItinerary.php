@@ -1,6 +1,5 @@
-<?php include("header.php") ?>
 <main class="w-5/6 py-2">
-    <h2 class="font-bungee">Proposer un trajet</h2>
+    <h2 class="font-bungee uppercase">Editer un trajet</h2>
     <form action="../assets/php/conditions.php" method="post" class="w-full flex flex-col items-start justify-start gap-3">
         <label for="createItineraryDepart" class="text-lightGrey font-epilogue font-medium text-xs">D'où partez vous?</label>
         <div class="flex w-full gap-2 p-2 bg-xtraLightGrey rounded-lg">
@@ -45,7 +44,7 @@
         <label for="placesNumber" class="text-lightGrey font-epilogue font-medium text-xs">Nombre de places disponibles</label>
         <div class="flex justify-start items-center gap-2 w-full bg-xtraLightGrey p-2">
             <img src="../assets/img/group.png" alt="logo de groupes pour les places disponibles">
-            <input type="number" name="placesNumber" id="placesNumber" min="2" placeholder="Places disponibles" class="bg-transparent w-full" min="0">
+            <input type="number" name="placesNumber" id="placesNumber" min="2" placeholder="Places disponibles" class="bg-transparent w-full">
         </div>
         <label for="" class="text-lightGrey font-epilogue font-medium text-xs">Étapes éventuelles</label>
         <div class="flex w-full flex-col gap-2" id="allStepCreateItinerary">
@@ -60,8 +59,7 @@
             </div>
         </div>
         <div class="flex justify-center items-center w-full p-3">
-            <input type="submit" name="action" value="Proposer un trajet" class="w-full font-workSans tracking-5px uppercase text-sm bg-redOnline text-white p-5 rounded-lg">
+            <input type="submit" name="action" value="Modifié un trajet" class="w-full font-workSans tracking-5px uppercase text-sm bg-redOnline text-white p-5 rounded-lg">
         </div>
     </form>
 </main>
-<?php include("footer.php") ?>

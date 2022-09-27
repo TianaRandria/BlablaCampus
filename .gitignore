@@ -3,3 +3,4 @@ package.json
 node_modules
 assets/css/test.css
 tailwind.config.js
+playgroundTest
