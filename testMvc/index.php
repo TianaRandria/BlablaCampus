@@ -6,8 +6,8 @@ foreach ($list as $controller) {
 }
 if(empty($_GET['page'])){
     homePage();
-    session_start();
-    if($_SESSION['nickname_user']){
+    if(isset($_SESSION['nickname_user'])){
+        session_start();
         header('Location: ./searchItinerary');
     }
 }else{
@@ -15,6 +15,9 @@ if(empty($_GET['page'])){
         case "login" :
         case "register":
             accountPage();
+            break;
+        case "searchItinerary":
+            trajectPage();
             break;
         case "confirmation":
             confirmationPage();
@@ -28,6 +31,8 @@ if(empty($_GET['page'])){
                 break;
             case 'CRÉER MON COMPTE':
                 registerUser();
+                break;
+            case "RECHERCHER":
                 break;
             default:
                 break;

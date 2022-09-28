@@ -1,5 +1,5 @@
 if (filename === "searchItinerary" || filename === "newItinerary" || filename === "modifyItinerary"){
-    let searching = new searchItinerary();
+    let searching = new SearchItinerary();
     searching.blockSearchSwitchChange();
     searching.blockSearchSwitchClick();
 }

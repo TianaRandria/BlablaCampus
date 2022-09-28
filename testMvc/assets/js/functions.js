@@ -1,14 +1,12 @@
 function fetchTextHeader(){
     fetch('./assets/js/textHeader.json').then(response => response.json().then(data => {
         var controle = 0;
-        console.table(data.textes);
         for (let i = 0; i < data.textes.length; i++) {
             if (data.textes[i].file === filename){
                 changingZone.insertAdjacentHTML('afterbegin', data.textes[i].toWrite);
                 changingZone.classList.add('disablingA');
                 break;
             }
-            console.log(filename, data.textes[i].file);
             controle++;
         }
         if(controle === 4){
@@ -125,7 +123,6 @@ function autocomplete(target){
         if(document.querySelector(target).value != ''){
             let content = encodeURIComponent(document.querySelector(target).value);
             fetch('https://api.geoapify.com/v1/geocode/autocomplete?text='+content+'&filter=countrycode:fr&format=json&apiKey=af3f6cef19954a839ffa0379b6264d9d').then(response => response.json().then(data => {
-                console.log(data.results);
                 if (!document.querySelector('#boxResults'+e.target.id)) {
                     createElement('div','boxResults'+e.target.id,e.target.parentNode.id,'absolute bottom-0 right-0 translate-y-full bg-redOnline w-4/5 z-10','','','','',''); 
                 }

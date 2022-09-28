@@ -6,4 +6,7 @@
     if(isset($login)){
         echo $login;
     }
+    if(isset($search)){
+        echo $search;
+    }
     require('./assets/views/footer.php');

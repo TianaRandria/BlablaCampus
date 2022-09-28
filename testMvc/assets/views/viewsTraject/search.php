@@ -1,8 +1,8 @@
 <?php ob_start();?>
 <div class="w-4/5 p-2 flex">
-    <h2 class="bungee">Rechercher un trajet</h2>
+    <h2 class="font-bungee">Rechercher un trajet</h2>
 </div>
-<form action="../assets/php/conditions.php" method="post" id="searchItinerary" class="w-5/6 flex flex-col gap-3 justify-center items-center">
+<form action="./resultSearch" method="post" id="searchItinerary" class="w-5/6 flex flex-col gap-3 justify-center items-center">
     <div class="bg-xtraLightGrey w-full flex rounded-lg min-h-14 relative" id="autoSearch">
         <div class="p-3 w-1/5 flex justify-center items-center">
             <img src="../assets/img/pinPoint.png" alt="Cible d'un lieu">
