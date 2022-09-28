@@ -6,6 +6,7 @@ class Trajet extends User
 {
   public function newItinerary()
   {
+    echo 'cc';
     $start = $_POST['createItineraryDepart'];
     $end = $_POST['itineraryFinalCreate'];
     $dateCreate = $_POST['dateDepart'];
@@ -31,17 +32,17 @@ class Trajet extends User
     }
     $addRequest = implode(", ", $addReq);
     $addSelections = implode(", ", $addSelect);
-    $registertraj = $this->connect()->prepare('INSERT INTO traject (start_traject, end_traject, date_traject, hour_traject, numberplace_traject, type_traject, ' . $addSelections . ') VALUES (:start_traject, :end_traject, :date_traject, :hour_traject, :numberplace_traject, :type_traject, ' . $addRequest . ' )');
-    $registertraj->bindParam(':start_traject', $start, PDO::PARAM_STR);
-    $registertraj->bindParam(':end_traject', $end, PDO::PARAM_STR);
-    $registertraj->bindParam(':date_traject', $dateCreate, PDO::PARAM_STR);
-    $registertraj->bindParam(':hour_traject', $hour, PDO::PARAM_STR);
-    $registertraj->bindParam(':numberplace_traject', $numPlace, PDO::PARAM_STR);
-    $registertraj->bindParam(':type_traject', $type, PDO::PARAM_STR);
-    $registertraj->bindParam(':point1_traject', $step1, PDO::PARAM_STR);
-    $registertraj->bindParam(':point2_traject', $step2, PDO::PARAM_STR);
-    $registertraj->bindParam(':point3_traject', $step3, PDO::PARAM_STR);
-    // $registertraj->execute();
+    $registertraj = $this->connect()->prepare('INSERT INTO traject (start_traject, end_traject, date_traject, hour_traject, numberplace_traject, type_traject ' . $addSelections . ') VALUES (:start_traject, :end_traject, :date_traject, :hour_traject, :numberplace_traject, :type_traject ' . $addRequest . ' )');
+    $registertraj->bindParam(':start_traject', $start);
+    $registertraj->bindParam(':end_traject', $end);
+    $registertraj->bindParam(':date_traject', $dateCreate);
+    $registertraj->bindParam(':hour_traject', $hour);
+    $registertraj->bindParam(':numberplace_traject', $numPlace);
+    $registertraj->bindParam(':type_traject', $type);
+    $registertraj->bindParam(':point1_traject', $step1);
+    $registertraj->bindParam(':point2_traject', $step2);
+    $registertraj->bindParam(':point3_traject', $step3);
+    $registertraj->execute();
     $registertraj->debugDumpParams();
     var_dump($start);
     var_dump($end);
@@ -92,7 +93,7 @@ class Trajet extends User
     // header('Location: ../pages/searchItinerary.php');
   }
 
-  public function filter()
+  public function searchItinerary()
   {
     $req = array();
     $value = array();
@@ -118,6 +119,7 @@ class Trajet extends User
     //$search->debugDumpParams();
     $resultSearch = $search->fetchAll();
     return $resultSearch;
+    header('Location: ../pages/searchItinerary.php');
   }
 
   // public function deleteTraject()
