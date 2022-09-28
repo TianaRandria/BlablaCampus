@@ -57,28 +57,28 @@ class User extends Database
       $register->bindParam(':img_user', $newImg, PDO::PARAM_STR);
       $register->execute();
 
-      $tmpName = $_FILES['file']['tmp_name'];
-      $name = $_FILES['file']['name'];
-      $size = $_FILES['file']['size'];
-      $error = $_FILES['file']['error'];
-      $tabExtension = explode('.', $name);
-      $extension = strtolower(end($tabExtension));
-      $extensions = ['jpg', 'png', 'jpeg', 'gif'];
-      $maxSize = 100000;
-      if (in_array($extension, $extensions) && $size <= $maxSize && $error == 0) {
+      // $tmpName = $_FILES['file']['tmp_name'];
+      // $name = $_FILES['file']['name'];
+      // $size = $_FILES['file']['size'];
+      // $error = $_FILES['file']['error'];
+      // $tabExtension = explode('.', $name);
+      // $extension = strtolower(end($tabExtension));
+      // $extensions = ['jpg', 'png', 'jpeg', 'gif'];
+      // $maxSize = 100000;
+      // if (in_array($extension, $extensions) && $size <= $maxSize && $error == 0) {
 
-        $uniqueName = uniqid('', true);
-        $img_file = $uniqueName . "." . $extension;
-        $newImg = move_uploaded_file($tmpName, './upload_file/' . $img_file);
-        return $newImg;
-        session_start();
-        $_SESSION['nickname_user'] = $nickname;
-        $_SESSION['bio_user'] = $bio;
-        // $_SESSION['img_user'] = $img;
-        header('Location: ../../pages/confirmation.php');
-      }
+      //   $uniqueName = uniqid('', true);
+      //   $img_file = $uniqueName . "." . $extension;
+      //   $newImg = move_uploaded_file($tmpName, './upload_file/' . $img_file);
+      //   return $newImg;
+      //   session_start();
+      //   $_SESSION['nickname_user'] = $nickname;
+      //   $_SESSION['bio_user'] = $bio;
+      //   // $_SESSION['img_user'] = $img;
+      header('Location: ../../pages/confirmation.php');
     }
   }
+
 
   public function logout()
   {

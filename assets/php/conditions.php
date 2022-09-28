@@ -37,13 +37,18 @@ if (isset($_POST['action']) && $_POST['action'] == "") {
 
 // ================= Trajet ==================
 
+// Condition searchItinerary
+if (isset($_POST['confirmation']) && $_POST['confirmation'] == "Supprimer") {
+  $deletI = new Trajet();
+  $deletI->searchItinerary();
+}
 // Condition deletItinerary
 if (isset($_POST['confirmation']) && $_POST['confirmation'] == "Supprimer") {
   $deletI = new Trajet();
   $deletI->editItinerary();
 }
 // Condition newItinerary
-if (isset($_POST['action']) && !empty($_POST['createItineraryDepart'])  && !empty($_POST['itineraryFinalCreate']) && !empty($_POST['dateDepart']) && !empty($_POST['departureTime']) && !empty($_POST['placesNumber']) && !empty($_POST['typeTrajetTest']) && $_POST['action'] == "Proposer un trajet") {
+if (isset($_POST['action']) && $_POST['action'] == "Proposer un trajet") {
   $newI = new Trajet();
   $newI->newItinerary();
 }
