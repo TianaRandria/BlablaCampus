@@ -5,9 +5,6 @@
     function homePage(){
         require(__DIR__.'/../views/homePage.php');
     }
-    function accountPage(){
-        require(__DIR__.'/../views/account.php');
-    }
     function confirmationPage(){
         require(__DIR__.'/../views/confirmation.php');
     }

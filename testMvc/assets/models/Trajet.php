@@ -3,8 +3,7 @@
 include("User.php");
 class Trajet extends User
 {
-  public function newItinerary()
-  {
+  public function newItinerary(){
     $start = $_POST['createItineraryDepart'];
     $end = $_POST['itineraryFinalCreate'];
     $dateCreate = $_POST['dateDepart'];
@@ -53,9 +52,7 @@ class Trajet extends User
     var_dump($step3);
     // header('Location: ../pages/searchItinerary.php');
   }
-
-  public function editItinerary()
-  {
+  public function editItinerary(){
     $start = $_POST['createItineraryDepart'];
     $end = $_POST['itineraryFinalCreate'];
     $dateCreate = $_POST['dateDepart'];
@@ -90,9 +87,7 @@ class Trajet extends User
     $registertraj->debugDumpParams();
     // header('Location: ../pages/searchItinerary.php');
   }
-
-  public function filter()
-  {
+  public function filter(){
     $req = array();
     $value = array();
 
@@ -118,7 +113,6 @@ class Trajet extends User
     $resultSearch = $search->fetchAll();
     return $resultSearch;
   }
-
   // public function deleteTraject()
   // {
   //   $delete = $this->connect()->prepare("DELETE FROM traject WHERE id_traject = :id_traject");

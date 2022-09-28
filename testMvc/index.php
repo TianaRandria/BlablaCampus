@@ -6,10 +6,12 @@ foreach ($list as $controller) {
 }
 if(empty($_GET['page'])){
     homePage();
+    session_start();
+    if($_SESSION['nickname_user']){
+        header('Location: ./searchItinerary');
+    }
 }else{
     switch($_GET['page']){
-        // case "test":
-        //     test();
         case "login" :
         case "register":
             accountPage();
@@ -22,6 +24,7 @@ if(empty($_GET['page'])){
     if (isset($_POST['action'])) {
         switch ($_POST['action']) {
             case 'SE CONNECTER':
+                loginUser();
                 break;
             case 'CRÉER MON COMPTE':
                 registerUser();
@@ -31,4 +34,5 @@ if(empty($_GET['page'])){
         }
     }
 }
-session_destroy();
+// session_start();
+// session_destroy();

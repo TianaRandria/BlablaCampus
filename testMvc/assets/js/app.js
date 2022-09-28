@@ -1,5 +1,5 @@
 if (filename === "searchItinerary" || filename === "newItinerary" || filename === "modifyItinerary"){
-    let searching = new SearchItinerary();
+    let searching = new searchItinerary();
     searching.blockSearchSwitchChange();
     searching.blockSearchSwitchClick();
 }
@@ -42,19 +42,19 @@ if (filename != "") {
         case "confirmation":
             switch(fileReferrer){
                 case "login":
-                    redirectTimed("/searchitinerary");
+                    redirectTimed("/searchItinerary");
                     break;
                 case "register":
-                    redirectTimed("/searchitinerary");
+                    redirectTimed("/searchItinerary");
                     break;
                 case "changeItinerary":
                     redirectTimed("/myItinerary");
                     break;
                 case "reservation":
-                    redirectTimed("/searchitinerary");
+                    redirectTimed("/searchItinerary");
                     break;
                 case "validation":
-                    redirectTimed("/searchitinerary");
+                    redirectTimed("/searchItinerary");
                     break;
                 case "deleteItinerary":
                     redirectTimed("/myItinerary");
@@ -63,7 +63,7 @@ if (filename != "") {
                     redirectTimed("/myReservations");
                     break;
                 case "editAccount":
-                    redirectTimed("/searchitinerary");
+                    redirectTimed("/searchItinerary");
                     break;
             }
             break;

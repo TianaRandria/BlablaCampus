@@ -1,12 +1,14 @@
 function fetchTextHeader(){
-    fetch('../assets/json/textHeader.json').then(response => response.json().then(data => {
+    fetch('./assets/js/textHeader.json').then(response => response.json().then(data => {
         var controle = 0;
+        console.table(data.textes);
         for (let i = 0; i < data.textes.length; i++) {
             if (data.textes[i].file === filename){
                 changingZone.insertAdjacentHTML('afterbegin', data.textes[i].toWrite);
                 changingZone.classList.add('disablingA');
                 break;
             }
+            console.log(filename, data.textes[i].file);
             controle++;
         }
         if(controle === 4){
@@ -86,11 +88,11 @@ function modalMyReservation(index){
         modalReservations[index].classList.add('hidden')
     }, 5000);
 }
-// function redirectTimed(e){
-//     setTimeout(() => {
-//         window.location.replace(baseUrl+e);
-//     }, 800);
-// }
+function redirectTimed(e){
+    setTimeout(() => {
+        window.location.replace(baseUrl+e);
+    }, 800);
+}
 function childRemove(target) {
     while(target.firstChild){
         target.removeChild(target.firstChild);
@@ -114,8 +116,8 @@ function fileChecker(e){
         profilePictureRegisterLabel.textContent = "Fichier trop lourd , veuillez choisir un autre fichier";
     }
     else{
-        // childRemove(profilePictureRegisterLabel);
-        // profilePictureRegisterLabel.textContent = files[0].name;
+        childRemove(profilePictureRegisterLabel);
+        profilePictureRegisterLabel.textContent = files[0].name;
     }
 }
 function autocomplete(target){

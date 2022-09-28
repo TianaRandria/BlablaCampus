@@ -1,4 +1,5 @@
-<form action="./confirmation" method="post" class="flex flex-col w-5/6 gap-3" id="formRegister" enctype="multipart/form-data">
+<?php ob_start();?>
+<form action="" method="post" class="flex flex-col w-5/6 gap-3" id="formRegister" enctype="multipart/form-data">
     <label for="nameRegister" class="font-bungee">Entrez vos coordonnées</label>
     <input type="text" name="nameRegister" placeholder="Nom" class="bg-xtraLightGrey rounded-lg p-2" required>
     <input type="text" name="nicknameRegister" placeholder="Nom d'utilisateur" class="bg-xtraLightGrey rounded-lg p-2" required>
@@ -21,3 +22,8 @@
         <input type="submit" name="action" value="CRÉER MON COMPTE" class="bg-redOnline cursor-pointer font-workSans rounded-lg w-4/5 text-center text-sm py-2.5 text-white tracking-5px">
     </div>
 </form>
+<?php 
+    $title = "Enregistrement";
+    $register = ob_get_clean();
+    require(__DIR__.'../../template.php');
+?>

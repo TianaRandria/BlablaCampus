@@ -14,7 +14,7 @@ session_start();
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Epilogue:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,300&family=Work+Sans:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="shortcut icon" href="../assets/img/favicon.png?v=2" type="image/x-icon">
-    <title>BlaBla Campus</title>
+    <title><?php if($title){echo $title;}else{echo"BlaBla Campus";}?></title>
 </head>
 
 <body class="flex flex-col justify-start items-center w-screen min-h-screen">

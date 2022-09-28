@@ -1,30 +1,24 @@
 <?php
 include("Database.php");
-
-
 class User extends Database
 {
-  public function login()
-  {
+  public function login(){
     $nickname = $_POST['login'];
-    $bio = $_SESSION['bio_user'];
-    // $img = $_SESSION['img_user'];
     $connection = $this->connect()->prepare("SELECT * FROM compte WHERE nickname_user = :nickname_user");
     $connection->bindParam(':nickname_user', $nickname);
     $connection->execute();
     $user = $connection->fetch();
     if ($user && password_verify($_POST['password'], $user['password_user'])) {
-      session_start();
       $_SESSION['nickname_user'] = $nickname;
-      $_SESSION['bio_user'] = $bio;
+      $_SESSION['img_user'] = $user[0]['img_user'];
+      $_SESSION['bio_user'] = $user[0]['bio_user'];
       // $_SESSION['img_user'] = $img;
-      header('Location: ../../pages/confirmation.php');
+      header('Location: ./confirmation');
     } else {
       // echo 'Invalid nickname or password';
-      header('Location: ../../pages/login.php');
+      header('Location: ./login');
     }
   }
-
   public function register(){
     $name = $_POST['nameRegister'];
     $nickname = $_POST['nicknameRegister'];
@@ -59,6 +53,7 @@ class User extends Database
       $_SESSION['nickname_user'] = $nickname;
       $_SESSION['bio_user'] = $bio;
       $_SESSION['img_user'] = $newImg;
+      header('Location: ./confirmation');
     }
   }
   public function logout(){
@@ -140,5 +135,5 @@ class User extends Database
     }
 
     return $key;
-}
+  }
 }

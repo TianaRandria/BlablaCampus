@@ -1,4 +1,5 @@
-<form action="./confirmation" method="post" class="flex flex-col w-5/6 gap-9">
+<?php ob_start()?>
+<form action="" method="post" class="flex flex-col w-5/6 gap-9">
     <label for="login" class="bungee text-lg">Entrez vos informations</label>
     <div class="flex flex-col gap-2.5">
         <input type="text" name="login" placeholder="Nom d'utilisateur" class="bg-xtraLightGrey rounded-lg font-epilogue p-3">
@@ -9,3 +10,8 @@
         <a href="./pswdReset" class="tracking-5px text-redOnline font-workSans text-xs">MOT DE PASSE OUBLIÉ</a>
     </div>
 </form>
+<?php 
+    $title = "Connexion";
+    $login = ob_get_clean();
+    require(__DIR__.'../../template.php');
+?>
