@@ -9,10 +9,10 @@ class User extends Database
     $connection->execute();
     $user = $connection->fetch();
     if ($user && password_verify($_POST['password'], $user['password_user'])) {
+      session_start();
       $_SESSION['nickname_user'] = $nickname;
-      $_SESSION['img_user'] = $user[0]['img_user'];
-      $_SESSION['bio_user'] = $user[0]['bio_user'];
-      // $_SESSION['img_user'] = $img;
+      $_SESSION['img_user'] = $user['img_user'];
+      $_SESSION['bio_user'] = $user['bio_user'];
       header('Location: ./confirmation');
     } else {
       // echo 'Invalid nickname or password';
@@ -59,7 +59,7 @@ class User extends Database
   public function logout(){
     session_start();
     session_destroy();
-    header('Location: ../../index.php');
+    header('Location: ./');
   }
   public function pswdReset(){
     if (isset($_POST['email'])) {

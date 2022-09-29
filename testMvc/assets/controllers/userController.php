@@ -10,6 +10,9 @@
             case 'register':
                 require('./assets/views/viewsAccount/register.php');
                 break;
+            case 'myAccount':
+                require('./assets/views/viewsAccount/myAccount.php');
+                break;
             default:
                 break;
         }
@@ -21,4 +24,8 @@
     function loginUser(){
         $loginUser = new User;
         $loginUser->login();
+    }
+    function logoutUser(){
+        $logout = new User;
+        $logout->logout();
     }

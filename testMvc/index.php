@@ -14,6 +14,7 @@ if(empty($_GET['page'])){
     switch($_GET['page']){
         case "login" :
         case "register":
+        case "myAccount":
             accountPage();
             break;
         case "searchItinerary":
@@ -33,6 +34,9 @@ if(empty($_GET['page'])){
                 registerUser();
                 break;
             case "RECHERCHER":
+                break;
+            case "Se déconnecter":
+                logoutUser();
                 break;
             default:
                 break;
