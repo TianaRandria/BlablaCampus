@@ -1,20 +1,20 @@
-if (filename === "searchItinerary.php" || filename === "newItinerary.php" || filename === "modifyItinerary.php"){
+if (filename === "searchItinerary" || filename === "newItinerary" || filename === "modifyItinerary"){
     let searching = new SearchItinerary();
     searching.blockSearchSwitchChange();
     searching.blockSearchSwitchClick();
 }
-if ( url.includes('pages') == true && filename != "index.php") {
+if (filename != "") {
     fetchTextHeader();
     switch (filename) {
-        case "searchItinerary.php":
+        case "searchItinerary":
             autocomplete('#startingPointSearch');
             break;
-        case "register.php":
+        case "register":
             profilePictureRegister.addEventListener('change', function(e){
                 fileChecker(e);
             })
             break;
-        case "newItinerary.php":
+        case "newItinerary":
             switchCheckboxCreateItinerary(checkboxForth, checkboxBackAndForth);
             switchCheckboxCreateItinerary(checkboxBackAndForth, checkboxForth);
             step1Adding.addEventListener("click", function(){
@@ -25,49 +25,49 @@ if ( url.includes('pages') == true && filename != "index.php") {
             autocomplete('#createItineraryDepart');
             autocomplete('#step1New');
             break;
-        case "myItinerary.php":
+        case "myItinerary":
             for (let i = 0; i < cardTraject.length; i++) {
                 cardTraject[i].addEventListener("click", function(){
                     modalMyItinerary(i);
                 });
             };
             break;
-        case "myReservations.php":
+        case "myReservations":
             for (let i = 0; i < cardReservation.length; i++) {
                 cardReservation[i].addEventListener("click", function(){
                     modalMyReservation(i);
                 });
             };
             break;
-        case "confirmation.php":
+        case "confirmation":
             switch(fileReferrer){
-                case "login.php":
-                    redirectTimed("/searchitinerary.php");
+                case "login":
+                    redirectTimed("/searchItinerary");
                     break;
-                case "register.php":
-                    redirectTimed("/searchitinerary.php");
+                case "register":
+                    redirectTimed("/searchItinerary");
                     break;
-                case "changeItinerary.php":
-                    redirectTimed("/myItinerary.php");
+                case "changeItinerary":
+                    redirectTimed("/myItinerary");
                     break;
-                case "reservation.php":
-                    redirectTimed("/searchitinerary.php");
+                case "reservation":
+                    redirectTimed("/searchItinerary");
                     break;
-                case "validation.php":
-                    redirectTimed("/searchitinerary.php");
+                case "validation":
+                    redirectTimed("/searchItinerary");
                     break;
-                case "deleteItinerary.php":
-                    redirectTimed("/myItinerary.php");
+                case "deleteItinerary":
+                    redirectTimed("/myItinerary");
                     break;
-                case "reservationCancel.php":
-                    redirectTimed("/myReservations.php");
+                case "reservationCancel":
+                    redirectTimed("/myReservations");
                     break;
-                case "editAccount.php":
-                    redirectTimed("/searchitinerary.php");
+                case "editAccount":
+                    redirectTimed("/searchItinerary");
                     break;
             }
             break;
-        case "modifyItinerary.php":
+        case "modifyItinerary":
             switchCheckboxCreateItinerary(checkboxForth, checkboxBackAndForth);
             switchCheckboxCreateItinerary(checkboxBackAndForth, checkboxForth);
             if (!document.querySelector('#step2New')) {

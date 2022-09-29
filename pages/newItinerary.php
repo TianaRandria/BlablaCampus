@@ -3,7 +3,7 @@
     <h2 class="font-bungee">Proposer un trajet</h2>
     <form action="../assets/php/conditions.php" method="post" class="w-full flex flex-col items-start justify-start gap-3">
         <label for="createItineraryDepart" class="text-lightGrey font-epilogue font-medium text-xs">D'où partez vous?</label>
-        <div class="flex w-full gap-2 p-2 bg-xtraLightGrey rounded-lg">
+        <div class="flex w-full gap-2 p-2 bg-xtraLightGrey rounded-lg relative" id="startingPointCreating">
             <img src="../assets/img/pinPoint.png" alt="Logo pour le départ">
             <input type="text" name="createItineraryDepart" id="createItineraryDepart" placeholder="Départ" required class="bg-transparent placeholder:text-black w-full">
         </div>
@@ -17,8 +17,8 @@
             <img src="../assets/img/pinPoint.png" alt="Localisation du point d'arrivée">
             <select name="itineraryFinalCreate" id="itineraryFinalCreate" class="box-border w-full bg-transparent" required>
                 <option value="">Arrivée</option>
-                <option value="2 Rte de Montaigu, 39000 Lons-le-Saunier">2 Rte de Montaigu, 39000 Lons-le-Saunier</option>
-                <option value="13b Avenue du Stade Municipal, 39000 Lons-le-Saunier">13b Avenue du Stade Municipal, 39000 Lons-le-Saunier</option>
+                <option value="2 Route De Montaigu, 39000 Lons-le-Saunier, France">2 Route De Montaigu, 39000 Lons-le-Saunier, France</option>
+                <option value="13 bis Avenue du Stade Municipal, 39000 Lons-le-Saunier, France">13b Avenue du Stade Municipal, 39000 Lons-le-Saunier</option>
             </select>
         </div>
         <label for="dateDepart" class="text-lightGrey font-epilogue font-medium text-xs">Quand partez-vous ?</label>
@@ -50,7 +50,7 @@
         <label for="" class="text-lightGrey font-epilogue font-medium text-xs">Étapes éventuelles</label>
         <div class="flex w-full flex-col gap-2" id="allStepCreateItinerary">
             <div class="flex w-full" id="rowStep1">
-                <div id="step1" class="flex w-5/6 justify-start items-center gap-2 bg-xtraLightGrey p-2 rounded-lg">
+                <div id="step1" class="flex w-5/6 justify-start items-center gap-2 bg-xtraLightGrey p-2 rounded-lg relative">
                     <img src="../assets/img/pinPoint.png" alt="point pour les étapes">
                     <input type="text" name="step1Adding" id="step1New" placeholder="Etape" class="bg-transparent">
                 </div>

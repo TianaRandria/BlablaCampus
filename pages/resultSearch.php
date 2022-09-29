@@ -39,13 +39,13 @@
     edit 1 : changement pour un form , devra changer la value de l'input hidden pour pouvoir faire la récup après
 
 -->
-    <form action="reservation.php" class="w-full flex justify-center">
+    <form action="reservation.php" class="w-full flex justify-center" id="result1">
         <div class="card w-5/6 bg-xtraLightGrey rounded-lg flex flex-col p-3 gap-3.5 relative">
             <p class="text-xs font-workSans text-end w-full">places disponibles : <span class="text-redOnline font-bold">2</span></p>
             <div class="firstRow w-full flex h-12 gap-2">
                 <div class="flex flex-col justify-between h-full">
-                    <p class="text-redOnline font-bold text-sm">6H30</p>
-                    <p class="text-redOnline font-bold text-sm">7H30</p>
+                    <p class="text-redOnline font-bold text-sm" id="departureTime">6H30</p>
+                    <p class="text-redOnline font-bold text-sm" id="arrivalTime">7H30</p>
                 </div>
                 <div class="flex flex-col relative justify-between h-full">
                     <span class="circleSearchResult"></span>
