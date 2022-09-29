@@ -1,23 +1,24 @@
 <?php
 include("Database.php");
 
-
 class User extends Database
 {
+
   public function login()
   {
     $nickname = $_POST['login'];
-    $bio = $_SESSION['bio_user'];
-    // $img = $_SESSION['img_user'];
     $connection = $this->connect()->prepare("SELECT * FROM compte WHERE nickname_user = :nickname_user");
     $connection->bindParam(':nickname_user', $nickname, PDO::PARAM_STR);
     $connection->execute();
     $user = $connection->fetch();
     if ($user && password_verify($_POST['password'], $user['password_user'])) {
       session_start();
-      $_SESSION['nickname_user'] = $nickname;
-      $_SESSION['bio_user'] = $bio;
-      // $_SESSION['img_user'] = $img;
+      $_SESSION['id_user'] = $user['id_user'];
+      $_SESSION['name_user'] = $user['name_user'];
+      $_SESSION['nickname_user'] = $user['nickname_user'];
+      $_SESSION['bio_user'] = $user['bio_user'];
+      $_SESSION['email_user'] = $user['email_user'];
+      $_SESSION['img_user'] = $user['img_user'];
       header('Location: ../../pages/confirmation.php');
     } else {
       // echo 'Invalid nickname or password';
@@ -56,10 +57,15 @@ class User extends Database
       $register->bindParam(':bio_user', $bio, PDO::PARAM_STR);
       $register->bindParam(':img_user', $newImg, PDO::PARAM_STR);
       $register->execute();
+      session_start();
+      $_SESSION['name_user'] = $name;
+      $_SESSION['nickname_user'] = $nickname;
+      $_SESSION['bio_user'] = $bio;
+      $_SESSION['email_user'] = $email;
+      $_SESSION['img_user'] = $newImg;
       header('Location: ../../pages/confirmation.php');
     }
   }
-
 
   public function logout()
   {

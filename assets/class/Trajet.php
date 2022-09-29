@@ -6,12 +6,14 @@ class Trajet extends User
 {
   public function newItinerary()
   {
+    session_start();
     $start = $_POST['createItineraryDepart'];
     $end = $_POST['itineraryFinalCreate'];
     $dateCreate = $_POST['dateDepart'];
     $hour = $_POST['departureTime'];
     $numPlace = $_POST['placesNumber'];
     $type = $_POST['typeTrajetTest'];
+    $idUser = $_SESSION['id_user'];
     $addReq = array();
     $addSelect = array();
     if (isset($_POST['step1Adding']) && !empty($_POST['step1Adding'])) {
@@ -31,34 +33,36 @@ class Trajet extends User
     }
     $addRequest = implode(", ", $addReq);
     $addSelections = implode(", ", $addSelect);
-    $registertraj = $this->connect()->prepare('INSERT INTO traject (start_traject, end_traject, date_traject, hour_traject, numberplace_traject, type_traject' . $addSelections . ') VALUES (:start_traject, :end_traject, :date_traject, :hour_traject, :numberplace_traject, :type_traject' . $addRequest . ' )');
+    $registertraj = $this->connect()->prepare('INSERT INTO traject (start_traject, end_traject, date_traject, hour_traject, numberplace_traject, type_traject, id_user' . $addSelections . ') VALUES (:start_traject, :end_traject, :date_traject, :hour_traject, :numberplace_traject, :type_traject, :id_user' . $addRequest . ' )');
     $registertraj->bindParam(':start_traject', $start);
     $registertraj->bindParam(':end_traject', $end);
     $registertraj->bindParam(':date_traject', $dateCreate);
     $registertraj->bindParam(':hour_traject', $hour);
     $registertraj->bindParam(':numberplace_traject', $numPlace);
     $registertraj->bindParam(':type_traject', $type);
+    $registertraj->bindParam(':id_user', $idUser);
     if (isset($_POST['step1Adding']) && !empty($_POST['step1Adding'])) {
       $registertraj->bindParam(':point1_traject', $step1);
+      var_dump($step1);
     }
     if (isset($_POST['step2Adding']) && !empty($_POST['step2Adding'])) {
       $registertraj->bindParam(':point2_traject', $step2);
+      var_dump($step2);
     }
     if (isset($_POST['step3Adding']) && !empty($_POST['step3Adding'])) {
       $registertraj->bindParam(':point3_traject', $step3);
+      var_dump($step3);
     }
     $registertraj->execute();
-    // $registertraj->debugDumpParams();
-    // var_dump($start);
-    // var_dump($end);
-    // var_dump($dateCreate);
-    // var_dump($hour);
-    // var_dump($numPlace);
-    // var_dump($type);
-    // var_dump($step1);
-    // var_dump($step2);
-    // var_dump($step3);
-    header('Location: ../../pages/searchItinerary.php');
+    $registertraj->debugDumpParams();
+    var_dump($start);
+    var_dump($end);
+    var_dump($dateCreate);
+    var_dump($hour);
+    var_dump($numPlace);
+    var_dump($type);
+    var_dump($idUser);
+    // header('Location: ../../pages/searchItinerary.php');
   }
 
   public function editItinerary()

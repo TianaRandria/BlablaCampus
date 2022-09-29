@@ -6,12 +6,12 @@
 
             <!-- chemin d'image à remplacer par l'image du conducteur avec tes fonctions -->
             <div class="first-col w-1/6">
-                <img src="../assets/img/humanLogo.png" alt="img du conducteur" class="img-account">
+                <img src="../assets/uploadImg/<?php echo $_SESSION['img_user'] ?>.png" alt="img du conducteur" class="img-account">
             </div>
             <!-- Nom du conducteur à remplacer avec tes fonctions ainsi que sa bio -->
             <div class="second-col w-4/6">
-                <p class="bungee text-sm font-bold text-redOnline"><?php echo 'vincent' ?></p>
-                <p class="epilogue font-light text-xs italic box-border w-full"><?php echo 'vincent' ?></p>
+                <p class="bungee text-sm font-bold text-redOnline"><?php echo $_SESSION['nickname_user'] ?></p>
+                <p class="epilogue font-light text-xs italic box-border w-full"><?php echo $_SESSION['bio_user'] ?></p>
             </div>
         </div>
         <a href="newItinerary.php" class="buttonForProposal rounded-lg bg-redOnline w-full p-2 flex justify-start items-center gap-2">
