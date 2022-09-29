@@ -15,10 +15,12 @@
 				background-image: url('../assets/img/background.png');
 				background-repeat: no-repeat;
 				margin: 0 auto;
+				
 			}
 			#wrap {
 				margin: 60px;
 				font-family: 'Epilogue';
+				
 			}
 			.section1 {
 				z-index: 1;
@@ -46,6 +48,7 @@
 				/* z-index: 2; */
 				width: 50%;
 				float: right;
+				position:relative;
 			}
 			p {
 				font-family: 'Overpass', sans-serif;
@@ -53,25 +56,60 @@
 			}
 			.map1::before {
 				content: url('../assets/img/maps.png');
-				z-index: 1;
+				z-index: -999;
+				position: relative;
+				left: 92px;
+				right: 38px;
+				top: 344px;
+				bottom: -4px;
+				transform: rotate(9.76deg);
+			
+				
 			}
 			.map2::before {
 				content: url('../assets/img/mapspm.png');
-				z-index: 1;
+				z-index: -9;
+				position: relative;
+				left: 553px;
+				right: 39px;
+				top: -145px;
+				bottom: -6px;
+				transform: rotate(-16.43deg);
 			}
-			/*.carte::before {
-				content: url('../assets/img/carte.png');
-				z-index: 2;
-			}*/
-			.mobile::before {
+			
+			.mobile{
 				content: url('../assets/img/mobile.png');
-				width: 50%;
+				width: 30%;
+				z-index: -999;;
+				position: relative;
+				left: 275px;
+				top: 263px;
+				bottom: -6px;
+			}
+
+			.carreblanc{
+				position: absolute;
+				left: 220px;
+				margin-top: 30px;
+				background-color: white;
+				width:360px ;
+				height: 540px;
+				border-radius: 20px;
+				z-index:-2;
+				filter: drop-shadow(0 0 0.10rem black);
+			
 			}
 			footer {
-				bottom: 30px;
+				bottom: 100px;
 			}
 			footer a {
 				text-decoration: none;
+				width: 30%;
+				z-index: -999;;
+				position: relative;
+				left: 1px;
+				top: 175px;
+				bottom: 5px;
 			}
 		</style>
 	</head>
@@ -100,19 +138,23 @@
 			</section>
 
 			<section class="section2">
-				<span class="map1"></span>
-				<span class="map2"></span>
-				<span class="carte"></span>
-				<span class="mobile"></span>
+				<div class="carreblanc">
+				
+				</div>
+				<div class="map1"></div>
+				<div class="map2"></div>
+				<div class="mobile"></div>
+				
 			</section>
 
 			<div style="clear: both"></div>
 
 			<footer>
 				<small>
-					<a href="#">Mentions légales</a> -
-					<a href="#">Politique de confidentialité</a>
+					<a href="mention.php">Mentions légales</a> -
+					<a href="politique.php">Politique de confidentialité</a>
 				</small>
+				
 			</footer>
 		</div>
 	</body>
