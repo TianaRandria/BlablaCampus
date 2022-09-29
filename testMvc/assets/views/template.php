@@ -9,4 +9,7 @@
     if(isset($search)){
         echo $search;
     }
+    if(isset($myAccount)){
+        echo $myAccount;
+    }
     require('./assets/views/footer.php');

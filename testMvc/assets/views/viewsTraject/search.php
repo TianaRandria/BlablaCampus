@@ -1,4 +1,5 @@
-<?php ob_start();?>
+<?php ob_start();
+session_start();?>
 <div class="w-4/5 p-2 flex">
     <h2 class="font-bungee">Rechercher un trajet</h2>
 </div>

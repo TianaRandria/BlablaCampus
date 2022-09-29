@@ -1,4 +1,6 @@
-<?php ob_start();?>
+<?php ob_start();
+session_start();
+?>
 <form action="" method="post" class="flex flex-col w-5/6 gap-3" id="formRegister" enctype="multipart/form-data">
     <label for="nameRegister" class="font-bungee">Entrez vos coordonnées</label>
     <input type="text" name="nameRegister" placeholder="Nom" class="bg-xtraLightGrey rounded-lg p-2" required>
