@@ -1,12 +1,5 @@
-<?php
-session_start();
-if (isset($_SESSION['nickname_user']) && !empty($_SESSION['nickname_user'])) {
-    header("Location:pages/searchItinerary.php");
-} else {
-?>
-    <!DOCTYPE html>
+<!DOCTYPE html>
     <html lang="fr">
-
 
     <head>
         <meta charset="UTF-8">
@@ -25,11 +18,11 @@ if (isset($_SESSION['nickname_user']) && !empty($_SESSION['nickname_user'])) {
         <h1 class="hidden bottom-0 right-0 translate-y-full z-10">Blabla Campus</h1>
         <img src="assets/img/logoBlaBlaFirstPage.png" alt="Logo de BlaBla Campus">
         <div id="containerStarting" class="w-4/5">
-            <a href="pages/register.php" id="starting" class="flex w-full justify-center items-center gap-2 bg-redOnline">
+            <a href="register" id="starting" class="flex w-full justify-center items-center gap-2 bg-redOnline">
                 <img src="assets/img/carStarting.png" alt="Une voiture">
                 <p class="text-white font-workSans tracking-5px">COMMENCEZ</p>
             </a>
-            <a href="pages/login.php" class="flex justify-center items-center w-full">
+            <a href="login" class="flex justify-center items-center w-full">
                 <p class="font-workSans tracking-5px text-redOnline">SE CONNECTER</p>
             </a>
         </div>
@@ -40,6 +33,3 @@ if (isset($_SESSION['nickname_user']) && !empty($_SESSION['nickname_user'])) {
     </body>
 
     </html>
-<?php
-}
-?>

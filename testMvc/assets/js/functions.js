@@ -1,5 +1,5 @@
 function fetchTextHeader(){
-    fetch('../assets/json/textHeader.json').then(response => response.json().then(data => {
+    fetch('./assets/js/textHeader.json').then(response => response.json().then(data => {
         var controle = 0;
         for (let i = 0; i < data.textes.length; i++) {
             if (data.textes[i].file === filename){
@@ -12,14 +12,14 @@ function fetchTextHeader(){
         if(controle === 4){
             changingZone.insertAdjacentHTML('afterbegin', '<img src="../assets/img/humanLogo.png" alt="humain stylisé">');
         }
-        if (filename === "confirmation.php"){
+        if (filename === "confirmation"){
             for (let i = 0; i < data.referant.length; i++) {
                 if (fileReferrer === data.referant[i].file) {
                     textToChangeConfirmation.textContent = data.referant[i].toWrite;
                 }
             }
         }
-        if ( filename ==="account.php" || filename ==="confirmation.php"){
+        if ( filename ==="account" || filename ==="confirmation"){
             changingZone.href = "";
         }
     }));
@@ -123,7 +123,6 @@ function autocomplete(target){
         if(document.querySelector(target).value != ''){
             let content = encodeURIComponent(document.querySelector(target).value);
             fetch('https://api.geoapify.com/v1/geocode/autocomplete?text='+content+'&filter=countrycode:fr&format=json&apiKey=af3f6cef19954a839ffa0379b6264d9d').then(response => response.json().then(data => {
-                console.log(data.results);
                 if (!document.querySelector('#boxResults'+e.target.id)) {
                     createElement('div','boxResults'+e.target.id,e.target.parentNode.id,'absolute bottom-0 right-0 translate-y-full bg-redOnline w-4/5 z-10','','','','',''); 
                 }
