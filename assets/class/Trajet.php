@@ -6,7 +6,6 @@ class Trajet extends User
 {
   public function newItinerary()
   {
-    echo 'cc';
     $start = $_POST['createItineraryDepart'];
     $end = $_POST['itineraryFinalCreate'];
     $dateCreate = $_POST['dateDepart'];
@@ -17,8 +16,8 @@ class Trajet extends User
     $addSelect = array();
     if (isset($_POST['step1Adding']) && !empty($_POST['step1Adding'])) {
       $step1 = $_POST['step1Adding'];
-      array_push($addSelect, 'point1_traject');
-      array_push($addReq, ':point1_traject');
+      array_push($addSelect, ', point1_traject');
+      array_push($addReq, ', :point1_traject');
     }
     if (isset($_POST['step2Adding']) && !empty($_POST['step2Adding'])) {
       $step2 = $_POST['step2Adding'];
@@ -32,28 +31,34 @@ class Trajet extends User
     }
     $addRequest = implode(", ", $addReq);
     $addSelections = implode(", ", $addSelect);
-    $registertraj = $this->connect()->prepare('INSERT INTO traject (start_traject, end_traject, date_traject, hour_traject, numberplace_traject, type_traject ' . $addSelections . ') VALUES (:start_traject, :end_traject, :date_traject, :hour_traject, :numberplace_traject, :type_traject ' . $addRequest . ' )');
+    $registertraj = $this->connect()->prepare('INSERT INTO traject (start_traject, end_traject, date_traject, hour_traject, numberplace_traject, type_traject' . $addSelections . ') VALUES (:start_traject, :end_traject, :date_traject, :hour_traject, :numberplace_traject, :type_traject' . $addRequest . ' )');
     $registertraj->bindParam(':start_traject', $start);
     $registertraj->bindParam(':end_traject', $end);
     $registertraj->bindParam(':date_traject', $dateCreate);
     $registertraj->bindParam(':hour_traject', $hour);
     $registertraj->bindParam(':numberplace_traject', $numPlace);
     $registertraj->bindParam(':type_traject', $type);
-    $registertraj->bindParam(':point1_traject', $step1);
-    $registertraj->bindParam(':point2_traject', $step2);
-    $registertraj->bindParam(':point3_traject', $step3);
+    if (isset($_POST['step1Adding']) && !empty($_POST['step1Adding'])) {
+      $registertraj->bindParam(':point1_traject', $step1);
+    }
+    if (isset($_POST['step2Adding']) && !empty($_POST['step2Adding'])) {
+      $registertraj->bindParam(':point2_traject', $step2);
+    }
+    if (isset($_POST['step3Adding']) && !empty($_POST['step3Adding'])) {
+      $registertraj->bindParam(':point3_traject', $step3);
+    }
     $registertraj->execute();
-    $registertraj->debugDumpParams();
-    var_dump($start);
-    var_dump($end);
-    var_dump($dateCreate);
-    var_dump($hour);
-    var_dump($numPlace);
-    var_dump($type);
-    var_dump($step1);
-    var_dump($step2);
-    var_dump($step3);
-    // header('Location: ../pages/searchItinerary.php');
+    // $registertraj->debugDumpParams();
+    // var_dump($start);
+    // var_dump($end);
+    // var_dump($dateCreate);
+    // var_dump($hour);
+    // var_dump($numPlace);
+    // var_dump($type);
+    // var_dump($step1);
+    // var_dump($step2);
+    // var_dump($step3);
+    header('Location: ../../pages/searchItinerary.php');
   }
 
   public function editItinerary()
@@ -103,14 +108,14 @@ class Trajet extends User
       array_push($value, $_POST['startingPointSearch']);
     }
 
-    if (!empty($_GET['arrivalPointSearch'])) {
+    if (!empty($_POST['arrivalPointSearch'])) {
       array_push($req, 'AND end_traject = ""?""');
-      array_push($value, $_GET['arrivalPointSearch']);
+      array_push($value, $_POST['arrivalPointSearch']);
     }
 
-    if (!empty($_GET['dateSearch'])) {
+    if (!empty($_POST['dateSearch'])) {
       array_push($req, 'AND date_traject = ""?""');
-      array_push($value, $_GET['dateSearch']);
+      array_push($value, $_POST['dateSearch']);
     }
 
     $request = implode(" ", $req);
