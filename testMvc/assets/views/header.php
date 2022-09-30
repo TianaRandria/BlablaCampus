@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -24,5 +21,5 @@ session_start();
         <a href="../testMvc">
             <img src="../assets/img/simplifiedLogo.png" alt="Logo simplifié de BlaBla Campus">
         </a>
-        <a href="account.php" id="changingZone" class="text-redOnline workSans"></a>
+        <a href="./myAccount" id="changingZone" class="text-redOnline workSans"></a>
     </header>

@@ -1,4 +1,4 @@
-<?php include('header.php');?>
+<?php include('header.php'); ?>
 <div class="w-4/5 p-2 flex">
     <h2 class="bungee">Rechercher un trajet</h2>
 </div>
@@ -27,6 +27,6 @@
         </div>
         <input type="date" name="dateSearch" id="dateSearch" class="bg-xtraLightGrey w-full h-14 hidden">
     </div>
-    <input type="submit" value="RECHERCHER" class="tracking-5px font-workSans p-3 w-4/5 bg-redOnline rounded-lg text-white">
+    <input type="submit" name="action" value="RECHERCHER" class="tracking-5px font-workSans p-3 w-4/5 bg-redOnline rounded-lg text-white">
 </form>
 <?php include('footer.php') ?>
