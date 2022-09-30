@@ -51,6 +51,7 @@ function newStepItinerary(){
         createElement(rowStep2[i].type, rowStep2[i].ID, rowStep2[i].location, rowStep2[i].class, rowStep2[i].inputType, rowStep2[i].placeholder,rowStep2[i].src, rowStep2[i].alt,rowStep2[i].name)
     }
     autocomplete('#step2New');
+    hiddingSubmitButton('#step2New');
     document.querySelector('#step2Adding').addEventListener('click', function(){
         if(document.querySelector('#step2New').value !==""){
             document.querySelector('#step2Adding').classList.add('hidden');
@@ -58,6 +59,7 @@ function newStepItinerary(){
                 createElement(rowStep3[i].type, rowStep3[i].ID, rowStep3[i].location, rowStep3[i].class, rowStep3[i].inputType, rowStep3[i].placeholder,rowStep3[i].src, rowStep3[i].alt,rowStep3[i].name)
             }
             autocomplete('#step3New');
+            hiddingSubmitButton('#step3New');
         }
     })
 }
@@ -123,6 +125,7 @@ function fileChecker(e){
 function autocomplete(target){
     document.querySelector(target).addEventListener('keyup', function(e){
         if(document.querySelector(target).value != ''){
+            
             let content = encodeURIComponent(document.querySelector(target).value);
             fetch('https://api.geoapify.com/v1/geocode/autocomplete?text='+content+'&filter=countrycode:fr&format=json&apiKey=af3f6cef19954a839ffa0379b6264d9d').then(response => response.json().then(data => {
                 if (!document.querySelector('#boxResults'+e.target.id)) {
@@ -131,17 +134,31 @@ function autocomplete(target){
                 while (document.querySelector('#boxResults'+e.target.id).firstChild){
                     document.querySelector('#boxResults'+e.target.id).removeChild(document.querySelector('#boxResults'+e.target.id).firstChild);
                 }
+                console.log(data.results);
                 for (let i = 0; i < data.results.length; i++) {
                     createElement('p',"result"+i,"boxResults"+e.target.id, "text-white cursor-pointer","","","","","",data.results[i].formatted)
                     document.querySelector('#result'+i).addEventListener('click', function() {
-                        document.querySelector(target).value = document.querySelector('#result'+i).textContent
-                        e.target.parentNode.removeChild(e.target.parentNode.lastChild)
+                        document.querySelector(target).value = document.querySelector('#result'+i).textContent;
+                        e.target.parentNode.removeChild(e.target.parentNode.lastChild);
+                        let transfertName = target.replace('#','');
+                        console.log(transfertName);
+                        document.querySelector('#LatLon'+transfertName).value = data.results[i].lat+','+data.results[i].lon;
                         if (document.querySelector('.toChange').classList.contains('hidden')) {
                             document.querySelector('.toChange').classList.remove('hidden');
                         }
+                        addNewItinerary.classList.remove('hidden');
                     });
                 }
             }));
-        } 
+        }else{
+            addNewItinerary.classList.remove('hidden');
+        }
+    })
+}
+function hiddingSubmitButton(target){
+    document.querySelector(target).addEventListener('keyup', function(){
+        if (!addNewItinerary.classList.contains('hidden')&&document.querySelector(target).value != '') {
+            addNewItinerary.classList.add('hidden');
+        }
     })
 }

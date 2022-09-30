@@ -24,6 +24,7 @@ if (filename != "") {
             });
             autocomplete('#createItineraryDepart');
             autocomplete('#step1New');
+            hiddingSubmitButton('#step1New');
             break;
         case "myItinerary":
             for (let i = 0; i < cardTraject.length; i++) {

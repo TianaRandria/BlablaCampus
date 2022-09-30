@@ -6,7 +6,8 @@ session_start(); ?>
         <label for="createItineraryDepart" class="text-lightGrey font-epilogue font-medium text-xs">D'où partez vous?</label>
         <div class="flex w-full gap-2 p-2 bg-xtraLightGrey rounded-lg relative" id="startingPointCreating">
             <img src="../assets/img/pinPoint.png" alt="Logo pour le départ">
-            <input type="text" name="createItineraryDepart" id="createItineraryDepart" placeholder="Départ" required class="bg-transparent placeholder:text-black w-full">
+            <input type="text" name="createItineraryDepart" id="createItineraryDepart" placeholder="Départ" required class="bg-transparent placeholder:text-black w-full" autocomplete="off">
+            <input type="hidden" name="LatLoncreateItineraryDepart" value="" id="LatLoncreateItineraryDepart">
         </div>
         <div class="w-full toChange hidden">
             <label for="departureTime" class="text-lightGrey font-epilogue font-medium text-xs">A quelle heure partez-vous ?</label>
@@ -55,6 +56,7 @@ session_start(); ?>
                     <div id="step1" class="flex w-5/6 justify-start items-center gap-2 bg-xtraLightGrey p-2 rounded-lg relative">
                         <img src="../assets/img/pinPoint.png" alt="point pour les étapes">
                         <input type="text" name="step1Adding" id="step1New" placeholder="Etape" class="bg-transparent">
+                        <input type="hidden" name="LatLonstep1New" value="" id="LatLonstep1New">
                     </div>
                     <div id="addStep" class="w-1/6 flex justify-center items-center">
                         <img src="../assets/img/plus.png" alt="Ajout d'une étape" id="step1Adding">
