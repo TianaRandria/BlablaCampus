@@ -1,4 +1,4 @@
-if (filename === "searchItinerary" || filename === "newItinerary" || filename === "modifyItinerary"){
+if (filenameToCheck.includes(filename)) {
     let searching = new SearchItinerary();
     searching.blockSearchSwitchChange();
     searching.blockSearchSwitchClick();

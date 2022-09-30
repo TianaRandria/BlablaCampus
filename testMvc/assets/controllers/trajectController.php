@@ -7,6 +7,9 @@
             case 'searchItinerary':
                 require('./assets/views/viewsTraject/search.php');
                 break;
+            case 'newItinerary':
+                require('./assets/views/viewsTraject/newTraject.php');
+                break;
             default:
                 break;
         }

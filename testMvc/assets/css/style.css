@@ -969,6 +969,19 @@ video {
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
+.invalid\:border:invalid {
+  border-width: 1px;
+}
+
+.invalid\:border-solid:invalid {
+  border-style: solid;
+}
+
+.invalid\:border-red-500:invalid {
+  --tw-border-opacity: 1;
+  border-color: rgb(239 68 68 / var(--tw-border-opacity));
+}
+
 /*     General Classes       */
 
 .square40{

@@ -25,9 +25,11 @@ function fetchTextHeader(){
     }));
 }
 function switchCheckboxCreateItinerary(targetListener, targetEvent){
-    targetListener.addEventListener("click",function(){
+    targetListener.addEventListener("change",function(){
         if (targetEvent.checked == true) {
             targetEvent.checked = false;
+        }else{
+            targetListener.checked = true;
         }
     })
 }
@@ -134,6 +136,9 @@ function autocomplete(target){
                     document.querySelector('#result'+i).addEventListener('click', function() {
                         document.querySelector(target).value = document.querySelector('#result'+i).textContent
                         e.target.parentNode.removeChild(e.target.parentNode.lastChild)
+                        if (document.querySelector('.toChange').classList.contains('hidden')) {
+                            document.querySelector('.toChange').classList.remove('hidden');
+                        }
                     });
                 }
             }));
