@@ -18,6 +18,7 @@ if(empty($_GET['page'])){
             accountPage();
             break;
         case "searchItinerary":
+        case "newItinerary":
             trajectPage();
             break;
         case "confirmation":

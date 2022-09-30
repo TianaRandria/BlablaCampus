@@ -23,6 +23,7 @@ baseUrlSplit.pop();
 let baseUrl = baseUrlSplit.join('/');
 let profilePictureRegister = document.querySelector('#profilePictureRegister');
 let profilePictureRegisterLabel = document.querySelector('#profilePictureRegisterLabel');
+const filenameToCheck = ['searchItinerary','newItinerary', 'modifyItinerary']
 const rowStep2 = [
     {"type":"div","ID":"rowStep2", "location":"allStepCreateItinerary","class":"flex w-full","inputType":"","placeholder":"","src":"","alt":"","name":""},
     {"type":"div","ID":"step2", "location":"rowStep2","class":"flex w-5/6 justify-start items-center gap-2 bg-xtraLightGrey p-2 rounded-lg relative","inputType":"","placeholder":"","src":"","alt":"","name":""},

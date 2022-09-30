@@ -15,26 +15,26 @@ session_start();
                 <p class="epilogue font-light text-xs italic box-border w-full"><?php echo $_SESSION['bio_user']?></p>
             </div>
         </div>
-        <a href="newItinerary.php" class="buttonForProposal rounded-lg bg-redOnline w-full p-2 flex justify-start items-center gap-2">
+        <a href="./newItinerary" class="buttonForProposal rounded-lg bg-redOnline w-full p-2 flex justify-start items-center gap-2">
             <img src="../assets/img/newItinerary.png" alt="Logo pour le bouton de nouvel itinéraire">
             <p class="tracking-5pxfont-workSans text-xs text-white">PROPOSER UN TRAJET</p>
         </a>
         <div class="thirdRow flex flex-col justify-center items-start gap-3">
             <div class="flex justify-start items-center gap-2">
                 <img src="../assets/img/humanLogoNoBGBlack.png" alt="Humain stylisé">
-                <a href="myItinerary.php" class="epilogue text-base">Mes trajets</a>
+                <a href="./myItinerary" class="epilogue text-base">Mes trajets</a>
             </div>
             <div class="flex justify-start items-center gap-2">
                 <img src="../assets/img/booking.png" alt="Livre stylisé">
-                <a href="myReservations.php" class="epilogue text-base">Mes réservations</a>
+                <a href="./myReservations" class="epilogue text-base">Mes réservations</a>
             </div>
             <div class="flex justify-start items-center gap-2">
                 <img src="../assets/img/humanLogoNoBGBlack.png" alt="Humain stylisé">
-                <a href="editAccount.php" class="epilogue text-base">Modifier mes informations</a>
+                <a href="./editAccount" class="epilogue text-base">Modifier mes informations</a>
             </div>
             <div class="flex justify-start items-center gap-2">
                 <img src="../assets/img/message.png" alt="Bulle de Message">
-                <a href="mailbox.php" class="epilogue text-base">Messagerie</a>
+                <a href="./mailbox" class="epilogue text-base">Messagerie</a>
             </div>
             <div class="flex justify-start items-center gap-2">
                 <img src="../assets/img/arrowLeft.png" alt="Fléche de déconnexion">
