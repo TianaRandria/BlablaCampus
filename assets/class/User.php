@@ -1,4 +1,5 @@
 <?php
+
 include("Database.php");
 
 class User extends Database
@@ -21,7 +22,6 @@ class User extends Database
       $_SESSION['img_user'] = $user['img_user'];
       header('Location: ../../pages/confirmation.php');
     } else {
-      // echo 'Invalid nickname or password';
       header('Location: ../../pages/login.php');
     }
   }

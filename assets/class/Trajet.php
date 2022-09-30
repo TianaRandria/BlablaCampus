@@ -6,13 +6,13 @@ class Trajet extends User
 {
   public function newItinerary()
   {
-    session_start();
     $start = $_POST['createItineraryDepart'];
     $end = $_POST['itineraryFinalCreate'];
     $dateCreate = $_POST['dateDepart'];
     $hour = $_POST['departureTime'];
     $numPlace = $_POST['placesNumber'];
     $type = $_POST['typeTrajetTest'];
+    session_start();
     $idUser = $_SESSION['id_user'];
     $addReq = array();
     $addSelect = array();
@@ -54,15 +54,15 @@ class Trajet extends User
       var_dump($step3);
     }
     $registertraj->execute();
-    $registertraj->debugDumpParams();
-    var_dump($start);
-    var_dump($end);
-    var_dump($dateCreate);
-    var_dump($hour);
-    var_dump($numPlace);
-    var_dump($type);
-    var_dump($idUser);
-    // header('Location: ../../pages/searchItinerary.php');
+    // $registertraj->debugDumpParams();
+    // var_dump($start);
+    // var_dump($end);
+    // var_dump($dateCreate);
+    // var_dump($hour);
+    // var_dump($numPlace);
+    // var_dump($type);
+    // var_dump($idUser);
+    header('Location: ../../pages/searchItinerary.php');
   }
 
   public function editItinerary()
