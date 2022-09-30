@@ -6,13 +6,13 @@ class Trajet extends User
 {
   public function newItinerary()
   {
+    session_start();
     $start = $_POST['createItineraryDepart'];
     $end = $_POST['itineraryFinalCreate'];
     $dateCreate = $_POST['dateDepart'];
     $hour = $_POST['departureTime'];
     $numPlace = $_POST['placesNumber'];
     $type = $_POST['typeTrajetTest'];
-    session_start();
     $idUser = $_SESSION['id_user'];
     $addReq = array();
     $addSelect = array();
@@ -54,16 +54,39 @@ class Trajet extends User
       var_dump($step3);
     }
     $registertraj->execute();
-    // $registertraj->debugDumpParams();
-    // var_dump($start);
-    // var_dump($end);
-    // var_dump($dateCreate);
-    // var_dump($hour);
-    // var_dump($numPlace);
-    // var_dump($type);
-    // var_dump($idUser);
-    header('Location: ../../pages/searchItinerary.php');
+    $coTraj = $this->connect()->prepare("SELECT * FROM traject");
+    $coTraj->execute();
+    $traject = $coTraj->fetch();
+    $_SESSION['id_traject'] = $traject['id_traject'];
+    $_SESSION['start_traject'] = $traject['start_traject'];
+    $_SESSION['end_traject'] = $traject['end_traject'];
+    $_SESSION['date_traject'] = $traject['date_traject'];
+    $_SESSION['hour_traject'] = $traject['hour_traject'];
+    $_SESSION['numberplace_traject'] = $traject['numberplace_traject'];
+    $_SESSION['type_traject'] = $traject['type_traject'];
+    $_SESSION['id_user'] = $traject['id_user'];
+    $_SESSION['point1_traject'] = $traject['point1_traject'];
+    $_SESSION['point2_traject'] = $traject['point2_traject'];
+    $_SESSION['point3_traject'] = $traject['point3_traject'];
+    $registertraj->debugDumpParams();
+    var_dump($start);
+    var_dump($end);
+    var_dump($dateCreate);
+    var_dump($hour);
+    var_dump($numPlace);
+    var_dump($type);
+    var_dump($idUser);
+    echo $_SESSION['id_traject'];
+    echo $_SESSION['start_traject'];
+    echo $_SESSION['end_traject'];
+    echo $_SESSION['date_traject'];
+    echo $_SESSION['numberplace_traject'];
+    echo $_SESSION['hour_traject'];
+    echo $_SESSION['type_traject'];
+    echo $_SESSION['id_user'];
+    // header('Location: ../../pages/searchItinerary.php');
   }
+  // select where id_traject = $_POST['la value'] pour id_user = 
 
   public function editItinerary()
   {
@@ -129,6 +152,23 @@ class Trajet extends User
     $resultSearch = $search->fetchAll();
     return $resultSearch;
     header('Location: ../pages/searchItinerary.php');
+  }
+
+  public function getMyItinerary()
+  {
+    $myT = $this->connect()->query('SELECT * FROM traject');
+    $myTraj = $myT->fetchAll();
+    $this->id_traject = $myTraj[0];
+    $this->start_traject = $myTraj[1];
+    $this->end_traject = $myTraj[2];
+    $this->point1_traject = $myTraj[3];
+    $this->point2_traject = $myTraj[4];
+    $this->point3_traject = $myTraj[5];
+    $this->date_traject = $myTraj[6];
+    $this->hour_traject = $myTraj[7];
+    $this->numberplace_traject = $myTraj[8];
+    $this->type_traject = $myTraj[8];
+    $this->id_user = $myTraj[8];
   }
 
   // public function deleteTraject()
