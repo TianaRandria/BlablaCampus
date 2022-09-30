@@ -21,7 +21,10 @@
         <div class="thirdRow flex flex-col justify-center items-start gap-3">
             <div class="flex justify-start items-center gap-2">
                 <img src="../assets/img/humanLogoNoBGBlack.png" alt="Humain stylisé">
-                <a href="myItinerary.php" class="epilogue text-base">Mes trajets</a>
+                <!-- <a href="myItinerary.php" class="epilogue text-base">Mes trajets</a> -->
+                <form action="../assets/php/conditions.php" method="post">
+                    <input type="submit" name="action" value="Mes trajets" class="epilogue text-base">
+                </form>
             </div>
             <div class="flex justify-start items-center gap-2">
                 <img src="../assets/img/booking.png" alt="Livre stylisé">
