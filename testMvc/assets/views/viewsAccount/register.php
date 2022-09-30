@@ -1,4 +1,6 @@
-<?php ob_start();?>
+<?php ob_start();
+session_start();
+?>
 <form action="" method="post" class="flex flex-col w-5/6 gap-3" id="formRegister" enctype="multipart/form-data">
     <label for="nameRegister" class="font-bungee">Entrez vos coordonnées</label>
     <input type="text" name="nameRegister" placeholder="Nom" class="bg-xtraLightGrey rounded-lg p-2" required>
@@ -6,7 +8,7 @@
     <label for="pswdRegister" class="font-bungee">Entrez votre mot de passe</label>
     <input type="password" name="pswdRegister" placeholder="******************" class="bg-xtraLightGrey rounded-lg p-2" required>
     <label for="emailRegister" class="font-bungee">Entrez votre email</label>
-    <input type="email" name="emailRegister" placeholder="Email" class="bg-xtraLightGrey rounded-lg p-2" required>
+    <input type="email" name="emailRegister" placeholder="Email" class="bg-xtraLightGrey rounded-lg p-2 invalid:border-red-500 invalid:border-solid invalid:border" required pattern="([a-z0-9_\.\+-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})">
     <p class="epilogue text-lightGrey" id="underTextEmailRegister">Ajoutez votre adresse e-mail pour recevoir des notifications sur votre activité sur BlaBla Campus.</p>
     <label for="bioRegister" class="font-bungee">Entrez votre biographie</label>
     <textarea name="bioRegister" id="bioRegister" cols="30" rows="8" placeholder="Entrez votre bio ici" class="bg-xtraLightGrey rounded-lg resize-none" maxlength="140" required></textarea>

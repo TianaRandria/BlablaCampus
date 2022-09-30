@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -12,7 +9,7 @@ session_start();
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Epilogue:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,300&family=Work+Sans:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="shortcut icon" href="../assets/img/favicon.png?v=2" type="image/x-icon">
     <title><?php if($title){echo $title;}else{echo"BlaBla Campus";}?></title>
 </head>
@@ -24,5 +21,5 @@ session_start();
         <a href="../testMvc">
             <img src="../assets/img/simplifiedLogo.png" alt="Logo simplifié de BlaBla Campus">
         </a>
-        <a href="account.php" id="changingZone" class="text-redOnline workSans"></a>
+        <a href="./myAccount" id="changingZone" class="text-redOnline workSans"></a>
     </header>

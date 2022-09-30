@@ -38,9 +38,9 @@ if (isset($_POST['action']) && $_POST['action'] == "") {
 // ================= Trajet ==================
 
 // Condition searchItinerary
-if (isset($_POST['confirmation']) && $_POST['confirmation'] == "Supprimer") {
-  $deletI = new Trajet();
-  $deletI->searchItinerary();
+if (isset($_POST['confirmation']) && $_POST['confirmation'] == "RECHERCHER") {
+  $searchI = new Trajet();
+  $searchI->searchItinerary();
 }
 // Condition deletItinerary
 if (isset($_POST['confirmation']) && $_POST['confirmation'] == "Supprimer") {
