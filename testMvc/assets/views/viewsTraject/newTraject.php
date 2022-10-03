@@ -20,8 +20,8 @@ session_start(); ?>
                 <img src="../assets/img/pinPoint.png" alt="Localisation du point d'arrivée">
                 <select name="itineraryFinalCreate" id="itineraryFinalCreate" class="box-border w-full bg-transparent" required>
                     <option value="">Arrivée</option>
-                    <option value="2 Route De Montaigu, 39000 Lons-le-Saunier, France">2 Route De Montaigu, 39000 Lons-le-Saunier, France</option>
-                    <option value="13 bis Avenue du Stade Municipal, 39000 Lons-le-Saunier, France">13b Avenue du Stade Municipal, 39000 Lons-le-Saunier</option>
+                    <option value="46.668589,5.553935">2 Route De Montaigu, 39000 Lons-le-Saunier, France</option>
+                    <option value="46.6709261,5.5631747">13b Avenue du Stade Municipal, 39000 Lons-le-Saunier</option>
                 </select>
             </div>
             <label for="dateDepart" class="text-lightGrey font-epilogue font-medium text-xs">Quand partez-vous ?</label>
@@ -48,7 +48,7 @@ session_start(); ?>
             <label for="placesNumber" class="text-lightGrey font-epilogue font-medium text-xs">Nombre de places disponibles</label>
             <div class="flex justify-start items-center gap-2 w-full bg-xtraLightGrey p-2">
                 <img src="./assets/img/group.png" alt="logo de groupes pour les places disponibles">
-                <input type="number" name="placesNumber" id="placesNumber" min="2" placeholder="Places disponibles" class="bg-transparent w-full" min="0">
+                <input type="number" name="placesNumber" id="placesNumber" min="1" placeholder="Places disponibles" class="bg-transparent w-full" value="1">
             </div>
             <label for="" class="text-lightGrey font-epilogue font-medium text-xs">Étapes éventuelles</label>
             <div class="flex w-full flex-col gap-2" id="allStepCreateItinerary">
@@ -64,7 +64,8 @@ session_start(); ?>
                 </div>
             </div>
             <div class="flex justify-center items-center w-full p-3">
-                <input type="submit" name="action" value="Proposer un trajet" class="w-full font-workSans tracking-5px uppercase text-sm bg-redOnline text-white p-5 rounded-lg">
+                <input type="hidden" name="timeToTravel" id="inputTimeToTravel">
+                <input type="submit" name="action" value="Proposer un trajet" class="w-full font-workSans tracking-5px uppercase text-sm bg-redOnline text-white p-5 rounded-lg hidden">
             </div>
         </div>
     </form>

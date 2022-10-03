@@ -1,3 +1,6 @@
+let test;
+
+
 let url = window.location.pathname;
 let filename = url.split('/').pop();
 let referrerUrl = document.referrer;
@@ -18,12 +21,17 @@ let modalTraject = document.querySelectorAll('.modalTraject');
 let mainMyItinerary = document.querySelector('.mainMyItinerary');
 let cardReservation = document.querySelectorAll('.cardReservation');
 let modalReservations = document.querySelectorAll('.modalReservations');
+let itineraryFinalCreate = document.querySelector('#itineraryFinalCreate');
 let baseUrlSplit = referrerUrl.split('/');
 baseUrlSplit.pop();
 let baseUrl = baseUrlSplit.join('/');
 let profilePictureRegister = document.querySelector('#profilePictureRegister');
 let profilePictureRegisterLabel = document.querySelector('#profilePictureRegisterLabel');
 let addNewItinerary = document.querySelector('input[value="Proposer un trajet"');
+let LatLonstep1 = document.querySelector('#LatLonstep1New');
+let LatLonstep2 = document.querySelector('#LatLonstep2New');
+let LatLonstep3 = document.querySelector('#LatLonstep3New');
+let inputTimeToTravel = document.querySelector('#inputTimeToTravel');
 const filenameToCheck = ['searchItinerary','newItinerary', 'modifyItinerary']
 const rowStep2 = [
     {"type":"div","ID":"rowStep2", "location":"allStepCreateItinerary","class":"flex w-full","inputType":"","placeholder":"","src":"","alt":"","name":""},

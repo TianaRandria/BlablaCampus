@@ -125,7 +125,6 @@ function fileChecker(e){
 function autocomplete(target){
     document.querySelector(target).addEventListener('keyup', function(e){
         if(document.querySelector(target).value != ''){
-            
             let content = encodeURIComponent(document.querySelector(target).value);
             fetch('https://api.geoapify.com/v1/geocode/autocomplete?text='+content+'&filter=countrycode:fr&format=json&apiKey=af3f6cef19954a839ffa0379b6264d9d').then(response => response.json().then(data => {
                 if (!document.querySelector('#boxResults'+e.target.id)) {
@@ -134,19 +133,20 @@ function autocomplete(target){
                 while (document.querySelector('#boxResults'+e.target.id).firstChild){
                     document.querySelector('#boxResults'+e.target.id).removeChild(document.querySelector('#boxResults'+e.target.id).firstChild);
                 }
-                console.log(data.results);
                 for (let i = 0; i < data.results.length; i++) {
                     createElement('p',"result"+i,"boxResults"+e.target.id, "text-white cursor-pointer","","","","","",data.results[i].formatted)
                     document.querySelector('#result'+i).addEventListener('click', function() {
                         document.querySelector(target).value = document.querySelector('#result'+i).textContent;
                         e.target.parentNode.removeChild(e.target.parentNode.lastChild);
                         let transfertName = target.replace('#','');
-                        console.log(transfertName);
                         document.querySelector('#LatLon'+transfertName).value = data.results[i].lat+','+data.results[i].lon;
+                        calculTimeTravel();
                         if (document.querySelector('.toChange').classList.contains('hidden')) {
                             document.querySelector('.toChange').classList.remove('hidden');
                         }
-                        addNewItinerary.classList.remove('hidden');
+                        if (document.querySelector(target) != document.querySelector('#createItineraryDepart')) {
+                            addNewItinerary.classList.remove('hidden');
+                        }
                     });
                 }
             }));
@@ -161,4 +161,42 @@ function hiddingSubmitButton(target){
             addNewItinerary.classList.add('hidden');
         }
     })
+}
+function calculTimeTravel(){
+    if (document.querySelector('#LatLoncreateItineraryDepart').value != "" && document.querySelector('#itineraryFinalCreate').value != ""){
+        $textQuery = document.querySelector('#LatLoncreateItineraryDepart').value+"|";
+        if (document.querySelector('#LatLonstep1New').value != "") {
+            $textQuery += document.querySelector('#LatLonstep1New').value;
+            if (document.querySelector('#LatLonstep2New') !== null){
+                if (document.querySelector('#LatLonstep2New').value !="") {
+                    $textQuery += '|'+document.querySelector('#LatLonstep2New').value;
+                if (document.querySelector('#LatLonstep3New') !== null) {
+                    if (document.querySelector('#LatLonstep3New').value != "") {
+                        $textQuery += '|'+document.querySelector('#LatLonstep3New').value+'|';
+                    }
+                }
+                else{
+                    $textQuery += '|'
+                }
+                }
+            }else{
+                $textQuery += '|'
+            }
+        }
+        $textQuery += document.querySelector('#itineraryFinalCreate').value
+        fetch('https://api.geoapify.com/v1/routing?waypoints='+$textQuery+'&mode=drive&apiKey=af3f6cef19954a839ffa0379b6264d9d').then(response => response.json()).then(data => {
+            let resultHour = Math.floor(data.features[0].properties.time);
+            resultHour = (resultHour - (resultHour % 60))/60;
+            if(resultHour >= 60 ){
+                resultMin = (resultHour % 60);
+                resultHour = (resultHour - resultMin) / 60;
+                if (resultHour < 10) {
+                    resultHour = '0'+resultHour;
+                }
+                inputTimeToTravel.value = resultHour+':'+resultMin+':00';
+            }else{
+                inputTimeToTravel.value = '00:'+resultHour+':00 ';
+            }
+        })
+    }
 }
