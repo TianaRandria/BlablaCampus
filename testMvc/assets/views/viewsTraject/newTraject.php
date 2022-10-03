@@ -55,7 +55,7 @@ session_start(); ?>
                 <div class="flex w-full" id="rowStep1">
                     <div id="step1" class="flex w-5/6 justify-start items-center gap-2 bg-xtraLightGrey p-2 rounded-lg relative">
                         <img src="../assets/img/pinPoint.png" alt="point pour les étapes">
-                        <input type="text" name="step1Adding" id="step1New" placeholder="Etape" class="bg-transparent">
+                        <input type="text" name="step1Adding" id="step1New" placeholder="Etape" class="bg-transparent" autocomplete="off">
                         <input type="hidden" name="LatLonstep1New" value="" id="LatLonstep1New">
                     </div>
                     <div id="addStep" class="w-1/6 flex justify-center items-center">

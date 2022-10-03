@@ -10,7 +10,7 @@ class Trajet extends User
     $hour = $_POST['departureTime'];
     $numPlace = $_POST['placesNumber'];
     $type = $_POST['typeTrajetTest'];
-    $ttt = $_POST['inputTimeToTravel'];
+    $ttt = $_POST['timeToTravel'];
     $addReq = array();
     $addSelect = array();
     if (isset($_POST['step1Adding']) && !empty($_POST['step1Adding'])) {
