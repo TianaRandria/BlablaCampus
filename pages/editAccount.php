@@ -4,15 +4,15 @@
 
 <form action="../assets/php/conditions.php" method="post" class="flex flex-col w-5/6 gap-3" id="formEdit">
     <label for="nameEdit" class="font-bungee">Entrez vos coordonnées</label>
-    <input type="text" name="nameEdit" placeholder="Nom" class="bg-xtraLightGrey rounded-lg p-2" required value="">
-    <input type="text" name="nicknameEdit" placeholder="Nom d'utilisateur" class="bg-xtraLightGrey rounded-lg p-2" required value="">
+    <input type="text" name="nameEdit" placeholder="Nom" class="bg-xtraLightGrey rounded-lg p-2" required value="<?php echo $_SESSION['name_user']  ?>">
+    <input type="text" name="nicknameEdit" placeholder="Nom d'utilisateur" class="bg-xtraLightGrey rounded-lg p-2" required value="<?php echo $_SESSION['nickname_user']  ?>">
     <label for="pswdEdit" class="font-bungee">Entrez votre mot de passe</label>
     <input type="password" name="pswdEdit" placeholder="******************" class="bg-xtraLightGrey rounded-lg p-2" required>
     <label for="emailEdit" class="font-bungee">Entrez votre email</label>
-    <input type="email" name="emailEdit" placeholder="Email" class="bg-xtraLightGrey rounded-lg p-2" required value="">
+    <input type="email" name="emailEdit" placeholder="Email" class="bg-xtraLightGrey rounded-lg p-2" required value="<?php echo $_SESSION['email_user']  ?>">
     <p class="epilogue text-lightGrey" id="underTextEmailEdit">Ajoutez votre adresse e-mail pour recevoir des notifications sur votre activité sur BlaBla Campus.</p>
     <label for="bioEdit" class="font-bungee">Entrez votre biographie</label>
-    <textarea name="bioEdit" id="bioEdit" cols="30" rows="8" placeholder="Entrez votre bio ici" class="bg-xtraLightGrey rounded-lg resize-none" maxlength="140" required value=""></textarea>
+    <textarea name="bioEdit" id="bioEdit" cols="30" rows="8" placeholder="Entrez votre bio ici" class="bg-xtraLightGrey rounded-lg resize-none" maxlength="140" required value="<?php echo $_SESSION['bio_user']  ?>"></textarea>
     <p class="font-bungee">Téléchargez une image de profil</p>
     <label for="profilePictureEdit" id="profilePictureEditLabel" class="bg-xtraLightGrey rounded-lg flex flex-col justify-center items-center w-full h-48">
         <img src="../assets/img/landscape.png" alt="Logo de paysage stylisé">

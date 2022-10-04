@@ -156,7 +156,8 @@ class Trajet extends User
 
   public function getMyItinerary()
   {
-    $myT = $this->connect()->query('SELECT * FROM traject');
+    $myT = $this->connect()->query('SELECT * FROM traject WHERE nickname_user = :nickname_user');
+    $myT->bindParam(':nickname_user', $_SESSION['nickname_user']);
     $myT = $myT->fetchAll();
     return $myT;
   }
