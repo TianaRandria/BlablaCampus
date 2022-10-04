@@ -84,31 +84,31 @@ class Trajet extends User
     $registertraj->debugDumpParams();
     // header('Location: ../pages/searchItinerary.php');
   }
-  public function filter(){
+  public function searchItinerary(){
     $req = array();
     $value = array();
 
     if (!empty($_POST['startingPointSearch'])) {
-      array_push($req, 'AND start_traject = ""?""');
+      array_push($req, 'AND start_traject = ?');
       array_push($value, $_POST['startingPointSearch']);
     }
 
-    if (!empty($_GET['arrivalPointSearch'])) {
-      array_push($req, 'AND end_traject = ""?""');
-      array_push($value, $_GET['arrivalPointSearch']);
+    if (!empty($_POST['arrivalPointSearch'])) {
+      array_push($req, 'AND end_traject = ?');
+      array_push($value, $_POST['arrivalPointSearch']);
     }
 
-    if (!empty($_GET['dateSearch'])) {
-      array_push($req, 'AND date_traject = ""?""');
-      array_push($value, $_GET['dateSearch']);
+    if (!empty($_POST['dateSearch'])) {
+      array_push($req, 'AND date_traject = ?');
+      array_push($value, $_POST['dateSearch']);
     }
 
     $request = implode(" ", $req);
     $search = $this->connect()->prepare('SELECT * FROM traject WHERE 1  ' . $request . '');
     $search->execute($value);
-    //$search->debugDumpParams();
-    $resultSearch = $search->fetchAll();
-    return $resultSearch;
+    // return $search->debugDumpParams();
+    return $search->fetchAll();
+    // return $resultSearch;
   }
   // public function deleteTraject()
   // {

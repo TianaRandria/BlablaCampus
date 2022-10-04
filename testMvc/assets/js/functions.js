@@ -50,6 +50,7 @@ function newStepItinerary(){
     for (let i = 0; i < rowStep2.length; i++) {
         createElement(rowStep2[i].type, rowStep2[i].ID, rowStep2[i].location, rowStep2[i].class, rowStep2[i].inputType, rowStep2[i].placeholder,rowStep2[i].src, rowStep2[i].alt,rowStep2[i].name)
     }
+    changeAutocompleteMode('#step2New');
     autocomplete('#step2New');
     hiddingSubmitButton('#step2New');
     document.querySelector('#step2Adding').addEventListener('click', function(){
@@ -58,6 +59,7 @@ function newStepItinerary(){
             for (let i = 0; i < rowStep3.length; i++) {
                 createElement(rowStep3[i].type, rowStep3[i].ID, rowStep3[i].location, rowStep3[i].class, rowStep3[i].inputType, rowStep3[i].placeholder,rowStep3[i].src, rowStep3[i].alt,rowStep3[i].name)
             }
+            changeAutocompleteMode('#step3New');
             autocomplete('#step3New');
             hiddingSubmitButton('#step3New');
         }
@@ -199,4 +201,7 @@ function calculTimeTravel(){
             }
         })
     }
+}
+function changeAutocompleteMode(target){
+    document.querySelector(target).autocomplete = 'off';
 }
