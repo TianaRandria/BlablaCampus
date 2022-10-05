@@ -7,6 +7,7 @@
     </div>
     <div class="flex flex-col items-center justify-center w-full gap-9">
         <input type="submit" name="action" value="SE CONNECTER" class="cursor-pointer bg-redOnline rounded-lg tracking-5px font-workSans text-white text-sm w-3/4 py-2">
+
         <a href="pswdReset.php" class="tracking-5px text-redOnline font-workSans text-xs">MOT DE PASSE OUBLIÉ</a>
     </div>
 </form>
