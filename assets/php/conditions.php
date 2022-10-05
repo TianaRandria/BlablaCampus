@@ -39,9 +39,8 @@ if (isset($_POST['action']) && $_POST['action'] == "") {
 
 // Condition myItinerary
 if (isset($_POST['action']) && $_POST['action'] == "Mes trajets") {
-  $myI = new Trajet();
-  $myI->getMyItinerary();
   header('Location: ../../pages/myItinerary.php');
+  $myItinerary = getAllTrajects();
 }
 // Condition searchItinerary
 if (isset($_POST['confirmation']) && $_POST['confirmation'] == "RECHERCHER") {
