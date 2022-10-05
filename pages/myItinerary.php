@@ -13,7 +13,7 @@ include('../assets/class/Trajet.php')
 -->
     <?php
     $myItineraryObject = new Trajet();
-    $myItinerary = $myItineraryObject->getAllTrajects();
+    $myItinerary = $myItineraryObject->getMyTrajects();
     for ($i = 0; $i < count($myItinerary); $i++) {
         echo '
          <div class="flex w-full justify-between items-center rounded-lg bg-xtraLightGrey p-3 h-24 relative cardTraject" id="' . $myItinerary[$i]['id_traject'] . '">

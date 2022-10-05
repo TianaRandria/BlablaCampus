@@ -1,19 +1,4 @@
 <?php
-function connect()
-{
-  try {
-    $db = new PDO('mysql:host=localhost;dbname=blablacampus', 'root', '');
-    return $db;
-  } catch (PDOException $e) {
-    print "Erreur !: " . $e->getMessage() . "<br/>";
-    die();
-  }
-}
-function getAllTrajects()
-{
-  $myItinerary = connect()->query('SELECT * FROM traject WHERE id_user = ' . $_SESSION['id_user'] . '');
-  return $myItinerary->fetchAll();
-}
 include("User.php");
 
 class Trajet extends User
@@ -168,13 +153,11 @@ class Trajet extends User
     header('Location: ../pages/searchItinerary.php');
   }
 
-  // public function getMyItinerary()
-  // {
-  //   $myT = $this->connect()->query('SELECT * FROM traject WHERE id_user = :id_user');
-  //   $myT->bindParam(':id_user', $_SESSION['id_user']);
-  //   $myT = $myT->fetchAll();
-  //   return $myT;
-  // }
+  function getMyTrajects()
+  {
+    $myItinerary = $this->connect()->query('SELECT * FROM traject WHERE id_user = ' . $_SESSION['id_user'] . '');
+    return $myItinerary->fetchAll();
+  }
 
   // public function deleteTraject()
   // {
