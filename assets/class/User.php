@@ -141,37 +141,35 @@ class User extends Database
     $emailExist = $existEmail->fetch();
     if ($nicknameExist != false) {
       header('Location: ../../pages/editAccount.php');
-      session_destroy();
     } else if ($emailExist != false) {
       header('Location: ../../pages/editAccount.php');
-      session_destroy();
     } else {
-      $Edit = $this->connect()->prepare('UPDATE compte SET id_user = :id_user' . $addSelections . '' . $addRequest . '  img_user = "html" WHERE id_user = :id_user');
+      $Edit = $this->connect()->prepare('UPDATE compte SET id_user = :id_user ' . $addSelections . '' . $addRequest . ' , img_user = "html" WHERE id_user = :id_user');
       $Edit->bindParam(':id_user', $id);
       if (isset($_POST['nameEdit']) && !empty($_POST['nameEdit'])) {
         $Edit->bindParam(':name_user', $name);
+        $_SESSION['name_user'] = $name;
       }
       if (isset($_POST['nicknameEdit']) && !empty($_POST['nicknameEdit'])) {
         $Edit->bindParam(':nickname_user', $nickname);
+        $_SESSION['nickname_user'] = $nickname;
       }
       if (isset($_POST['pswdEdit']) && !empty($_POST['pswdEdit'])) {
         $Edit->bindParam(':password_user', $password);
       }
       if (isset($_POST['emailEdit']) && !empty($_POST['emailEdit'])) {
         $Edit->bindParam(':email_user', $email);
+        $_SESSION['email_user'] = $email;
       }
       if (isset($_POST['bioEdit']) && !empty($_POST['bioEdit'])) {
         $Edit->bindParam(':bio_user', $bio);
+        $_SESSION['bio_user'] = $bio;
       }
       if (isset($_POST['profilePictureEdit']) && !empty($_POST['profilePictureEdit'])) {
         $Edit->bindParam(':img_user', $img);
+        $_SESSION['img_user'] = $img;
       }
       $Edit->execute();
-      $_SESSION['name_user'] = $name;
-      $_SESSION['nickname_user'] = $nickname;
-      $_SESSION['email_user'] = $email;
-      $_SESSION['bio_user'] = $bio;
-      $_SESSION['img_user'] = $img;
       // $Edit->debugDumpParams();
       // var_dump($id);
       // var_dump($name);
