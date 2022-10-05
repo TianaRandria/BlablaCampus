@@ -12,7 +12,8 @@ include('../assets/class/Trajet.php')
     - value dans les input caché dans les form de la modal avec l'id du trajet
 -->
     <?php
-    $myItinerary = getAllTrajects();
+    $myItineraryObject = new Trajet();
+    $myItinerary = $myItineraryObject->getAllTrajects();
     for ($i = 0; $i < count($myItinerary); $i++) {
         echo '
          <div class="flex w-full justify-between items-center rounded-lg bg-xtraLightGrey p-3 h-24 relative cardTraject" id="' . $myItinerary[$i]['id_traject'] . '">
