@@ -7,7 +7,7 @@ class User extends Database
   public function login()
   {
     $nickname = $_POST['login'];
-    $connection = $this->connect()->prepare("SELECT * FROM compte WHERE nickname_user = :nickname_user");
+    $connection = $this->connect()->prepare("SELECT * FROM users WHERE nickname_user = :nickname_user");
     $connection->bindParam(':nickname_user', $nickname);
     $connection->execute();
     $user = $connection->fetch();
@@ -33,10 +33,10 @@ class User extends Database
     $email = $_POST['emailRegister'];
     $bio = $_POST['bioRegister'];
     $newImg = 'cc';
-    $existNickname = $this->connect()->prepare("SELECT * FROM compte WHERE nickname_user = :nickname_user");
+    $existNickname = $this->connect()->prepare("SELECT * FROM users WHERE nickname_user = :nickname_user");
     $existNickname->bindParam(':nickname_user', $nickname);
     $existNickname->execute();
-    $existEmail = $this->connect()->prepare("SELECT * FROM compte WHERE email_user = :email_user");
+    $existEmail = $this->connect()->prepare("SELECT * FROM users WHERE email_user = :email_user");
     $existEmail->bindParam(':email_user', $email);
     $existEmail->execute();
     $nicknameExist = $existNickname->fetch();
@@ -48,7 +48,7 @@ class User extends Database
       header('Location: ../../pages/register.php');
       session_destroy();
     } else {
-      $register = $this->connect()->prepare("INSERT INTO compte (name_user, nickname_user, password_user, email_user, bio_user, img_user) VALUES (:name_user, :nickname_user, :password_user, :email_user, :bio_user, :img_user )");
+      $register = $this->connect()->prepare("INSERT INTO users (name_user, nickname_user, password_user, email_user, bio_user, img_user) VALUES (:name_user, :nickname_user, :password_user, :email_user, :bio_user, :img_user )");
       $register->bindParam(':name_user', $name);
       $register->bindParam(':nickname_user', $nickname);
       $register->bindParam(':password_user', $password);
@@ -131,10 +131,10 @@ class User extends Database
     }
     $addRequest = implode(" ", $addReq);
     $addSelections = implode(" ", $addSelect);
-    $existNickname = $this->connect()->prepare("SELECT * FROM compte WHERE nickname_user = :nickname_user");
+    $existNickname = $this->connect()->prepare("SELECT * FROM users WHERE nickname_user = :nickname_user");
     $existNickname->bindParam(':nickname_user', $nickname);
     $existNickname->execute();
-    $existEmail = $this->connect()->prepare("SELECT * FROM compte WHERE email_user = :email_user");
+    $existEmail = $this->connect()->prepare("SELECT * FROM users WHERE email_user = :email_user");
     $existEmail->bindParam(':email_user', $email);
     $existEmail->execute();
     $nicknameExist = $existNickname->fetch();
@@ -144,7 +144,7 @@ class User extends Database
     } else if ($emailExist != false) {
       header('Location: ../../pages/editAccount.php');
     } else {
-      $Edit = $this->connect()->prepare('UPDATE compte SET id_user = :id_user ' . $addSelections . '' . $addRequest . ' , img_user = "html" WHERE id_user = :id_user');
+      $Edit = $this->connect()->prepare('UPDATE users SET id_user = :id_user ' . $addSelections . '' . $addRequest . ' , img_user = "html" WHERE id_user = :id_user');
       $Edit->bindParam(':id_user', $id);
       if (isset($_POST['nameEdit']) && !empty($_POST['nameEdit'])) {
         $Edit->bindParam(':name_user', $name);

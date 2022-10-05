@@ -32,7 +32,7 @@ class Trajet extends User
     }
     $addRequest = implode(", ", $addReq);
     $addSelections = implode(", ", $addSelect);
-    $registertraj = $this->connect()->prepare('INSERT INTO traject (start_traject, end_traject, date_traject, hour_traject, numberplace_traject, type_traject, id_user' . $addSelections . ') VALUES (:start_traject, :end_traject, :date_traject, :hour_traject, :numberplace_traject, :type_traject, :id_user' . $addRequest . ' )');
+    $registertraj = $this->connect()->prepare('INSERT INTO trajects (start_traject, end_traject, date_traject, hour_traject, numberplace_traject, type_traject, id_user' . $addSelections . ') VALUES (:start_traject, :end_traject, :date_traject, :hour_traject, :numberplace_traject, :type_traject, :id_user' . $addRequest . ' )');
     $registertraj->bindParam(':start_traject', $start);
     $registertraj->bindParam(':end_traject', $end);
     $registertraj->bindParam(':date_traject', $dateCreate);
@@ -109,7 +109,7 @@ class Trajet extends User
       array_push($addReq, ':point3_traject');
     }
     $addRequest = implode(" ,", $addReq);
-    $registertraj = $this->connect()->prepare("INSERT INTO traject (start_traject, end_traject, date_traject, hour_traject, numberplace_traject, type_traject, point1_traject, point2_traject, point3_traject) VALUES (:start_traject, :end_traject, :date_traject, :hour_traject, :numberplace_traject, :type_traject $addRequest )");
+    $registertraj = $this->connect()->prepare("INSERT INTO trajects (start_traject, end_traject, date_traject, hour_traject, numberplace_traject, type_traject, point1_traject, point2_traject, point3_traject) VALUES (:start_traject, :end_traject, :date_traject, :hour_traject, :numberplace_traject, :type_traject $addRequest )");
     $registertraj->bindParam(':start_traject', $start, PDO::PARAM_STR);
     $registertraj->bindParam(':end_traject', $end, PDO::PARAM_STR);
     $registertraj->bindParam(':date_traject', $dateCreate, PDO::PARAM_STR);
@@ -145,7 +145,7 @@ class Trajet extends User
     }
 
     $request = implode(" ", $req);
-    $search = $this->connect()->prepare('SELECT * FROM traject WHERE 1  ' . $request . '');
+    $search = $this->connect()->prepare('SELECT * FROM trajects WHERE 1  ' . $request . '');
     $search->execute($value);
     //$search->debugDumpParams();
     $resultSearch = $search->fetchAll();
@@ -155,7 +155,7 @@ class Trajet extends User
 
   function getMyTrajects()
   {
-    $myItinerary = $this->connect()->query('SELECT * FROM traject WHERE id_user = ' . $_SESSION['id_user'] . '');
+    $myItinerary = $this->connect()->query('SELECT * FROM trajects WHERE id_user = ' . $_SESSION['id_user'] . '');
     return $myItinerary->fetchAll();
   }
 
