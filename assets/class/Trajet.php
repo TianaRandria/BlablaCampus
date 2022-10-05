@@ -12,8 +12,7 @@ function connect()
 function getAllTrajects()
 {
   $myItinerary = connect()->query('SELECT * FROM traject WHERE id_user = ' . $_SESSION['id_user'] . '');
-  $myItinerary = $myItinerary->fetchAll();
-  return $myItinerary;
+  return $myItinerary->fetchAll();
 }
 include("User.php");
 
