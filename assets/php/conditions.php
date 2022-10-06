@@ -53,7 +53,7 @@ if (isset($_POST['action']) && $_POST['action'] == "Proposer un trajet") {
   $newI->newItinerary();
 }
 // Condition editItinerary
-if (isset($_POST['action']) && !empty($_POST['createItineraryDepart'])  && !empty($_POST['itineraryFinalCreate']) && !empty($_POST['dateDepart']) && !empty($_POST['departureTime']) && !empty($_POST['placesNumber']) && !empty($_POST['typeTrajetTest']) && $_POST['action'] == "Modifié un trajet") {
+if (isset($_POST['action']) && $_POST['action'] == "Modifié un trajet") {
   $editI = new Trajet();
   $editI->editItinerary();
 }
