@@ -7,7 +7,21 @@
             case 'searchItinerary':
                 require('./assets/views/viewsTraject/search.php');
                 break;
+            case 'newItinerary':
+                require('./assets/views/viewsTraject/newTraject.php');
+                break;
+            case 'resultSearch':
+                require('./assets/views/viewsTraject/resultSearch.php');
+                break;
             default:
                 break;
         }
+    }
+    function registerTraject(){
+        $entry = new Trajet();
+        $entry->newItinerary();
+    }
+    function searchItineraryControl(){
+        $searchingItinerary = new Trajet();
+        $GLOBALS['toWrite'] = $searchingItinerary->searchItinerary();
     }

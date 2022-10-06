@@ -12,4 +12,10 @@
     if(isset($myAccount)){
         echo $myAccount;
     }
+    if(isset($newItinerary)){
+        echo $newItinerary;
+    }
+    if(isset($searchResult)){
+        echo $searchResult;
+    }
     require('./assets/views/footer.php');

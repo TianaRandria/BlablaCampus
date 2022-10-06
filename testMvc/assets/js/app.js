@@ -1,4 +1,4 @@
-if (filename === "searchItinerary" || filename === "newItinerary" || filename === "modifyItinerary"){
+if (filenameToCheck.includes(filename)) {
     let searching = new SearchItinerary();
     searching.blockSearchSwitchChange();
     searching.blockSearchSwitchClick();
@@ -24,6 +24,13 @@ if (filename != "") {
             });
             autocomplete('#createItineraryDepart');
             autocomplete('#step1New');
+            hiddingSubmitButton('#step1New');
+            itineraryFinalCreate.addEventListener('change',function () {
+                if(itineraryFinalCreate.value !=="") {
+                    addNewItinerary.classList.remove("hidden");
+                }else{addNewItinerary.classList.add("hidden");}
+                calculTimeTravel();
+            })
             break;
         case "myItinerary":
             for (let i = 0; i < cardTraject.length; i++) {

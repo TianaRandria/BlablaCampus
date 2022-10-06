@@ -11,20 +11,6 @@ if(empty($_GET['page'])){
         header('Location: ./searchItinerary');
     }
 }else{
-    switch($_GET['page']){
-        case "login" :
-        case "register":
-        case "myAccount":
-            accountPage();
-            break;
-        case "searchItinerary":
-            trajectPage();
-            break;
-        case "confirmation":
-            confirmationPage();
-            break;
-        default:
-    }
     if (isset($_POST['action'])) {
         switch ($_POST['action']) {
             case 'SE CONNECTER':
@@ -34,13 +20,33 @@ if(empty($_GET['page'])){
                 registerUser();
                 break;
             case "RECHERCHER":
+                $test = searchItineraryControl();
                 break;
             case "Se déconnecter":
                 logoutUser();
                 break;
+            case "Proposer un trajet":
+                registerTraject();
+                break;
             default:
                 break;
         }
+    }
+    switch($_GET['page']){
+        case "login" :
+        case "register":
+        case "myAccount":
+            accountPage();
+            break;
+        case "searchItinerary":
+        case "newItinerary":
+        case "resultSearch":
+            trajectPage();
+            break;
+        case "confirmation":
+            confirmationPage();
+            break;
+        default:
     }
 }
 // session_start();

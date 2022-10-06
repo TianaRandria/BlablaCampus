@@ -15,8 +15,8 @@ session_start();?>
             <img src="../assets/img/pinPoint.png" alt="Cible d'un lieu">
         </div>
         <select name="arrivalPointSearch" id="arrivalPointSearch" class="w-4/5 bg-xtraLightGrey">
-            <option value="13b Avenue du Stade Municipal, 39000 Lons-le-Saunier">13b Avenue du Stade Municipal, 39000 Lons-le-Saunier</option>
-            <option value="2 Route de Montaigu, 39000 Lons-le-Saunier">2 Rte de Montaigu, 39000 Lons-le-Saunier</option>
+            <option value="46.6709261,5.5631747">13b Avenue du Stade Municipal, 39000 Lons-le-Saunier</option>
+            <option value="46.668589,5.553935">2 Rte de Montaigu, 39000 Lons-le-Saunier</option>
         </select>
     </div>
     <div class="w-full h-14 bg-xtraLightGrey" id="blocDateSearch">
@@ -28,7 +28,7 @@ session_start();?>
         </div>
         <input type="date" name="dateSearch" id="dateSearch" class="bg-xtraLightGrey w-full h-14 hidden">
     </div>
-    <input type="submit" value="RECHERCHER" class="tracking-5px font-workSans p-3 w-4/5 bg-redOnline rounded-lg text-white">
+    <input type="submit" name="action" value="RECHERCHER" class="tracking-5px font-workSans p-3 w-4/5 bg-redOnline rounded-lg text-white">
 </form>
 <?php 
 $title='Rechercher';

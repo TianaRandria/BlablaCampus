@@ -25,9 +25,11 @@ function fetchTextHeader(){
     }));
 }
 function switchCheckboxCreateItinerary(targetListener, targetEvent){
-    targetListener.addEventListener("click",function(){
+    targetListener.addEventListener("change",function(){
         if (targetEvent.checked == true) {
             targetEvent.checked = false;
+        }else{
+            targetListener.checked = true;
         }
     })
 }
@@ -48,14 +50,18 @@ function newStepItinerary(){
     for (let i = 0; i < rowStep2.length; i++) {
         createElement(rowStep2[i].type, rowStep2[i].ID, rowStep2[i].location, rowStep2[i].class, rowStep2[i].inputType, rowStep2[i].placeholder,rowStep2[i].src, rowStep2[i].alt,rowStep2[i].name)
     }
+    changeAutocompleteMode('#step2New');
     autocomplete('#step2New');
+    hiddingSubmitButton('#step2New');
     document.querySelector('#step2Adding').addEventListener('click', function(){
         if(document.querySelector('#step2New').value !==""){
             document.querySelector('#step2Adding').classList.add('hidden');
             for (let i = 0; i < rowStep3.length; i++) {
                 createElement(rowStep3[i].type, rowStep3[i].ID, rowStep3[i].location, rowStep3[i].class, rowStep3[i].inputType, rowStep3[i].placeholder,rowStep3[i].src, rowStep3[i].alt,rowStep3[i].name)
             }
+            changeAutocompleteMode('#step3New');
             autocomplete('#step3New');
+            hiddingSubmitButton('#step3New');
         }
     })
 }
@@ -132,11 +138,70 @@ function autocomplete(target){
                 for (let i = 0; i < data.results.length; i++) {
                     createElement('p',"result"+i,"boxResults"+e.target.id, "text-white cursor-pointer","","","","","",data.results[i].formatted)
                     document.querySelector('#result'+i).addEventListener('click', function() {
-                        document.querySelector(target).value = document.querySelector('#result'+i).textContent
-                        e.target.parentNode.removeChild(e.target.parentNode.lastChild)
+                        document.querySelector(target).value = document.querySelector('#result'+i).textContent;
+                        e.target.parentNode.removeChild(e.target.parentNode.lastChild);
+                        let transfertName = target.replace('#','');
+                        document.querySelector('#LatLon'+transfertName).value = data.results[i].lat+','+data.results[i].lon;
+                        calculTimeTravel();
+                        if (document.querySelector('.toChange').classList.contains('hidden')) {
+                            document.querySelector('.toChange').classList.remove('hidden');
+                        }
+                        if (document.querySelector(target) != document.querySelector('#createItineraryDepart')) {
+                            addNewItinerary.classList.remove('hidden');
+                        }
                     });
                 }
             }));
-        } 
+        }else{
+            addNewItinerary.classList.remove('hidden');
+        }
     })
+}
+function hiddingSubmitButton(target){
+    document.querySelector(target).addEventListener('keyup', function(){
+        if (!addNewItinerary.classList.contains('hidden')&&document.querySelector(target).value != '') {
+            addNewItinerary.classList.add('hidden');
+        }
+    })
+}
+function calculTimeTravel(){
+    if (document.querySelector('#LatLoncreateItineraryDepart').value != "" && document.querySelector('#itineraryFinalCreate').value != ""){
+        $textQuery = document.querySelector('#LatLoncreateItineraryDepart').value+"|";
+        if (document.querySelector('#LatLonstep1New').value != "") {
+            $textQuery += document.querySelector('#LatLonstep1New').value;
+            if (document.querySelector('#LatLonstep2New') !== null){
+                if (document.querySelector('#LatLonstep2New').value !="") {
+                    $textQuery += '|'+document.querySelector('#LatLonstep2New').value;
+                if (document.querySelector('#LatLonstep3New') !== null) {
+                    if (document.querySelector('#LatLonstep3New').value != "") {
+                        $textQuery += '|'+document.querySelector('#LatLonstep3New').value+'|';
+                    }
+                }
+                else{
+                    $textQuery += '|'
+                }
+                }
+            }else{
+                $textQuery += '|'
+            }
+        }
+        $textQuery += document.querySelector('#itineraryFinalCreate').value
+        fetch('https://api.geoapify.com/v1/routing?waypoints='+$textQuery+'&mode=drive&apiKey=af3f6cef19954a839ffa0379b6264d9d').then(response => response.json()).then(data => {
+            let resultHour = Math.floor(data.features[0].properties.time);
+            resultHour = (resultHour - (resultHour % 60))/60;
+            if(resultHour >= 60 ){
+                resultMin = (resultHour % 60);
+                resultHour = (resultHour - resultMin) / 60;
+                if (resultHour < 10) {
+                    resultHour = '0'+resultHour;
+                }
+                inputTimeToTravel.value = resultHour+':'+resultMin+':00';
+            }else{
+                inputTimeToTravel.value = '00:'+resultHour+':00 ';
+            }
+        })
+    }
+}
+function changeAutocompleteMode(target){
+    document.querySelector(target).autocomplete = 'off';
 }
