@@ -56,12 +56,15 @@ class User extends Database
       $register->bindParam(':bio_user', $bio);
       $register->bindParam(':img_user', $newImg);
       $register->execute();
+      $userGetId = $this->connect()->query('SELECT * FROM users');
+      $user = $userGetId->fetch();
       session_start();
-      $_SESSION['name_user'] = $name;
-      $_SESSION['nickname_user'] = $nickname;
-      $_SESSION['bio_user'] = $bio;
-      $_SESSION['email_user'] = $email;
-      $_SESSION['img_user'] = $newImg;
+      $_SESSION['id_user'] = $user['id_user'];
+      $_SESSION['name_user'] = $user['name_user'];
+      $_SESSION['nickname_user'] = $user['nickname_user'];
+      $_SESSION['bio_user'] = $user['bio_user'];
+      $_SESSION['email_user'] = $user['email_user'];
+      $_SESSION['img_user'] = $user['img_user'];
       header('Location: ../../pages/confirmation.php');
     }
   }

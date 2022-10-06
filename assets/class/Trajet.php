@@ -32,12 +32,13 @@ class Trajet extends User
     }
     $addRequest = implode(", ", $addReq);
     $addSelections = implode(", ", $addSelect);
-    $registertraj = $this->connect()->prepare('INSERT INTO trajects (start_traject, end_traject, date_traject, hour_traject, numberplace_traject, type_traject, id_user' . $addSelections . ') VALUES (:start_traject, :end_traject, :date_traject, :hour_traject, :numberplace_traject, :type_traject, :id_user' . $addRequest . ' )');
+    $registertraj = $this->connect()->prepare('INSERT INTO trajects (start_traject, end_traject, date_traject, hour_traject, numplace_traject, placerest_traject, type_traject, id_user' . $addSelections . ') VALUES (:start_traject, :end_traject, :date_traject, :hour_traject, :numplace_traject, :placerest_traject, :type_traject, :id_user' . $addRequest . ' )');
     $registertraj->bindParam(':start_traject', $start);
     $registertraj->bindParam(':end_traject', $end);
     $registertraj->bindParam(':date_traject', $dateCreate);
     $registertraj->bindParam(':hour_traject', $hour);
-    $registertraj->bindParam(':numberplace_traject', $numPlace);
+    $registertraj->bindParam(':numplace_traject', $numPlace);
+    $registertraj->bindParam(':placerest_traject', $numPlace);
     $registertraj->bindParam(':type_traject', $type);
     $registertraj->bindParam(':id_user', $idUser);
     if (isset($_POST['step1Adding']) && !empty($_POST['step1Adding'])) {
@@ -61,7 +62,7 @@ class Trajet extends User
     // $_SESSION['end_traject'] = $traject['end_traject'];
     // $_SESSION['date_traject'] = $traject['date_traject'];
     // $_SESSION['hour_traject'] = $traject['hour_traject'];
-    // $_SESSION['numberplace_traject'] = $traject['numberplace_traject'];
+    // $_SESSION['numplace_traject'] = $traject['numplace_traject'];
     // $_SESSION['type_traject'] = $traject['type_traject'];
     // $_SESSION['id_user'] = $traject['id_user'];
     // $_SESSION['point1_traject'] = $traject['point1_traject'];
@@ -74,18 +75,17 @@ class Trajet extends User
     // var_dump($hour);
     // var_dump($numPlace);
     // var_dump($type);
-    // var_dump($nickname);
+    // var_dump($idUser);
     // echo $_SESSION['id_traject'];
     // echo $_SESSION['start_traject'];
     // echo $_SESSION['end_traject'];
     // echo $_SESSION['date_traject'];
-    // echo $_SESSION['numberplace_traject'];
+    // echo $_SESSION['numplace_traject'];
     // echo $_SESSION['hour_traject'];
     // echo $_SESSION['type_traject'];
     // echo $_SESSION['id_user'];
     header('Location: ../../pages/searchItinerary.php');
   }
-  // select where id_traject = $_POST['la value'] pour id_user = 
 
   public function editItinerary()
   {
@@ -109,12 +109,12 @@ class Trajet extends User
       array_push($addReq, ':point3_traject');
     }
     $addRequest = implode(" ,", $addReq);
-    $registertraj = $this->connect()->prepare("INSERT INTO trajects (start_traject, end_traject, date_traject, hour_traject, numberplace_traject, type_traject, point1_traject, point2_traject, point3_traject) VALUES (:start_traject, :end_traject, :date_traject, :hour_traject, :numberplace_traject, :type_traject $addRequest )");
+    $registertraj = $this->connect()->prepare("INSERT INTO trajects (start_traject, end_traject, date_traject, hour_traject, numplace_traject, type_traject, point1_traject, point2_traject, point3_traject) VALUES (:start_traject, :end_traject, :date_traject, :hour_traject, :numplace_traject, :type_traject $addRequest )");
     $registertraj->bindParam(':start_traject', $start, PDO::PARAM_STR);
     $registertraj->bindParam(':end_traject', $end, PDO::PARAM_STR);
     $registertraj->bindParam(':date_traject', $dateCreate, PDO::PARAM_STR);
     $registertraj->bindParam(':hour_traject', $hour, PDO::PARAM_STR);
-    $registertraj->bindParam(':numberplace_traject', $numPlace, PDO::PARAM_STR);
+    $registertraj->bindParam(':numplace_traject', $numPlace, PDO::PARAM_STR);
     $registertraj->bindParam(':type_traject', $type, PDO::PARAM_STR);
     $registertraj->bindParam(':point1_traject', $step1, PDO::PARAM_STR);
     $registertraj->bindParam(':point2_traject', $step2, PDO::PARAM_STR);
