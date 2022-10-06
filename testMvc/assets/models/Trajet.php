@@ -30,7 +30,7 @@ class Trajet extends User
     }
     $addRequest = implode(", ", $addReq);
     $addSelections = implode(", ", $addSelect);
-    $registertraj = $this->connect()->prepare('INSERT INTO traject (start_traject, end_traject, date_traject, hour_traject, numberplace_traject, placerest_traject, type_traject' . $addSelections . ', timeToTravel) VALUES (:start_traject, :end_traject, :date_traject, :hour_traject, :numberplace_traject, :placerest, :type_traject' . $addRequest . ', :ttt )');
+    $registertraj = $this->connect()->prepare('INSERT INTO trajects (start_traject, end_traject, date_traject, hour_traject, numberplace_traject, placerest_traject, type_traject' . $addSelections . ', timeToTravel,Id_user) VALUES (:start_traject, :end_traject, :date_traject, :hour_traject, :numberplace_traject, :placerest, :type_traject' . $addRequest . ', :ttt, :userid )');
     $registertraj->bindParam(':start_traject', $start);
     $registertraj->bindParam(':end_traject', $end);
     $registertraj->bindParam(':date_traject', $dateCreate);
@@ -48,7 +48,10 @@ class Trajet extends User
       $registertraj->bindParam(':point3_traject', $step3);
     }
     $registertraj->bindParam(':ttt', $ttt);
+    session_start();
+    $registertraj->bindParam(':userid', $_SESSION['id_user']);
     $registertraj->execute();
+    // $registertraj->debugDumpParams();
   }
   public function editItinerary(){
     $start = $_POST['createItineraryDepart'];
@@ -105,11 +108,10 @@ class Trajet extends User
     }
 
     $request = implode(" ", $req);
-    $search = $this->connect()->prepare('SELECT * FROM traject WHERE 1 AND placerest_traject > 0 ' . $request . '');
+    $search = $this->connect()->prepare('SELECT * FROM trajects WHERE 1 AND placerest_traject > 0 ' . $request . '');
     $search->execute($value);
     // return $search->debugDumpParams();
     return $search->fetchAll();
-    // return $resultSearch;
   }
   // public function deleteTraject()
   // {
@@ -117,33 +119,5 @@ class Trajet extends User
   //   $delete->bindValue(':id_trajet', $idTraject);
   //   $delete->execute();
   //   header('Location: ./confirmation.php');
-  // }
-
-  //   public function month() {
-  //     if($month == '01') {
-  //         return 'JANV';
-  //     } else if($month == '02') {
-  //         return 'FEVR';
-  //     }else if($month == '03') {
-  //         return 'MARS';
-  //     }else if($month == '04') {
-  //         return 'AVR';
-  //     }else if($month == '05') {
-  //         return 'MAI';
-  //     }else if($month == '06') {
-  //         return 'JUIN';
-  //     }else if($month == '07') {
-  //         return 'JUIL';
-  //     }else if($month == '08') {
-  //         return 'AOUT';
-  //     }else if($month == '09') {
-  //         return 'SEPT';
-  //     }else if($month == '10') {
-  //         return 'OCT';
-  //     }else if($month == '11') {
-  //         return 'NOV';
-  //     }else if($month == '12') {
-  //         return 'DEC';
-  //     }
   // }
 }

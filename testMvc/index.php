@@ -6,8 +6,7 @@ foreach ($list as $controller) {
 }
 if(empty($_GET['page'])){
     homePage();
-    if(isset($_SESSION['nickname_user'])){
-        session_start();
+    if(isset($_SESSION['username_user'])){
         header('Location: ./searchItinerary');
     }
 }else{
@@ -21,6 +20,7 @@ if(empty($_GET['page'])){
                 break;
             case "RECHERCHER":
                 $test = searchItineraryControl();
+                require('./assets/views/viewsTraject/resultSearch.php');
                 break;
             case "Se déconnecter":
                 logoutUser();

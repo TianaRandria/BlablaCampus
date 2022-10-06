@@ -11,7 +11,7 @@ session_start();
             </div>
             <!-- Nom du conducteur à remplacer avec tes fonctions ainsi que sa bio -->
             <div class="second-col w-4/6">
-                <p class="bungee text-sm font-bold text-redOnline"><?php echo $_SESSION['nickname_user']?></p>
+                <p class="bungee text-sm font-bold text-redOnline"><?php echo $_SESSION['username_user']?></p>
                 <p class="epilogue font-light text-xs italic box-border w-full"><?php echo $_SESSION['bio_user']?></p>
             </div>
         </div>

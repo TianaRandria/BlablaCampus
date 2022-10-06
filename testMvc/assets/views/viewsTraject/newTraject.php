@@ -32,7 +32,7 @@ session_start(); ?>
                     </div>
                     <p>Aujourd'hui</p>
                 </div>
-                <input type="date" name="dateDepart" id="dateSearch" class="bg-xtraLightGrey w-full h-14 hidden rounded-lg">
+                <input type="date" name="dateDepart" id="dateSearch" class="bg-xtraLightGrey w-full h-14 hidden rounded-lg" value="<?= date('Y-m-d')?>">
             </div>
             <p class="text-lightGrey font-epilogue font-medium text-xs">Type de trajet :</p>
             <fieldset class="flex flex-row-reverse w-full justify-end items-center gap-6" id="typeOfTraject">

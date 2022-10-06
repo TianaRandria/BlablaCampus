@@ -4,13 +4,13 @@ class User extends Database
 {
   public function login(){
     $nickname = $_POST['login'];
-    $connection = $this->connect()->prepare("SELECT * FROM compte WHERE nickname_user = :nickname_user");
+    $connection = $this->connect()->prepare("SELECT * FROM users WHERE username_user = :nickname_user");
     $connection->bindParam(':nickname_user', $nickname);
     $connection->execute();
     $user = $connection->fetch();
     if ($user && password_verify($_POST['password'], $user['password_user'])) {
       session_start();
-      $_SESSION['nickname_user'] = $nickname;
+      $_SESSION['username_user'] = $nickname;
       $_SESSION['img_user'] = $user['img_user'];
       $_SESSION['bio_user'] = $user['bio_user'];
       header('Location: ./confirmation');
@@ -26,33 +26,37 @@ class User extends Database
     $email = $_POST['emailRegister'];
     $bio = $_POST['bioRegister'];
     $newImg = $this->newNameImg();
-    $existName = $this->connect()->prepare("SELECT * FROM compte WHERE nickname_user = :nickname_user");
+    $existName = $this->connect()->prepare("SELECT * FROM users WHERE nickname_user = :nickname_user");
     $existName->bindValue(':nickname_user', $nickname);
     $existName->execute();
-    $existEmail = $this->connect()->prepare("SELECT * FROM compte WHERE email_user = :email_user");
+    $existEmail = $this->connect()->prepare("SELECT * FROM users WHERE email_user = :email_user");
     $existEmail->bindValue(':email_user', $email);
     $existEmail->execute();
     $nicknameExist = $existName->fetch();
     $emailExist = $existEmail->fetch();
     if ($nicknameExist != false) {
       header('Location: ./register');
-      session_destroy();
     } else if ($emailExist != false) {
       header('Location: ./register');
-      session_destroy();
     } else {
-      $register = $this->connect()->prepare("INSERT INTO compte (name_user, nickname_user, password_user, email_user, bio_user, img_user) VALUES (:name_user, :nickname_user, :password_user, :email_user, :bio_user, :img_user )");
+      $register = $this->connect()->prepare("INSERT INTO users (name_user, username_user, password_user, email_user, bio_user, img_user) VALUES (:name_user, :username_user, :password_user, :email_user, :bio_user, :img_user )");
       $register->bindParam(':name_user', $name);
-      $register->bindParam(':nickname_user', $nickname);
+      $register->bindParam(':username_user', $nickname);
       $register->bindParam(':password_user', $password);
       $register->bindParam(':email_user', $email);
       $register->bindParam(':bio_user', $bio);
       $register->bindParam(':img_user', $newImg);
       $register->execute();
-      move_uploaded_file($_FILES['profilePictureRegister']['tmp_name'], './uploadImg/'.$newImg);
-      $_SESSION['nickname_user'] = $nickname;
+      session_start();
+      $_SESSION['username_user'] = $nickname;
       $_SESSION['bio_user'] = $bio;
       $_SESSION['img_user'] = $newImg;
+      move_uploaded_file($_FILES['profilePictureRegister']['tmp_name'], './uploadImg/'.$newImg);
+      $fetchID= $this->connect()->prepare("SELECT Id_user FROM users WHERE username_user = :usernameToGrab");
+      $fetchID->bindParam(':usernameToGrab', $nickname);
+      $fetchID->execute();
+      $transfert = $fetchID->fetch();
+      $_SESSION['id_user']= $transfert[0];
       header('Location: ./confirmation');
     }
   }

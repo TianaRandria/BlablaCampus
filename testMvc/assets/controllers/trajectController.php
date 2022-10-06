@@ -11,7 +11,7 @@
                 require('./assets/views/viewsTraject/newTraject.php');
                 break;
             case 'resultSearch':
-                require('./assets/views/viewsTraject/resultSearch.php');
+                // var_dump(searchItineraryControl());
                 break;
             default:
                 break;
@@ -23,5 +23,53 @@
     }
     function searchItineraryControl(){
         $searchingItinerary = new Trajet();
-        $GLOBALS['toWrite'] = $searchingItinerary->searchItinerary();
+        return $searchingItinerary->searchItinerary();
+    }
+    function day($target){
+        $monthAndDay = $target;
+        $monthAndDayArray = explode('-', $monthAndDay);
+        return implode('',array_splice($monthAndDayArray,2, 2));
+    }
+    function month($target){
+        $monthAndDay = $target;
+        $monthAndDayArray = explode('-', $monthAndDay);
+        $removeday = array_splice($monthAndDayArray,0,2);
+        switch (implode('',array_splice($removeday,1,1))) {
+            case '01':
+                $month = "JANV";
+                break;
+            case '02':
+                $month = "FEVR";
+                break;
+            case '03':
+                $month = "MARS";
+                break;
+            case '04':
+                $month = "AVR";
+                break;
+            case '05':
+                $month = "MAI";
+                break;
+            case '06':
+                $month = "JUIN";
+                break;
+            case '07':
+                $month = "JUILL";
+                break;
+            case '08':
+                $month = "AOUT";
+                break;
+            case '09':
+                $month = "SEPT";
+                break;
+            case '10':
+                $month = "OCT";
+                break;
+            case '11':
+                $month = "NOV";
+                break;
+            default:
+                $month = "DEC";
+                break;
+        }
     }

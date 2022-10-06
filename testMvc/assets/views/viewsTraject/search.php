@@ -1,5 +1,6 @@
 <?php ob_start();
-session_start();?>
+// echo $_SESSION['id_user'].' '.$_SESSION['username_user'];
+?>
 <div class="w-4/5 p-2 flex">
     <h2 class="font-bungee">Rechercher un trajet</h2>
 </div>
@@ -26,7 +27,7 @@ session_start();?>
             </div>
             <p class="w-4/5">Aujourd'hui</p>
         </div>
-        <input type="date" name="dateSearch" id="dateSearch" class="bg-xtraLightGrey w-full h-14 hidden">
+        <input type="date" name="dateSearch" id="dateSearch" class="bg-xtraLightGrey w-full h-14 hidden" required value="<?= date('Y-m-d');?>">
     </div>
     <input type="submit" name="action" value="RECHERCHER" class="tracking-5px font-workSans p-3 w-4/5 bg-redOnline rounded-lg text-white">
 </form>
