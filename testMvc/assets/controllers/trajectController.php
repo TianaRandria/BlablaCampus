@@ -36,40 +36,40 @@
         $removeday = array_splice($monthAndDayArray,0,2);
         switch (implode('',array_splice($removeday,1,1))) {
             case '01':
-                $month = "JANV";
+                return "JANV";
                 break;
             case '02':
-                $month = "FEVR";
+                return "FEVR";
                 break;
             case '03':
-                $month = "MARS";
+                return "MARS";
                 break;
             case '04':
-                $month = "AVR";
+                return "AVR";
                 break;
             case '05':
-                $month = "MAI";
+                return "MAI";
                 break;
             case '06':
-                $month = "JUIN";
+                return "JUIN";
                 break;
             case '07':
-                $month = "JUILL";
+                return "JUILL";
                 break;
             case '08':
-                $month = "AOUT";
+                return "AOUT";
                 break;
             case '09':
-                $month = "SEPT";
+                return "SEPT";
                 break;
             case '10':
-                $month = "OCT";
+                return "OCT";
                 break;
             case '11':
-                $month = "NOV";
+                return "NOV";
                 break;
             default:
-                $month = "DEC";
+                return "DEC";
                 break;
         }
     }
@@ -82,7 +82,14 @@
             $newArray[$i]['day'] = day($oldArray[$i]['date_traject']);
             $newArray[$i]['month']= month($oldArray[$i]['date_traject']);
             $newArray[$i]['hourStart']= $oldArray[$i]['hour_traject'];
-            
+            $newArray[$i]['setp1']= $oldArray[$i]['point1_traject'];
+            $newArray[$i]['step2']= $oldArray[$i]['point2_traject'];
+            $newArray[$i]['step3']= $oldArray[$i]['point3_traject'];
+            $newArray[$i]['placeRest']=$oldArray[$i]['placerest_traject'];
+            $newArray[$i]['id_user']=$oldArray[$i]['Id_user'];
+            $newArray[$i]['img_user']=$oldArray[$i]['img_user'];
+            $newArray[$i]['bio_user']=$oldArray[$i]['bio_user'];
+            $newArray[$i]['username_user']=$oldArray[$i]['username_user'];
         }
         return $newArray;
     }
