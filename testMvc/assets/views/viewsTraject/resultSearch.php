@@ -27,7 +27,7 @@ session_start();
 
     <!-- texte fixe ou aucune modif n'est nécessaireok -->
 
-    <div class="w-5/6 flex justify-between items-center gap-2">
+    <div class="w-full flex justify-between items-center gap-2">
         <img src="../assets/img/clock.png" alt="Logo d'horloge">
         <p class="font-epilogue font-medium text-xs">Les trajets sont triés chronologiquement par heure de départ.</p>
     </div>

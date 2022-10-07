@@ -73,3 +73,5 @@
                 break;
         }
     }
+
+    // créer nouveau tableau à partir des données récupéré , split la partie date en deux morceaux via day et month puis le retourner pour ensuite l'exploiter dans une boucle sur la vue resultSearch. que faire pour les étapes ? nouvelle ligne ? les ignorer ? les montrer en résultat?
