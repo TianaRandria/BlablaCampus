@@ -139,28 +139,28 @@ class Trajet extends User
     $req = array();
     $value = array();
 
-    if (!empty($_POST['startingPointSearch'])) {
-      array_push($req, 'AND start_traject = ""?""');
+    if (isset($_POST['startingPointSearch']) && !empty($_POST['startingPointSearch'])) {
+      array_push($req, 'AND start_traject = ?');
       array_push($value, $_POST['startingPointSearch']);
     }
 
-    if (!empty($_POST['arrivalPointSearch'])) {
-      array_push($req, 'AND end_traject = ""?""');
+    if (isset($_POST['arrivalPointSearch']) && !empty($_POST['arrivalPointSearch'])) {
+      array_push($req, 'AND end_traject = ?');
       array_push($value, $_POST['arrivalPointSearch']);
     }
 
-    if (!empty($_POST['dateSearch'])) {
-      array_push($req, 'AND date_traject = ""?""');
+    if (isset($_POST['dateSearch']) && !empty($_POST['dateSearch'])) {
+      array_push($req, 'AND date_traject = ?');
       array_push($value, $_POST['dateSearch']);
     }
 
     $request = implode(" ", $req);
-    $search = $this->connect()->prepare('SELECT * FROM trajects WHERE 1  ' . $request . '');
+    $search = $this->connect()->prepare('SELECT * FROM trajects WHERE 1 = 1 ' . $request . '');
     $search->execute($value);
-    //$search->debugDumpParams();
+    header('Location: ../../pages/resultSearch.php');
+    $search->debugDumpParams();
     $resultSearch = $search->fetchAll();
     return $resultSearch;
-    header('Location: ../pages/searchItinerary.php');
   }
 
   function getMyTrajects()
@@ -173,40 +173,58 @@ class Trajet extends User
     $idItinerary = $this->connect()->query('SELECT * FROM trajects WHERE id_traject = ' . $_GET['id_traject'] . '');
     return $idItinerary->fetch();
   }
+  function getAllTrajects()
+  {
+    $monthItinerary = $this->connect()->query('SELECT * FROM trajects');
+    return $monthItinerary->fetch();
+  }
 
-  // public function deleteTraject()
-  // {
-  //   $delete = $this->connect()->prepare("DELETE FROM traject WHERE id_traject = :id_traject");
-  //   $delete->bindValue(':id_trajet', $idTraject);
-  //   $delete->execute();
-  //   header('Location: ./confirmation.php');
-  // }
-
-  //   public function month() {
-  //     if($month == '01') {
-  //         return 'JANV';
-  //     } else if($month == '02') {
-  //         return 'FEVR';
-  //     }else if($month == '03') {
-  //         return 'MARS';
-  //     }else if($month == '04') {
-  //         return 'AVR';
-  //     }else if($month == '05') {
-  //         return 'MAI';
-  //     }else if($month == '06') {
-  //         return 'JUIN';
-  //     }else if($month == '07') {
-  //         return 'JUIL';
-  //     }else if($month == '08') {
-  //         return 'AOUT';
-  //     }else if($month == '09') {
-  //         return 'SEPT';
-  //     }else if($month == '10') {
-  //         return 'OCT';
-  //     }else if($month == '11') {
-  //         return 'NOV';
-  //     }else if($month == '12') {
-  //         return 'DEC';
-  //     }
-  // }
+  public function month()
+  {
+    $getAllTrajects = $this->connect()->query('SELECT * FROM trajects');
+    return $getAllTrajects->fetch();
+    $monthAndDay =  $getAllTrajects['date_traject'];
+    $monthAndDayArray = explode('-', $monthAndDay);
+    $day = implode('', array_splice($monthAndDayArray, 2, 2));
+    return $day;
+    $removeday = array_splice($monthAndDayArray, 0, 2);
+    switch (implode('', array_splice($removeday, 1, 1))) {
+      case '01':
+        return "JANV";
+        break;
+      case '02':
+        return "FEVR";
+        break;
+      case '03':
+        return "MARS";
+        break;
+      case '04':
+        return "AVR";
+        break;
+      case '05':
+        return "MAI";
+        break;
+      case '06':
+        return "JUIN";
+        break;
+      case '07':
+        return "JUILL";
+        break;
+      case '08':
+        return "AOUT";
+        break;
+      case '09':
+        return "SEPT";
+        break;
+      case '10':
+        return "OCT";
+        break;
+      case '11':
+        return "NOV";
+        break;
+      default:
+        return "DEC";
+        break;
+    }
+  }
 }

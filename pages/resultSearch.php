@@ -1,4 +1,54 @@
-<?php include('header.php'); ?>
+<?php include('header.php');
+include('../assets/class/Trajet.php');
+$getAllTraj = new Trajet();
+$getAllTrajects = $getAllTraj->getAllTrajects();
+$getDateTrajects = $getAllTraj->month();
+
+
+
+// $monthAndDay =  $getAllTrajects['date_traject'];
+// $monthAndDayArray = explode('-', $monthAndDay);
+// $day = implode('', array_splice($monthAndDayArray, 2, 2));
+// $removeday = array_splice($monthAndDayArray, 0, 2);
+// switch (implode('', array_splice($removeday, 1, 1))) {
+//   case '01':
+//     $month = "JANV";
+//     break;
+//   case '02':
+//     $month = "FEVR";
+//     break;
+//   case '03':
+//     $month = "MARS";
+//     break;
+//   case '04':
+//     $month = "AVR";
+//     break;
+//   case '05':
+//     $month = "MAI";
+//     break;
+//   case '06':
+//     $month = "JUIN";
+//     break;
+//   case '07':
+//     $month = "JUILL";
+//     break;
+//   case '08':
+//     $month = "AOUT";
+//     break;
+//   case '09':
+//     $month = "SEPT";
+//     break;
+//   case '10':
+//     $month = "OCT";
+//     break;
+//   case '11':
+//     $month = "NOV";
+//     break;
+//   default:
+//     $month = "DEC";
+//     break;
+// }
+?>
 
 <main class="flex flex-col justify-start items-center w-screen min-h-screen gap-4">
   <h4 class="w-5/6font-bungee">Trajets Disponibles</h4>
@@ -9,12 +59,12 @@
   <div class="flex w-5/6 justify-between items-center rounded-lg bg-xtraLightGrey p-3 h-24">
     <div class="flex w-3/5 justify-between items-center h-full">
       <div class="flex flex-col">
-        <p class="jourDate font-bungee text-redOnline text-4xl">05</p>
-        <p class="moisDate font-bungee text-xl">SEP</p>
+        <p class="jourDate font-bungee text-redOnline text-4xl"><?php echo $getDateTrajects[$day] ?></p>
+        <p class="moisDate font-bungee text-xl"><?php echo $getDateTrajects[$month] ?></p>
       </div>
       <div class="h-full flex flex-col items-start justify-center">
-        <p class="startingPoint text-lightGrey font-medium text-sm font-epilogue">Dole</p>
-        <p class="endingPoint text-lightGrey font-medium text-sm font-epilogue">Lons le Saunier</p>
+        <p class="startingPoint text-lightGrey font-medium text-sm font-epilogue"><?php echo $getAllTrajects['start_traject'] ?></p>
+        <p class="endingPoint text-lightGrey font-medium text-sm font-epilogue"><?php echo $getAllTrajects['end_traject'] ?></p>
       </div>
     </div>
     <img src="../assets//img/upDown.png" alt="doubles inversés haut et bas" class="fleche">
