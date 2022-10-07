@@ -19,7 +19,7 @@ if(empty($_GET['page'])){
                 registerUser();
                 break;
             case "RECHERCHER":
-                $test = searchItineraryControl();
+                $transfert = newArray(searchItineraryControl());
                 require('./assets/views/viewsTraject/resultSearch.php');
                 break;
             case "Se déconnecter":

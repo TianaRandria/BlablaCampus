@@ -73,5 +73,17 @@
                 break;
         }
     }
-
+    function newArray($oldArray){
+        $newArray = [];
+        for ($i=0; $i < count($oldArray); $i++) { 
+            $newArray[$i]['starting_point'] = $oldArray[$i]['start_traject'];
+            $newArray[$i]['end_point']= $oldArray[$i]['end_traject'];
+            $newArray[$i]['timeTotravel']= $oldArray[$i]['timeToTravel'];
+            $newArray[$i]['day'] = day($oldArray[$i]['date_traject']);
+            $newArray[$i]['month']= month($oldArray[$i]['date_traject']);
+            $newArray[$i]['hourStart']= $oldArray[$i]['hour_traject'];
+            
+        }
+        return $newArray;
+    }
     // créer nouveau tableau à partir des données récupéré , split la partie date en deux morceaux via day et month puis le retourner pour ensuite l'exploiter dans une boucle sur la vue resultSearch. que faire pour les étapes ? nouvelle ligne ? les ignorer ? les montrer en résultat?

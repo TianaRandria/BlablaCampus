@@ -5,7 +5,7 @@ session_start();
 
 <main class="flex flex-col justify-start items-center w-5/6 min-h-screen gap-y-3">
     <h4 class="w-5/6font-bungee">Trajets Disponibles</h4>
-
+    <?php var_dump($transfert)?>
     <!--         structure à utiliser dans le echo de ta fonction de recherche pour écrire les résultats , les seuls trucs à changer dedans seront les contenu des P ansi que la value de l'input hidden         -->
         <div class="flex w-full justify-between items-center rounded-lg bg-xtraLightGrey p-3">
             <div class="flex w-4/5 justify-between items-center gap-x-3">
