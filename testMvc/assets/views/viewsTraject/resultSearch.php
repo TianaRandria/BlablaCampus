@@ -56,8 +56,8 @@ session_start();
                             <img src="../assets/img/humanLogo.png" alt="img du conducteur" class="img-cardSearch">
                         </div>
                         <div class="second-col">
-                            <p class="epilogue text-sm font-bold">Pauline</p>
-                            <p class="epilogue font-light text-xs italic">Avec moi ça passe ou ça casse</p>
+                            <p class="epilogue text-sm font-bold"><?= $transfert[$i]['username_user']?></p>
+                            <p class="epilogue font-light text-xs italic"><?= $transfert[$i]['bio_user']?></p>
                         </div>
                     </div>
                     <input type="submit" value="" name="action" class="absolute top-0 left-0 w-full h-full rounded-lg text-transparent" value="goToDetails">
