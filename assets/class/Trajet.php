@@ -131,8 +131,8 @@ class Trajet extends User
     $deletItinerary = $this->connect()->prepare("DELETE FROM trajects WHERE id_traject = :id_traject");
     $deletItinerary->bindValue(':id_traject', $idT);
     $deletItinerary->execute();
-    $deletItinerary->debugDumpParams();
-    // header('Location: ../../pages/searchItinerary.php');
+    // $deletItinerary->debugDumpParams();
+    header('Location: ../../pages/searchItinerary.php');
   }
   public function searchItinerary()
   {

@@ -2,6 +2,6 @@
     <script src="../assets/js/functions.js"></script>
     <script src="../assets/js/class.js"></script>
     <script src="../assets/js/app.js"></script>
-</body>
-</html>
+    </body>
 
+    </html>
