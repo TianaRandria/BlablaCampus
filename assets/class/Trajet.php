@@ -116,9 +116,30 @@ class Trajet extends User
     }
     $registertraj->execute();
     $registertraj->debugDumpParams();
-    // header('Location: ../pages/searchItinerary.php');
+    var_dump($start);
+    var_dump($end);
+    var_dump($dateCreate);
+    var_dump($hour);
+    var_dump($numPlace);
+    var_dump($type);
+    var_dump($idT);
+    // header('Location: ../../pages/searchItinerary.php');
   }
+  public function deletItinerary()
+  {
 
+    if (isset($_GET['id']) && !empty($_GET['id'])) {
+      $id = strip_tags($_GET['id']);
+      $sql = "DELETE FROM `liste` WHERE `id`=:id;";
+
+      $query = $db->prepare($sql);
+
+      $query->bindValue(':id', $id, PDO::PARAM_INT);
+      $query->execute();
+
+      header('Location: index.php');
+    }
+  }
   public function searchItinerary()
   {
     $req = array();

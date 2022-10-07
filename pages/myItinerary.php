@@ -35,7 +35,7 @@ include('../assets/class/Trajet.php')
                     <input type="hidden" name="idToTransfer" value="1">
                     <input type="submit" value="editer" name="action" class="font-bungee text-white text-xl">
                 </form>
-                <form action="deleteItinerary.php" class="w-1/2 h-full bg-black rounded-r-lg flex justify-center items-center" method="post">
+                <form action="deleteItinerary.php?id_traject=<?php echo $myItinerary[$i]['id_traject'] ?>" class="w-1/2 h-full bg-black rounded-r-lg flex justify-center items-center" method="post">
                     <input type="hidden" name="idToTransfer" value="1">
                     <input type="submit" value="supprimer" name="action" class="font-bungee text-white text-xl">
                 </form>

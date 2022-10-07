@@ -3,10 +3,9 @@ include('../assets/class/Trajet.php');
 $idItineraryObject = new Trajet();
 $idItinerary = $idItineraryObject->getIdTrajects();
 ?>
-<!-- php id_traject a finir  -->
 <main class="w-5/6 py-2">
     <h2 class="font-bungee uppercase">Editer un trajet</h2>
-    <form action="../assets/php/conditions.php?id_traject=<?php echo $myItinerary[$i]['id_traject'] ?>" method="post" class="w-full flex flex-col items-start justify-start gap-3">
+    <form action="../assets/php/conditions.php?id_traject=<?php echo $idItinerary['id_traject'] ?>" method="post" class="w-full flex flex-col items-start justify-start gap-3">
         <label for="createItineraryDepart" class="text-lightGrey font-epilogue font-medium text-xs">D'où partez vous?</label>
         <div class="flex w-full gap-2 p-2 bg-xtraLightGrey rounded-lg relative" id="rowModifyDepart">
             <img src="../assets/img/pinPoint.png" alt="Logo pour le départ">
