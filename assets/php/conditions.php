@@ -45,7 +45,7 @@ if (isset($_POST['confirmation']) && $_POST['confirmation'] == "RECHERCHER") {
 // Condition deletItinerary
 if (isset($_POST['confirmation']) && $_POST['confirmation'] == "Supprimer") {
   $deletI = new Trajet();
-  $deletI->editItinerary();
+  $deletI->deletItinerary();
 }
 // Condition newItinerary
 if (isset($_POST['action']) && $_POST['action'] == "Proposer un trajet") {

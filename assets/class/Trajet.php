@@ -127,18 +127,12 @@ class Trajet extends User
   }
   public function deletItinerary()
   {
-
-    if (isset($_GET['id']) && !empty($_GET['id'])) {
-      $id = strip_tags($_GET['id']);
-      $sql = "DELETE FROM `liste` WHERE `id`=:id;";
-
-      $query = $db->prepare($sql);
-
-      $query->bindValue(':id', $id, PDO::PARAM_INT);
-      $query->execute();
-
-      header('Location: index.php');
-    }
+    $idT = $_GET['id_traject'];
+    $deletItinerary = $this->connect()->prepare("DELETE FROM trajects WHERE id_traject = :id_traject");
+    $deletItinerary->bindValue(':id_traject', $idT);
+    $deletItinerary->execute();
+    $deletItinerary->debugDumpParams();
+    // header('Location: ../../pages/searchItinerary.php');
   }
   public function searchItinerary()
   {
