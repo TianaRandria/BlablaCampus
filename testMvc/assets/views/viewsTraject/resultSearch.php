@@ -3,7 +3,7 @@ ob_start();
 session_start();
 ?>
 
-<main class="flex flex-col justify-start items-center w-5/6 min-h-screen gap-y-3">
+<main class="flex flex-col items-center w-5/6 min-h-screen gap-y-3">
     <h4 class="w-5/6font-bungee">Trajets Disponibles</h4>
     <!--         structure à utiliser dans le echo de ta fonction de recherche pour écrire les résultats , les seuls trucs à changer dedans seront les contenu des P ansi que la value de l'input hidden         -->
     <?php if(count($transfert) > 0){ ?>
@@ -33,12 +33,12 @@ session_start();
         </div>    
     <?php
         for ($i=0; $i < count($transfert); $i++) {?>
-            <form action="reservation.php" class="w-full flex justify-center" id="result1">
-                <div class="card w-5/6 bg-xtraLightGrey rounded-lg flex flex-col p-3 gap-3.5 relative">
-                    <p class="text-xs font-workSans text-end w-full">places disponibles : <span class="text-redOnline font-bold">2</span></p>
-                    <div class="firstRow w-full flex h-12 gap-2">
+            <form action="reservation.php" class="w-full" id="result<?= $i ?>">
+                <div class="card w-full bg-xtraLightGrey rounded-lg flex flex-col p-3 gap-3.5 relative">
+                    <p class="text-xs font-workSans text-end w-full">places disponibles : <span class="text-redOnline font-bold"><?= $transfert[$i]['placeRest']?></span></p>
+                    <div class="firstRow w-full flex h-16 gap-2">
                         <div class="flex flex-col justify-between h-full">
-                            <p class="text-redOnline font-bold text-sm" id="departureTime">6H30</p>
+                            <p class="text-redOnline font-bold text-sm" id="departureTime"><?= $transfert[$i]['hourStart']?></p>
                             <p class="text-redOnline font-bold text-sm" id="arrivalTime">7H30</p>
                         </div>
                         <div class="flex flex-col relative justify-between h-full">
@@ -47,8 +47,8 @@ session_start();
                             <span class="blackBar absolute"></span>
                         </div>
                         <div class="h-full flex flex-col justify-between items-start">
-                            <p class="colorFakeBlack font-bold font-epilogue text-sm">Dole</p>
-                            <p class="colorFakeBlack font-bold font-epilogue text-sm">Lons le Saunier</p>
+                            <p class="colorFakeBlack font-bold font-epilogue text-sm"><?= $transfert[$i]['starting_point']?></p>
+                            <p class="colorFakeBlack font-bold font-epilogue text-sm"><?php if ($transfert[0]['end_point'] == "46.6709261,5.5631747") {echo "13b Avenue du Stade Municipal, 39000 Lons-le-Saunier";}else{echo "2 Rte de Montaigu, 39000 Lons-le-Saunier";}?></p>
                         </div>
                     </div>
                     <div class="secondRow flex gap-3 justify-start items-center">
