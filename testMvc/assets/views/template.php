@@ -18,4 +18,7 @@
     if(isset($searchResult)){
         echo $searchResult;
     }
+    if(isset($editAccount)){
+        echo $editAccount;
+    }
     require('./assets/views/footer.php');

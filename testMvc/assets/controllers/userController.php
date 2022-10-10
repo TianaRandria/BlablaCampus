@@ -13,6 +13,9 @@
             case 'myAccount':
                 require('./assets/views/viewsAccount/myAccount.php');
                 break;
+            case 'editAccount':
+                require('./assets/views/viewsAccount/editAccount.php');
+                break;
             default:
                 break;
         }

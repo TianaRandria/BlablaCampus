@@ -13,7 +13,7 @@ session_start(); ?>
             <label for="departureTime" class="text-lightGrey font-epilogue font-medium text-xs">A quelle heure partez-vous ?</label>
             <div class="flex w-full justify-start items-center bg-xtraLightGrey rounded-lg p-2 gap-2">
                 <img src="../assets/img/clock.png" alt="Logo Horloge">
-                <input type="time" name="departureTime" id="departureTime" required class="bg-xtraLightGrey w-full">
+                <input type="time" name="departureTime" id="departureTime" required class="bg-xtraLightGrey w-full" value="<?= date('H:i:s') ?>">
             </div>
             <label for="itineraryFinalCreate" class="text-lightGrey font-epilogue font-medium text-xs">Pour aller où?</label>
             <div class="flex w-full justify-start items-center gap-2 bg-xtraLightGrey p-2">

@@ -93,8 +93,11 @@ class Trajet extends User
     $value = array();
 
     if (!empty($_POST['startingPointSearch'])) {
-      array_push($req, 'AND start_traject = ?');
-      array_push($value, $_POST['startingPointSearch']);
+      array_push($req, 'AND (start_traject = ? OR point1_traject LIKE ? OR point2_traject LIKE ? OR point2_traject LIKE ?)');
+      for ($i=0; $i < 4; $i++) { 
+        array_push($value, $_POST['startingPointSearch']);
+      }
+      
     }
 
     if (!empty($_POST['arrivalPointSearch'])) {
@@ -108,7 +111,7 @@ class Trajet extends User
     }
 
     $request = implode(" ", $req);
-    $search = $this->connect()->prepare('SELECT * FROM trajects INNER JOIN users ON trajects.Id_user = users.Id_user WHERE 1 AND placerest_traject > 0 ' . $request . '');
+    $search = $this->connect()->prepare('SELECT DISTINCT * FROM trajects INNER JOIN users ON trajects.Id_user = users.Id_user WHERE 1 AND placerest_traject > 0 ' . $request . '');
     $search->execute($value);
     // return $search->debugDumpParams();
     return $search->fetchAll();

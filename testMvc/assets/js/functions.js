@@ -189,6 +189,7 @@ function calculTimeTravel(){
         fetch('https://api.geoapify.com/v1/routing?waypoints='+$textQuery+'&mode=drive&apiKey=af3f6cef19954a839ffa0379b6264d9d').then(response => response.json()).then(data => {
             let resultHour = Math.floor(data.features[0].properties.time);
             resultHour = (resultHour - (resultHour % 60))/60;
+            console.log(resultHour);
             if(resultHour >= 60 ){
                 resultMin = (resultHour % 60);
                 resultHour = (resultHour - resultMin) / 60;
@@ -197,7 +198,11 @@ function calculTimeTravel(){
                 }
                 inputTimeToTravel.value = resultHour+':'+resultMin+':00';
             }else{
-                inputTimeToTravel.value = '00:'+resultHour+':00 ';
+                if(resultHour < 10){
+                    inputTimeToTravel.value = '00:0'+resultHour+':00 ';
+                }else{
+                    inputTimeToTravel.value = '00:'+resultHour+':00 ';
+                }
             }
         })
     }

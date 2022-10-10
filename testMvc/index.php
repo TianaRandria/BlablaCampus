@@ -36,6 +36,7 @@ if(empty($_GET['page'])){
         case "login" :
         case "register":
         case "myAccount":
+        case "editAccount":
             accountPage();
             break;
         case "searchItinerary":

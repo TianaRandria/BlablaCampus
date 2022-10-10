@@ -13,6 +13,9 @@ class User extends Database
       $_SESSION['username_user'] = $nickname;
       $_SESSION['img_user'] = $user['img_user'];
       $_SESSION['bio_user'] = $user['bio_user'];
+      $_SESSION['name_user']= $user['name_user'];
+      $_SESSION['email_user'] = $user['email_user'];
+      $_SESSION['id_user'] = $user['id_user'];
       header('Location: ./confirmation');
     } else {
       // echo 'Invalid nickname or password';
@@ -51,6 +54,8 @@ class User extends Database
       $_SESSION['username_user'] = $nickname;
       $_SESSION['bio_user'] = $bio;
       $_SESSION['img_user'] = $newImg;
+      $_SESSION['name_user']= $nickname;
+      $_SESSION['email_user'] = $email;
       move_uploaded_file($_FILES['profilePictureRegister']['tmp_name'], './uploadImg/'.$newImg);
       $fetchID= $this->connect()->prepare("SELECT Id_user FROM users WHERE username_user = :usernameToGrab");
       $fetchID->bindParam(':usernameToGrab', $nickname);

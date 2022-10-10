@@ -75,14 +75,15 @@
     }
     function newArray($oldArray){
         $newArray = [];
-        for ($i=0; $i < count($oldArray); $i++) { 
+        for ($i=0; $i < count($oldArray); $i++) {
+            $newArray[$i]['id_traject'] = $oldArray[$i]['id_traject'];
             $newArray[$i]['starting_point'] = $oldArray[$i]['start_traject'];
             $newArray[$i]['end_point']= $oldArray[$i]['end_traject'];
             $newArray[$i]['timeTotravel']= $oldArray[$i]['timeToTravel'];
             $newArray[$i]['day'] = day($oldArray[$i]['date_traject']);
             $newArray[$i]['month']= month($oldArray[$i]['date_traject']);
             $newArray[$i]['hourStart']= $oldArray[$i]['hour_traject'];
-            $newArray[$i]['setp1']= $oldArray[$i]['point1_traject'];
+            $newArray[$i]['step1']= $oldArray[$i]['point1_traject'];
             $newArray[$i]['step2']= $oldArray[$i]['point2_traject'];
             $newArray[$i]['step3']= $oldArray[$i]['point3_traject'];
             $newArray[$i]['placeRest']=$oldArray[$i]['placerest_traject'];
