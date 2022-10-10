@@ -115,15 +115,15 @@ class Trajet extends User
       var_dump($step3);
     }
     $registertraj->execute();
-    $registertraj->debugDumpParams();
-    var_dump($start);
-    var_dump($end);
-    var_dump($dateCreate);
-    var_dump($hour);
-    var_dump($numPlace);
-    var_dump($type);
-    var_dump($idT);
-    // header('Location: ../../pages/searchItinerary.php');
+    // $registertraj->debugDumpParams();
+    // var_dump($start);
+    // var_dump($end);
+    // var_dump($dateCreate);
+    // var_dump($hour);
+    // var_dump($numPlace);
+    // var_dump($type);
+    // var_dump($idT);
+    header('Location: ../../pages/searchItinerary.php');
   }
   public function deletItinerary()
   {
@@ -155,12 +155,11 @@ class Trajet extends User
     }
 
     $request = implode(" ", $req);
-    $search = $this->connect()->prepare('SELECT * FROM trajects WHERE 1 = 1 ' . $request . '');
+    $search = $this->connect()->prepare('SELECT * FROM trajects INNER JOIN users ON trajects.id_user = users.id_user WHERE 1 = 1 AND placerest_traject > 0 ' . $request . '');
     $search->execute($value);
     header('Location: ../../pages/resultSearch.php');
     $search->debugDumpParams();
-    $resultSearch = $search->fetchAll();
-    return $resultSearch;
+    return $search->fetchAll();
   }
 
   function getMyTrajects()
@@ -190,41 +189,42 @@ class Trajet extends User
     $removeday = array_splice($monthAndDayArray, 0, 2);
     switch (implode('', array_splice($removeday, 1, 1))) {
       case '01':
-        return "JANV";
+        $month = "JANV";
         break;
       case '02':
-        return "FEVR";
+        $month = "FEVR";
         break;
       case '03':
-        return "MARS";
+        $month = "MARS";
         break;
       case '04':
-        return "AVR";
+        $month = "AVR";
         break;
       case '05':
-        return "MAI";
+        $month = "MAI";
         break;
       case '06':
-        return "JUIN";
+        $month = "JUIN";
         break;
       case '07':
-        return "JUILL";
+        $month = "JUILL";
         break;
       case '08':
-        return "AOUT";
+        $month = "AOUT";
         break;
       case '09':
-        return "SEPT";
+        $month = "SEPT";
         break;
       case '10':
-        return "OCT";
+        $month = "OCT";
         break;
       case '11':
-        return "NOV";
+        $month = "NOV";
         break;
       default:
-        return "DEC";
+        $month = "DEC";
         break;
     }
+    return $month;
   }
 }
