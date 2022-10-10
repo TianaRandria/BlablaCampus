@@ -38,6 +38,11 @@ if (isset($_POST['action']) && $_POST['action'] == "") {
 // ================= Trajet ==================
 
 // Condition searchItinerary
+if (isset($_POST['action']) && $_POST['action'] == "RESERVE") {
+  $reserveI = new Trajet();
+  $reserveI->searchItinerary();
+}
+// Condition searchItinerary
 if (isset($_POST['action']) && $_POST['action'] == "RECHERCHER") {
   $searchI = new Trajet();
   $searchI->searchItinerary();

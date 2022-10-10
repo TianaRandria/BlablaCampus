@@ -156,26 +156,31 @@ class Trajet extends User
 
     $request = implode(" ", $req);
     $search = $this->connect()->prepare('SELECT * FROM trajects INNER JOIN users ON trajects.id_user = users.id_user WHERE 1 = 1 AND placerest_traject > 0 ' . $request . '');
+
     $search->execute($value);
-    header('Location: ../../pages/resultSearch.php');
     $search->debugDumpParams();
     return $search->fetchAll();
   }
 
-  function getMyTrajects()
+  public function getMyTrajects()
   {
     $myItinerary = $this->connect()->query('SELECT * FROM trajects WHERE id_user = ' . $_SESSION['id_user'] . '');
     return $myItinerary->fetchAll();
   }
-  function getIdTrajects()
+  public function getIdTrajects()
   {
-    $idItinerary = $this->connect()->query('SELECT * FROM trajects WHERE id_traject = ' . $_GET['id_traject'] . '');
+    $idItinerary = $this->connect()->query('SELECT * FROM trajects INNER JOIN users ON trajects.id_user = users.id_user WHERE id_traject = ' . $_GET['id_traject'] . '');
     return $idItinerary->fetch();
   }
-  function getAllTrajects()
+  public function getAll()
   {
-    $monthItinerary = $this->connect()->query('SELECT * FROM trajects');
-    return $monthItinerary->fetch();
+    $allItinerary = $this->connect()->query('SELECT * FROM trajects');
+    return $allItinerary->fetch();
+  }
+  public function getAllTrajects()
+  {
+    $monthItinerary = $this->connect()->query('SELECT * FROM trajects INNER JOIN users ON trajects.id_user = users.id_user WHERE 1 = 1 AND placerest_traject > 0');
+    return $monthItinerary->fetchAll();
   }
 
   public function month()
