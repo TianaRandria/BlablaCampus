@@ -9,11 +9,3 @@
         $title = 'Félicitations';
         require(__DIR__.'/../views/confirmation.php');
     }
-    // function testConnect(){
-    //     $testConnect = new Database;
-    //     echo $testConnect->connect();
-    // }
-    // function test(){
-    //     $test = new User;
-    //     echo $test->test();
-    // }

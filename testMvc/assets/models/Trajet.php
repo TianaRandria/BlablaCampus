@@ -116,6 +116,13 @@ class Trajet extends User
     // return $search->debugDumpParams();
     return $search->fetchAll();
   }
+  public function getMyTrajects(){
+    session_start();
+    $myItinerary = $this->connect()->prepare('SELECT * FROM trajects WHERE id_user = :id_user ORDER BY date_traject DESC, hour_traject DESC');
+    $myItinerary->bindParam(':id_user', $_SESSION['id_user']);
+    $myItinerary->execute();
+    return $myItinerary->fetchAll();
+  }
   // public function deleteTraject()
   // {
   //   $delete = $this->connect()->prepare("DELETE FROM traject WHERE id_traject = :id_traject");

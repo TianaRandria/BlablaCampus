@@ -13,6 +13,11 @@
             case 'resultSearch':
                 // var_dump(searchItineraryControl());
                 break;
+            case'myItinerary':
+                $listTraject = new Trajet();
+                $transfert = newArray($listTraject->getMyTrajects());
+                require('./assets/views/viewsTraject/myItinerary.php');
+                break;
             default:
                 break;
         }
@@ -87,10 +92,14 @@
             $newArray[$i]['step2']= $oldArray[$i]['point2_traject'];
             $newArray[$i]['step3']= $oldArray[$i]['point3_traject'];
             $newArray[$i]['placeRest']=$oldArray[$i]['placerest_traject'];
-            $newArray[$i]['id_user']=$oldArray[$i]['Id_user'];
-            $newArray[$i]['img_user']=$oldArray[$i]['img_user'];
-            $newArray[$i]['bio_user']=$oldArray[$i]['bio_user'];
-            $newArray[$i]['username_user']=$oldArray[$i]['username_user'];
+            $newArray[$i]['type_traject']=$oldArray[$i]['type_traject'];
+            $newArray[$i]['date_traject'] = $oldArray[$i]['date_traject'];
+            if (isset($oldArray[$i]['img_user'])) {
+                $newArray[$i]['id_user']=$oldArray[$i]['Id_user'];
+                $newArray[$i]['img_user']=$oldArray[$i]['img_user'];
+                $newArray[$i]['bio_user']=$oldArray[$i]['bio_user'];
+                $newArray[$i]['username_user']=$oldArray[$i]['username_user'];
+            }
         }
         return $newArray;
     }

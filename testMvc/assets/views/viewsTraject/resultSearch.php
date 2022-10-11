@@ -90,7 +90,7 @@ session_start();
                     <input type="hidden" name="dayToTransfert" value="<?= $transfert[$i]['day']?>">
                     <input type="hidden" name="monthToTransfert" value="<?= $transfert[$i]['month']?>">
                     <input type="hidden" name="StartToTransfert" value="<?= $transfert[$i]['starting_point']?>">
-                    <input type="hidden" name="endToTransfert" value="<?php if ($transfert[0]['end_point'] == "46.6709261,5.5631747") {echo "13b Avenue du Stade Municipal, 39000 Lons-le-Saunier";}else{echo "2 Rte de Montaigu, 39000 Lons-le-Saunier";}?>?>">
+                    <input type="hidden" name="endToTransfert" value="<?php if ($transfert[0]['end_point'] == "46.6709261,5.5631747") {echo "13b Avenue du Stade Municipal, 39000 Lons-le-Saunier";}else{echo "2 Rte de Montaigu, 39000 Lons-le-Saunier";}?>">
                     <input type="hidden" name="idToTransfert" value="<?= $transfert[$i]['id_traject']?>">
                     <input type="submit" value="" name="action" class="absolute top-0 left-0 w-full h-full rounded-lg text-transparent" value="goToDetails">
                 </div>
