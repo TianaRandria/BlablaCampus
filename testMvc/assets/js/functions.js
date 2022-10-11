@@ -210,3 +210,4 @@ function calculTimeTravel(){
 function changeAutocompleteMode(target){
     document.querySelector(target).autocomplete = 'off';
 }
+// TODO: modifié le tout pour enregistrer les durée d'étapes retourner dans le JSON ( merci Julien)

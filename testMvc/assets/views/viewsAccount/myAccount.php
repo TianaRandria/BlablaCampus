@@ -1,7 +1,7 @@
 <?php ob_start();
 session_start();
 ?>
-<main class="accountCard w-5/6 rounded-3xl relative">
+<main class="accountCard w-5/6 rounded-3xl relative mt-8">
     <div class="w-full bg-white p-6 flex flex-col justify-center items-start gap-6 rounded-3xl">
         <div class="firstRow flex justify-start items-center gap-3 w-full">
  
