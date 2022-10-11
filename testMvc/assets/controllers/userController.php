@@ -32,3 +32,7 @@
         $logout = new User;
         $logout->logout();
     }
+    function editUser(){
+        $edit = new User();
+        $edit->editAccount();
+    }

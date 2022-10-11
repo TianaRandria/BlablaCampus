@@ -6,6 +6,7 @@
         require(__DIR__.'/../views/homePage.php');
     }
     function confirmationPage(){
+        $title = 'Félicitations';
         require(__DIR__.'/../views/confirmation.php');
     }
     // function testConnect(){

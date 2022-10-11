@@ -19,9 +19,9 @@ session_start();
         <p class="text-sm w-3/4 text-center">Taille recommandée : JPG, PNG, GIF (150x150px, Max 1mb)</p>
     </label>
     <input type="hidden" name="idToChange" value="<?= $_SESSION['id_user']?>">
-    <input type="file" name="profilePictureEditAccount" id="profilePictureEditAccount" accept=".png,.jpg,.heif" required>
+    <input type="file" name="profilePictureEditAccount" id="profilePictureEditAccount" accept=".png,.jpg,.heif" class="hidden">
     <div class="w-full flex justify-center">
-        <input type="submit" name="action" value="CRÉER MON COMPTE" class="bg-redOnline cursor-pointer font-workSans rounded-lg w-4/5 text-center text-sm py-2.5 text-white tracking-5px">
+        <input type="submit" name="action" value="Modifier mon compte" class="bg-redOnline cursor-pointer font-workSans rounded-lg w-4/5 text-center text-sm py-2.5 text-white tracking-5px">
     </div>
 </form>
 <?php 

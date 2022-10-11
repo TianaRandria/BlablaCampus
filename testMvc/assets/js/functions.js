@@ -102,7 +102,7 @@ function childRemove(target) {
         target.removeChild(target.firstChild);
     }
 }
-function fileChecker(e){
+function fileChecker(e, f){
     let fileType;
     const files = e.target.files;
     for (const file of files) {
@@ -111,17 +111,17 @@ function fileChecker(e){
     }
     if(fileType[0] != 'image'){
         profilePictureRegister.value ="";
-        childRemove(profilePictureRegisterLabel);
-        profilePictureRegisterLabel.textContent = "Mauvais type de fichier , veuillez choisir un autre fichier";
+        childRemove(f);
+        f.textContent = "Mauvais type de fichier , veuillez choisir un autre fichier";
     }
     if(files[0].size > 1048576){
         profilePictureRegister.value ="";
-        childRemove(profilePictureRegisterLabel);
-        profilePictureRegisterLabel.textContent = "Fichier trop lourd , veuillez choisir un autre fichier";
+        childRemove(f);
+        f.textContent = "Fichier trop lourd , veuillez choisir un autre fichier";
     }
     else{
-        childRemove(profilePictureRegisterLabel);
-        profilePictureRegisterLabel.textContent = files[0].name;
+        childRemove(f);
+        f.textContent = files[0].name;
     }
 }
 function autocomplete(target){

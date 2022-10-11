@@ -28,6 +28,9 @@ if(empty($_GET['page'])){
             case "Proposer un trajet":
                 registerTraject();
                 break;
+            case "Modifier mon compte":
+                editUser();
+                break;
             default:
                 break;
         }

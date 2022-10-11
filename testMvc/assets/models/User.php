@@ -15,7 +15,7 @@ class User extends Database
       $_SESSION['bio_user'] = $user['bio_user'];
       $_SESSION['name_user']= $user['name_user'];
       $_SESSION['email_user'] = $user['email_user'];
-      $_SESSION['id_user'] = $user['id_user'];
+      $_SESSION['id_user'] = $user['Id_user'];
       header('Location: ./confirmation');
     } else {
       // echo 'Invalid nickname or password';
@@ -28,7 +28,7 @@ class User extends Database
     $password = password_hash($_POST['pswdRegister'],  PASSWORD_DEFAULT);
     $email = $_POST['emailRegister'];
     $bio = $_POST['bioRegister'];
-    $newImg = $this->newNameImg();
+    $newImg = $this->newNameImg('profilePictureRegister');
     $existName = $this->connect()->prepare("SELECT * FROM users WHERE nickname_user = :nickname_user");
     $existName->bindValue(':nickname_user', $nickname);
     $existName->execute();
@@ -61,7 +61,7 @@ class User extends Database
       $fetchID->bindParam(':usernameToGrab', $nickname);
       $fetchID->execute();
       $transfert = $fetchID->fetch();
-      $_SESSION['id_user']= $transfert[0];
+      $_SESSION['id_user']= $transfert[0]['Id_user'];
       header('Location: ./confirmation');
     }
   }
@@ -88,50 +88,14 @@ class User extends Database
       }
     }
   }
-  public function editAccount(){
-    $name = $_POST['nameEdit'];
-    $nickname = $_POST['nicknameEdit'];
-    $password = password_hash($_POST['pswdEdit'],  PASSWORD_DEFAULT);
-    $email = $_POST['emailEdit'];
-    $bio = $_POST['bioEdit'];
-    $existName = $this->connect()->prepare("SELECT * FROM compte WHERE nickname_user = :nickname_user");
-    $existName->bindValue(':nickname_user', $nickname);
-    $existName->execute();
-    $existEmail = $this->connect()->prepare("SELECT * FROM compte WHERE email_user = :email_user");
-    $existEmail->bindValue(':email_user', $email);
-    $existEmail->execute();
-    $nicknameExist = $existName->fetch();
-    $emailExist = $existEmail->fetch();
-    if ($nicknameExist != false) {
-      header('Location: ../../pages/register.php');
-      session_destroy();
-    } else if ($emailExist != false) {
-      header('Location: ../../pages/register.php');
-      session_destroy();
-    } else {
-      $Edit = $this->connect()->prepare("UPDATE compte SET nickname_user = :nickname_user , email_user = :email_user , bio_user = :bio_user , img_user = :img_user WHERE id_user = :id");
-      $Edit->bindParam(':name_user', $name);
-      $Edit->bindParam(':nickname_user', $nickname);
-      $Edit->bindParam(':password_user', $password);
-      $Edit->bindParam(':email_user', $email);
-      $Edit->bindParam(':bio_user', $bio);
-      $Edit->bindParam(':img_user', $img);
-      $Edit->execute();
-      session_start();
-      $_SESSION['nickname_user'] = $nickname;
-      $_SESSION['bio_user'] = $bio;
-      $_SESSION['img_user'] = $img;
-      header('Location: ../../pages/confirmation.php');
-    }
-  }
-  private function newNameImg(){
-    $explodeName = explode('.', $_FILES['profilePictureRegister']['name']);
+  private function newNameImg($target){
+    $explodeName = explode('.', $_FILES[$target]['name']);
     $extension = strtolower(end($explodeName));
     $extensions = ['jpg', 'png', 'jpeg', 'gif'];
     if (in_array($extension, $extensions)) {
       $uniqueName = $this->random_string(10);
       $img_file = $uniqueName.".".$extension;
-      $_FILES['profilePictureRegister']['name']=$img_file;
+      $_FILES[$target]['name']=$img_file;
       return $img_file;
     }
   }
@@ -144,5 +108,53 @@ class User extends Database
     }
 
     return $key;
+  }
+  public function editAccount(){
+    if(!session_start()){
+      session_start();
+    }
+    $id = $_SESSION['id_user'];
+    $fileToRemove = $_SESSION['img_user'];
+    $addSelect = array();
+    $editImg = $this->newNameImg('profilePictureEditAccount');
+    if (isset($_FILES['profilePictureEditAccount']) && !empty($_FILES['profilePictureEditAccount'])) {
+      array_push($addSelect, ', img_user = :img_user');
+    }
+    $addSelections = implode(" ", $addSelect);
+    $existNickname = $this->connect()->prepare("SELECT * FROM users WHERE nickname_user = :nickname_user");
+    $existNickname->bindParam(':nickname_user', $_POST['nicknameEditAccount']);
+    $existNickname->execute();
+    $existEmail = $this->connect()->prepare("SELECT * FROM users WHERE email_user = :email_user");
+    $existEmail->bindParam(':email_user', $_POST['emailEditAccount']);
+    $existEmail->execute();
+    $nicknameExist = $existNickname->fetch();
+    $emailExist = $existEmail->fetch();
+    if ($nicknameExist == $_POST['nicknameEditAccount']) {
+      header('Location: ./editAccount');
+    } else if ($emailExist == $_POST['emailEditAccount']) {
+      header('Location: ./editAccount');
+    } else {
+      $Edit = $this->connect()->prepare('UPDATE users SET name_user = :name_user, username_user = :nickname_user, email_user = :email_user, bio_user = :bio_user ' . $addSelections . ' WHERE id_user = :id_user');
+      $Edit->bindParam(':id_user', $id);
+      $Edit->bindParam(':name_user', $_POST['nameEditAccount']);
+      $Edit->bindParam(':nickname_user', $_POST['nicknameEditAccount']);
+      $Edit->bindParam(':email_user', $_POST['emailEditAccount']);
+      $Edit->bindParam(':bio_user', $_POST['bioEditAccount']);
+      $_SESSION['name_user'] = $_POST['nameEditAccount'];
+      $_SESSION['nickname_user'] = $_POST['nicknameEditAccount'];
+      $_SESSION['email_user'] = $_POST['emailEditAccount'];
+      $_SESSION['bio_user'] = $_POST['bioEditAccount'];
+      // if (isset($_POST['pswdEdit']) && !empty($_POST['pswdEdit'])) {
+      //   $Edit->bindParam(':password_user', $password);
+      // }
+      if (isset($_FILES['profilePictureEditAccount']) && !empty($_FILES['profilePictureEditAccount']['name'])) {
+        $Edit->bindParam(':img_user', $editImg);
+        unlink('./uploadImg/'.$fileToRemove);
+        move_uploaded_file($_FILES['profilePictureEditAccount']['tmp_name'], './uploadImg/'.$editImg);
+        $_SESSION['img_user'] = $editImg;
+      }
+      $Edit->execute();
+      header('Location: ./confirmation');
+    }
   }
 }

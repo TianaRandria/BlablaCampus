@@ -1090,6 +1090,8 @@ video {
   width: 40px;
   outline: solid 3px #D41E45;
   border-radius: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 /* CSS FOR ACCOUNT */
