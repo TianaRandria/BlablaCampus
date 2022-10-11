@@ -197,15 +197,143 @@ class Trajet extends User
   // ====
   // ================================================================================================
 
+  // 0-demande    1-validé
   public function reserver()
   {
-    $idUser = $_POST['nameRegister'];
-    $idTraject = $_POST['emailRegister'];
-    $reserver = $this->connect()->prepare("INSERT INTO reserver (id_user, id_traject, ) VALUES (:name_user, :nickname_user )");
-    $reserver->bindParam(':name_user', $idUser);
-    $reserver->bindParam(':nickname_user', $idTraject);
-    $reserver->bindParam(':nickname_user', $idTraject);
+    session_start();
+    $idUser = $_SESSION['id_user'];
+    $idTraject = $_GET['id_traject'];
+    $reserverM = $this->connect()->prepare("INSERT INTO mailbox (type_message) VALUES ('0')");
+    $reserverM->execute();
+    $userGetId = $this->connect()->query('SELECT * FROM mailbox');
+    $user = $userGetId->fetch();
+    $idMess = $user['id_message'];
+    $reserver = $this->connect()->prepare("INSERT INTO reserver (id_user, id_traject, id_message) VALUES (:id_user, :id_traject, :id_message)");
+    $reserver->bindParam(':id_user', $idUser);
+    $reserver->bindParam(':id_traject', $idTraject);
+    $reserver->bindParam(':id_message', $idMess);
     $reserver->execute();
-    header('Location: ../../pages/confirmation.php');
+    $reserver->debugDumpParams();
+    header('Location: ../../pages/searchItinerary.php');
   }
+  public function getMyReservations()
+  {
+    $myReservations = $this->connect()->query('SELECT * FROM reserver INNER JOIN trajects ON trajects.id_traject = reserver.id_traject INNER JOIN users ON users.id_user = reserver.id_user');
+    return $myReservations->fetchAll();
+  }
+  //RECUPERE LES RESERVATIONS DE L'UTILISATEUR
+  // public function getReservations()
+  // {
+  //   $reservationdata = $this->connect()->prepare("SELECT reservation.id_reservation, trajets.id_user, reservation.id_user, trajets.depart, trajets.destination, trajets.jour_voyage FROM `reservation` INNER JOIN trajets ON reservation.id_trajet = trajets.id_trajet WHERE trajets.id_user = :id_user;");
+  //   $reservationdata->bindValue(':id_user', $idUser);
+  //   $reservationdata->execute();
+  //   $data = $reservationdata->fetchAll();
+  //   return $data;
+  // }
+
+
+  // public function getDataValidation()
+  // {
+  //   $validationData = $this->connect()->prepare("SELECT users.username , users.picture , trajets.depart , trajets.destination , trajets.jour_voyage , id_reservation FROM (reservation INNER JOIN trajets ON trajets.id_trajet = reservation.id_trajet) INNER JOIN users ON users.id_user = reservation.id_user WHERE id_reservation = :idReservation ;");
+  //   $validationData->bindValue(':idReservation', $idReservation);
+  //   $validationData->execute();
+  //   $data = $validationData->fetch();
+  //   return $data;
+  // }
+  // // CONFIRMATION DE RESERVATION
+  // public function confirmReservation()
+  // {
+  //   $confirm = $this->connect()->prepare("UPDATE reservation SET `accepted` = '1' WHERE id_reservation = :idReservation");
+  //   $confirm->bindValue(':idReservation', $idReservation);
+  //   $confirm->execute();
+  //   $place = $this->connect()->prepare("SELECT reservation.id_trajet , trajets.nb_voyageurs FROM trajets INNER JOIN reservation ON reservation.id_trajet = trajets.id_trajet WHERE id_reservation = :idReservation");
+  //   $place->bindValue(':idReservation', $idReservation);
+  //   $place->execute();
+  //   $places = $place->fetch();
+  //   $idTrajet = $places['id_trajet'];
+  //   $placeDispo = $places['nb_voyageurs'] - 1;
+  //   $removePlace = $this->connect()->prepare("UPDATE trajets SET nb_voyageurs = :nbVoyageurs WHERE id_trajet = :idTrajet");
+  //   $removePlace->bindValue(':idTrajet', $idTrajet);
+  //   $removePlace->bindValue(':nbVoyageurs', $placeDispo);
+  //   $removePlace->execute();
+  //   $_SESSION['confirmMessage'] = 'Votre message a bien été envoyé !';
+  //   $this->redirect("./blablacampus/confirmation.php", "0");
+  // }
+
+  // public function checkReservations()
+  // {
+  //   $check = $this->connect()->prepare("SELECT * FROM reservation WHERE id_trajet = :idTrajet AND id_user = :idUser");
+  //   $check->bindValue(':idTrajet', $idTrajet);
+  //   $check->bindValue(':idUser', $idUser);
+  //   $check->execute();
+  //   $exist = $check->fetch();
+  //   return $exist;
+  // }
+
+  // public function getValidReservations()
+  // {
+  //   $get = $this->connect()->prepare("SELECT trajets.id_trajet , trajets.jour_voyage , trajets.depart , trajets.destination , trajets.aller_retour FROM reservation INNER JOIN trajets ON reservation.id_trajet = trajets.id_trajet WHERE reservation.id_user = :idUser AND reservation.accepted = '1';");
+  //   $get->bindValue(':idUser', $idUser);
+  //   $get->execute();
+  //   $data = $get->fetchAll();
+  //   return $data;
+  // }
+
+  // public function getValidations()
+  // {
+  //   $reservationdata = $this->connect()->prepare("SELECT reservation.id_reservation, trajets.id_user, reservation.id_user, trajets.depart, trajets.destination, trajets.jour_voyage FROM `reservation` INNER JOIN trajets ON reservation.id_trajet = trajets.id_trajet WHERE reservation.id_user = :id_user AND accepted = '1' AND cancel = '0'");
+  //   $reservationdata->bindValue(':id_user', $idUser);
+  //   $reservationdata->execute();
+  //   $data = $reservationdata->fetchAll();
+  //   return $data;
+  // }
+
+  // public function cancelTraject()
+  // {
+  //   $place = $this->connect()->prepare("SELECT nb_voyageurs FROM trajets WHERE id_trajet = :idTrajet");
+  //   $place->bindValue(':idTrajet', $idTrajet);
+  //   $place->execute();
+  //   $tempPlace = $place->fetch();
+  //   $placeDispo = $tempPlace['nb_voyageurs'] + 1;
+  //   $addPlace = $this->connect()->prepare("UPDATE trajets SET nb_voyageurs = :nbVoyageurs WHERE id_trajet = :idTrajet");
+  //   $addPlace->bindValue(':idTrajet', $idTrajet);
+  //   $addPlace->bindValue(':nbVoyageurs', $placeDispo);
+  //   $addPlace->execute();
+  //   $cancel = $this->connect()->prepare("DELETE FROM reservation WHERE id_trajet = :idTrajet");
+  //   $cancel->bindValue(':idTrajet', $idTrajet);
+  //   $cancel->execute();
+  //   $_SESSION['confirmMessage'] = 'Votre réservation a bien été annulée.';
+  //   $this->redirect("./blablacampus/confirmation.php", "0");
+  // }
+
+  // public function checkDeletedTraject()
+  // {
+  //   $getReservation = $this->connect()->prepare("SELECT id_trajet FROM reservation WHERE id_user = :id_user");
+  //   $getReservation->bindValue(':id_user', $idUser);
+  //   $getReservation->execute();
+  //   $reservation = $getReservation->fetchAll();
+
+  //   for ($i = 0; $i < count($reservation); $i++) {
+  //     $getTrajets = $this->connect()->prepare("SELECT id_trajet FROM trajets WHERE id_trajet = :id_trajet");
+  //     $getTrajets->bindValue(':id_trajet', $reservation[$i]['id_trajet']);
+  //     $getTrajets->execute();
+  //     $trajet = $getTrajets->fetch();
+
+  //     if ($trajet['id_trajet'] = false) {
+
+  //       $deleted = $this->connect()->prepare("UPDATE reservation SET cancel = '1' WHERE id_trajet = :id_trajet");
+  //       $deleted->bindValue(':id_trajet', $reservation[$i]['id_trajet']);
+  //       $deleted->execute();
+  //     }
+  //   }
+  // }
+
+  // public function getCanceled()
+  // {
+  //   $reservationdata = $this->connect()->prepare("SELECT reservation.id_reservation, reservation.id_user, reservation.id_conducteur FROM `reservation` WHERE reservation.id_user = :id_user AND accepted = '1' AND cancel = '1'");
+  //   $reservationdata->bindValue(':id_user', $idUser);
+  //   $reservationdata->execute();
+  //   $data = $reservationdata->fetchAll();
+  //   return $data;
+  // }
 }

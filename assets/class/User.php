@@ -26,6 +26,7 @@ class User extends Database
   }
   public function register()
   {
+    session_destroy();
     $name = $_POST['nameRegister'];
     $nickname = $_POST['nicknameRegister'];
     $password = password_hash($_POST['pswdRegister'],  PASSWORD_DEFAULT);
@@ -72,6 +73,7 @@ class User extends Database
     session_start();
     session_destroy();
     header('Location: ../../index.php');
+    session_destroy();
   }
   public function pswdReset()
   {
