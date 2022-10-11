@@ -5,7 +5,9 @@ include('../assets/class/Trajet.php');
 // $getDateTrajects = $getDateTraj->month();
 $getAllTr = new Trajet();
 $getIdTraject = $getAllTr->getIdTrajects();
-$getAllTraject = $getAllTr->getAll();
+$getAllTraject = $getAllTr->getReservId();
+$getAllUser = $getAllTr->getIdUsers();
+
 $monthAndDay = $getAllTraject['date_traject'];
 $monthAndDayArray = explode('-', $monthAndDay);
 $day = implode('', array_splice($monthAndDayArray, 2, 2));
@@ -68,15 +70,15 @@ switch (implode('', array_splice($removeday, 1, 1))) {
   </div>
 
   <div class="flex flex-col justify-start items-start gap-10 font-epilogue">
-    <p class="font-epilogue text-lightGrey font-medium">Bonjour <span class="text-redOnline font-bold">Pauline</span></p>
-    <p class="font-epilogue text-lightGrey font-medium">Je souhaiterai réserver une place dans ta voiture pour le trajet <span class="text-redOnline font-bold">Dole - Lons le Saunier</span></p>
+    <p class="font-epilogue text-lightGrey font-medium">Bonjour <span class="text-redOnline font-bold"><?php echo $getAllUser['nickname_user'] ?></span></p>
+    <p class="font-epilogue text-lightGrey font-medium">Je souhaiterai réserver une place dans ta voiture pour le trajet <span class="text-redOnline font-bold"><?php echo $getAllTraject['start_traject'] ?> - <?php echo $getAllTraject['end_traject'] ?></span></p>
     <p class="font-epilogue text-lightGrey font-medium">En te remerciant.</p>
   </div>
   <!-- modifier la valeur des inputs caché avec l'id de l'utilisateur qui envoit le message ( celui qui réserve donc ) et l'id du trajet  -->
   <form action="confirmation.php" method="post" class="flex justify-center items-center">
     <input type="hidden" name="idUserForLinkMessage" value="">
     <input type="hidden" name="idItineraryForMessage" value="">
-    <input type="submit" value="Envoyer ma demande" class="font-workSans text-sm p-5 tracking-5px bg-redOnline text-white rounded-lg uppercase">
+    <input type="submit" name="action" value="Envoyer ma demande" class="font-workSans text-sm p-5 tracking-5px bg-redOnline text-white rounded-lg uppercase">
   </form>
 </main>
 <?php include('footer.php'); ?>

@@ -24,7 +24,6 @@ class User extends Database
       header('Location: ../../pages/login.php');
     }
   }
-
   public function register()
   {
     $name = $_POST['nameRegister'];
@@ -68,14 +67,12 @@ class User extends Database
       header('Location: ../../pages/confirmation.php');
     }
   }
-
   public function logout()
   {
     session_start();
     session_destroy();
     header('Location: ../../index.php');
   }
-
   public function pswdReset()
   {
     if (isset($_POST['email'])) {
@@ -95,7 +92,6 @@ class User extends Database
       }
     }
   }
-
   public function editAccount()
   {
     session_start();
@@ -173,15 +169,6 @@ class User extends Database
         $_SESSION['img_user'] = $img;
       }
       $Edit->execute();
-      // $Edit->debugDumpParams();
-      // var_dump($id);
-      // var_dump($name);
-      // var_dump($nickname);
-      // var_dump($password);
-      // var_dump($email);
-      // var_dump($bio);
-      // var_dump($img);
-
       header('Location: ../../pages/confirmation.php');
     }
   }

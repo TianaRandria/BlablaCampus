@@ -64,7 +64,6 @@ class Trajet extends User
     // var_dump($idUser);
     header('Location: ../../pages/searchItinerary.php');
   }
-
   public function editItinerary()
   {
     $idT = $_GET['id_traject'];
@@ -161,75 +160,52 @@ class Trajet extends User
     $search->debugDumpParams();
     return $search->fetchAll();
   }
-
+  // function for my traj page myItinerary.php
   public function getMyTrajects()
   {
     $myItinerary = $this->connect()->query('SELECT * FROM trajects WHERE id_user = ' . $_SESSION['id_user'] . '');
     return $myItinerary->fetchAll();
   }
+  // function for all traj page modifyItinerary.php , deletItinerary.php , reservation.php
   public function getIdTrajects()
   {
     $idItinerary = $this->connect()->query('SELECT * FROM trajects INNER JOIN users ON trajects.id_user = users.id_user WHERE id_traject = ' . $_GET['id_traject'] . '');
     return $idItinerary->fetch();
   }
-  public function getAll()
+  // function for my traj page reservation.php
+  public function getIdUsers()
   {
-    $allItinerary = $this->connect()->query('SELECT * FROM trajects');
+    $idItinerary = $this->connect()->query('SELECT * FROM users INNER JOIN trajects ON users.id_user = trajects.id_user WHERE id_traject = ' . $_GET['id_traject'] . '');
+    return $idItinerary->fetch();
+  }
+  // function for my traj page reservation.php
+  public function getReservId()
+  {
+    $allItinerary = $this->connect()->query('SELECT * FROM trajects WHERE id_traject = ' . $_GET['id_traject'] . '');
     return $allItinerary->fetch();
   }
+  // function for all traj page resultSearch.php
   public function getAllTrajects()
   {
     $monthItinerary = $this->connect()->query('SELECT * FROM trajects INNER JOIN users ON trajects.id_user = users.id_user WHERE 1 = 1 AND placerest_traject > 0');
     return $monthItinerary->fetchAll();
   }
 
-  public function month()
+  // ================================================================================================
+  // ====
+  // ====                           Réservation / Message
+  // ====
+  // ================================================================================================
+
+  public function reserver()
   {
-    $getAllTrajects = $this->connect()->query('SELECT * FROM trajects');
-    return $getAllTrajects->fetch();
-    $monthAndDay =  $getAllTrajects['date_traject'];
-    $monthAndDayArray = explode('-', $monthAndDay);
-    $day = implode('', array_splice($monthAndDayArray, 2, 2));
-    return $day;
-    $removeday = array_splice($monthAndDayArray, 0, 2);
-    switch (implode('', array_splice($removeday, 1, 1))) {
-      case '01':
-        $month = "JANV";
-        break;
-      case '02':
-        $month = "FEVR";
-        break;
-      case '03':
-        $month = "MARS";
-        break;
-      case '04':
-        $month = "AVR";
-        break;
-      case '05':
-        $month = "MAI";
-        break;
-      case '06':
-        $month = "JUIN";
-        break;
-      case '07':
-        $month = "JUILL";
-        break;
-      case '08':
-        $month = "AOUT";
-        break;
-      case '09':
-        $month = "SEPT";
-        break;
-      case '10':
-        $month = "OCT";
-        break;
-      case '11':
-        $month = "NOV";
-        break;
-      default:
-        $month = "DEC";
-        break;
-    }
-    return $month;
+    $idUser = $_POST['nameRegister'];
+    $idTraject = $_POST['emailRegister'];
+    $reserver = $this->connect()->prepare("INSERT INTO reserver (id_user, id_traject, ) VALUES (:name_user, :nickname_user )");
+    $reserver->bindParam(':name_user', $idUser);
+    $reserver->bindParam(':nickname_user', $idTraject);
+    $reserver->bindParam(':nickname_user', $idTraject);
+    $reserver->execute();
+    header('Location: ../../pages/confirmation.php');
   }
 }

@@ -2,7 +2,7 @@
 
 include('../class/Trajet.php');
 
-// ================= User =================
+// =================== User =======================
 
 // Condition Register
 if (isset($_POST['action']) && !empty($_POST['nameRegister'])  && !empty($_POST['nicknameRegister']) && !empty($_POST['pswdRegister']) && !empty($_POST['emailRegister']) && !empty($_POST['bioRegister']) && $_POST['action'] == "CRÉER MON COMPTE") {
@@ -35,7 +35,7 @@ if (isset($_POST['action']) && $_POST['action'] == "") {
   $pswdR->pswdReset();
 }
 
-// ================= Trajet ==================
+// ==================== Trajet =====================
 
 // Condition searchItinerary
 if (isset($_POST['action']) && $_POST['action'] == "RESERVE") {
@@ -61,4 +61,12 @@ if (isset($_POST['action']) && $_POST['action'] == "Proposer un trajet") {
 if (isset($_POST['action']) && $_POST['action'] == "Modifié un trajet") {
   $editI = new Trajet();
   $editI->editItinerary();
+}
+
+// ================= Réservations ==================
+
+// Condition reserver
+if (isset($_POST['action']) && $_POST['action'] == "Envoyer ma demande") {
+  $reserverI = new Trajet();
+  $reserverI->reserver();
 }
