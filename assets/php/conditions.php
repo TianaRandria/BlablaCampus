@@ -68,5 +68,10 @@ if (isset($_POST['action']) && $_POST['action'] == "Modifié un trajet") {
 // Condition reserver
 if (isset($_POST['action']) && $_POST['action'] == "Envoyer ma demande") {
   $reserverI = new Trajet();
-  $reserverI->reserver();
+  $reserverI->reservations();
+}
+// Condition cancel
+if (isset($_POST['confirmation']) && $_POST['confirmation'] == "Annuler ma réservation") {
+  $cancelI = new Trajet();
+  $cancelI->cancelReservations();
 }

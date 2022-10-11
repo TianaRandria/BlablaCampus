@@ -198,7 +198,7 @@ class Trajet extends User
   // ================================================================================================
 
   // 0-demande    1-validé
-  public function reserver()
+  public function reservations()
   {
     session_start();
     $idUser = $_SESSION['id_user'];
@@ -214,13 +214,28 @@ class Trajet extends User
     $reserver->bindParam(':id_message', $idMess);
     $reserver->execute();
     $reserver->debugDumpParams();
+    header('Location: ../../pages/myReservations.php');
+  }
+  public function cancelReservations()
+  {
+    $idT = $_GET['id_traject'];
+    $deletItinerary = $this->connect()->prepare("DELETE FROM trajects WHERE id_traject = :id_traject");
+    $deletItinerary->bindValue(':id_traject', $idT);
+    $deletItinerary->execute();
+    // $deletItinerary->debugDumpParams();
     header('Location: ../../pages/searchItinerary.php');
   }
   public function getMyReservations()
   {
-    $myReservations = $this->connect()->query('SELECT * FROM reserver INNER JOIN trajects ON trajects.id_traject = reserver.id_traject INNER JOIN users ON users.id_user = reserver.id_user');
+    $myReservations = $this->connect()->query('SELECT * FROM reserver INNER JOIN trajects ON trajects.id_traject = reserver.id_traject INNER JOIN users ON users.id_user = reserver.id_user WHERE reserver.id_user = ' . $_SESSION['id_user'] . '');
     return $myReservations->fetchAll();
   }
+  public function getMyMessage()
+  {
+    $myReservations = $this->connect()->query('SELECT * FROM mailbox INNER JOIN trajects ON trajects.id_traject = mailbox.id_traject INNER JOIN users ON users.id_user = mailbox.id_user WHERE user.id_user = ' . $_SESSION['id_user'] . '');
+    return $myReservations->fetchAll();
+  }
+
   //RECUPERE LES RESERVATIONS DE L'UTILISATEUR
   // public function getReservations()
   // {
