@@ -91,6 +91,7 @@
             $newArray[$i]['step1']= $oldArray[$i]['point1_traject'];
             $newArray[$i]['step2']= $oldArray[$i]['point2_traject'];
             $newArray[$i]['step3']= $oldArray[$i]['point3_traject'];
+            $newArray[$i]['numberplace_traject']=$oldArray[$i]['numberplace_traject'];
             $newArray[$i]['placeRest']=$oldArray[$i]['placerest_traject'];
             $newArray[$i]['type_traject']=$oldArray[$i]['type_traject'];
             $newArray[$i]['date_traject'] = $oldArray[$i]['date_traject'];

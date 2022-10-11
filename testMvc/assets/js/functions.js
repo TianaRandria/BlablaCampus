@@ -10,7 +10,7 @@ function fetchTextHeader(){
             controle++;
         }
         if(controle === 4){
-            changingZone.insertAdjacentHTML('afterbegin', '<img src="../assets/img/humanLogo.png" alt="humain stylisé">');
+            changingZone.insertAdjacentHTML('afterbegin', '<img src="./assets/img/humanLogo.png" alt="humain stylisé">');
         }
         if (filename === "confirmation"){
             for (let i = 0; i < data.referant.length; i++) {

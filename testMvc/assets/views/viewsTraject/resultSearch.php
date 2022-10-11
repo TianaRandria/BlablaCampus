@@ -18,7 +18,7 @@ session_start();
                     <p class="endingPoint text-lightGrey font-medium text-sm font-epilogue"><?php if ($transfert[0]['end_point'] == "46.6709261,5.5631747") {echo "13b Avenue du Stade Municipal, 39000 Lons-le-Saunier";}else{echo "2 Rte de Montaigu, 39000 Lons-le-Saunier";}?></p>
                 </div>
             </div>
-            <img src="../assets//img/upDown.png" alt="doubles inversés haut et bas" class="fleche">
+            <img src="./assets/img/upDown.png" alt="doubles inversés haut et bas" class="fleche">
         </div>
 
         <!--       Seule modif à faire ici pour toi Vincent , c'est dans la span , remplacé par probablement un count du nombre de résultats retourné par ton select -->
@@ -28,7 +28,7 @@ session_start();
         <!-- texte fixe ou aucune modif n'est nécessaireok -->
 
         <div class="w-full flex justify-between items-center gap-2">
-            <img src="../assets/img/clock.png" alt="Logo d'horloge">
+            <img src="./assets/img/clock.png" alt="Logo d'horloge">
             <p class="font-epilogue font-medium text-xs">Les trajets sont triés chronologiquement par heure de départ.</p>
         </div>    
     <?php

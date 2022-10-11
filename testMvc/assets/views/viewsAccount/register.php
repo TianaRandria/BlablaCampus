@@ -13,7 +13,7 @@
     <textarea name="bioRegister" id="bioRegister" cols="30" rows="8" placeholder="Entrez votre bio ici" class="bg-xtraLightGrey rounded-lg resize-none" maxlength="140" required></textarea>
     <p class="font-bungee">Téléchargez une image de profil</p>
     <label for="profilePictureRegister" id="profilePictureRegisterLabel" class="bg-xtraLightGrey rounded-lg flex flex-col justify-center items-center w-full h-48 text-center box-border break-words overflow-hidden">
-        <img src="../assets/img/landscape.png" alt="Logo de paysage stylisé">
+        <img src="./assets/img/landscape.png" alt="Logo de paysage stylisé">
         <p>Glisser-déposer ou parcourir un fichier</p>
         <p class="text-sm w-3/4 text-center">Taille recommandée : JPG, PNG, GIF (150x150px, Max 1mb)</p>
     </label>

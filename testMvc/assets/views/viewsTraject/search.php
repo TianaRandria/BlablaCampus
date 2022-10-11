@@ -7,13 +7,13 @@
 <form action="./resultSearch" method="post" id="searchItinerary" class="w-5/6 flex flex-col gap-3 justify-center items-center">
     <div class="bg-xtraLightGrey w-full flex rounded-lg min-h-14 relative" id="autoSearch">
         <div class="p-3 w-1/5 flex justify-center items-center">
-            <img src="../assets/img/pinPoint.png" alt="Cible d'un lieu">
+            <img src="./assets/img/pinPoint.png" alt="Cible d'un lieu">
         </div>
         <input type="text" name="startingPointSearch" id="startingPointSearch" placeholder="Départ" class="bg-xtraLightGrey w-4/5 font-epilogue font-medium text-base">
     </div>
     <div class="bg-xtraLightGrey w-full flex rounded-lg h-14">
         <div class="p-3 w-1/5 flex justify-center items-center">
-            <img src="../assets/img/pinPoint.png" alt="Cible d'un lieu">
+            <img src="./assets/img/pinPoint.png" alt="Cible d'un lieu">
         </div>
         <select name="arrivalPointSearch" id="arrivalPointSearch" class="w-4/5 bg-xtraLightGrey">
             <option value="46.6709261,5.5631747">13b Avenue du Stade Municipal, 39000 Lons-le-Saunier</option>
@@ -23,7 +23,7 @@
     <div class="w-full h-14 bg-xtraLightGrey" id="blocDateSearch">
         <div id="firstRow" class="w-full h-full flex justify-start items-center">
             <div class="w-1/5 flex justify-center items-center">
-                <img src="../assets/img/calendar.png" alt="logo de calendrier">
+                <img src="./assets/img/calendar.png" alt="logo de calendrier">
             </div>
             <p class="w-4/5">Aujourd'hui</p>
         </div>
