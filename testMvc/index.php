@@ -10,6 +10,21 @@ if(empty($_GET['page'])){
         header('Location: ./searchItinerary');
     }
 }else{
+    switch($_GET['page']){
+        case "login" :
+        case "register":
+        case "myAccount":
+            accountPage();
+            break;
+        case "searchItinerary":
+        case "newItinerary":
+            trajectPage();
+            break;
+        case "confirmation":
+            confirmationPage();
+            break;
+        default:
+    }
     if (isset($_POST['action'])) {
         switch ($_POST['action']) {
             case 'SE CONNECTER':
