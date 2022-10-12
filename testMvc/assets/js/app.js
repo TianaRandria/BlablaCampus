@@ -11,8 +11,13 @@ if (filename != "") {
             break;
         case "register":
             profilePictureRegister.addEventListener('change', function(e){
-                fileChecker(e);
+                fileChecker(e , profilePictureRegisterLabel);
             })
+            break;
+        case "editAccount":
+            profilePictureEditAccount.addEventListener('change', function(e){
+                fileChecker(e, profilePictureEditAccountLabel);
+                })
             break;
         case "newItinerary":
             switchCheckboxCreateItinerary(checkboxForth, checkboxBackAndForth);
@@ -24,6 +29,13 @@ if (filename != "") {
             });
             autocomplete('#createItineraryDepart');
             autocomplete('#step1New');
+            hiddingSubmitButton('#step1New');
+            itineraryFinalCreate.addEventListener('change',function () {
+                if(itineraryFinalCreate.value !=="") {
+                    addNewItinerary.classList.remove("hidden");
+                }else{addNewItinerary.classList.add("hidden");}
+                calculTimeTravel();
+            })
             break;
         case "myItinerary":
             for (let i = 0; i < cardTraject.length; i++) {

@@ -62,6 +62,9 @@ if ( url.includes('pages') == true && filename != "index.php") {
                 case "reservationCancel.php":
                     redirectTimed("/myReservations.php");
                     break;
+                case "reservation.php":
+                    redirectTimed("/myReservations.php");
+                    break;
                 case "editAccount.php":
                     redirectTimed("/searchitinerary.php");
                     break;

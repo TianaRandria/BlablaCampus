@@ -6,13 +6,6 @@
         require(__DIR__.'/../views/homePage.php');
     }
     function confirmationPage(){
+        $title = 'Félicitations';
         require(__DIR__.'/../views/confirmation.php');
     }
-    // function testConnect(){
-    //     $testConnect = new Database;
-    //     echo $testConnect->connect();
-    // }
-    // function test(){
-    //     $test = new User;
-    //     echo $test->test();
-    // }

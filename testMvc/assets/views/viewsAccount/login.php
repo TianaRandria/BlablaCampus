@@ -1,5 +1,4 @@
 <?php ob_start();
-session_start();
 ?>
 <form action="" method="post" class="flex flex-col w-5/6 gap-9">
     <label for="login" class="bungee text-lg">Entrez vos informations</label>

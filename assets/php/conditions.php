@@ -2,7 +2,7 @@
 
 include('../class/Trajet.php');
 
-// ================= User =================
+// =================== User =======================
 
 // Condition Register
 if (isset($_POST['action']) && !empty($_POST['nameRegister'])  && !empty($_POST['nicknameRegister']) && !empty($_POST['pswdRegister']) && !empty($_POST['emailRegister']) && !empty($_POST['bioRegister']) && $_POST['action'] == "CRÉER MON COMPTE") {
@@ -35,17 +35,22 @@ if (isset($_POST['action']) && $_POST['action'] == "") {
   $pswdR->pswdReset();
 }
 
-// ================= Trajet ==================
+// ==================== Trajet =====================
 
 // Condition searchItinerary
-if (isset($_POST['confirmation']) && $_POST['confirmation'] == "RECHERCHER") {
+if (isset($_POST['action']) && $_POST['action'] == "RESERVE") {
+  $reserveI = new Trajet();
+  $reserveI->searchItinerary();
+}
+// Condition searchItinerary
+if (isset($_POST['action']) && $_POST['action'] == "RECHERCHER") {
   $searchI = new Trajet();
   $searchI->searchItinerary();
 }
 // Condition deletItinerary
 if (isset($_POST['confirmation']) && $_POST['confirmation'] == "Supprimer") {
   $deletI = new Trajet();
-  $deletI->editItinerary();
+  $deletI->deletItinerary();
 }
 // Condition newItinerary
 if (isset($_POST['action']) && $_POST['action'] == "Proposer un trajet") {
@@ -53,7 +58,26 @@ if (isset($_POST['action']) && $_POST['action'] == "Proposer un trajet") {
   $newI->newItinerary();
 }
 // Condition editItinerary
-if (isset($_POST['action']) && !empty($_POST['createItineraryDepart'])  && !empty($_POST['itineraryFinalCreate']) && !empty($_POST['dateDepart']) && !empty($_POST['departureTime']) && !empty($_POST['placesNumber']) && !empty($_POST['typeTrajetTest']) && $_POST['action'] == "Modifié un trajet") {
+if (isset($_POST['action']) && $_POST['action'] == "Modifié un trajet") {
   $editI = new Trajet();
   $editI->editItinerary();
 }
+
+// ================= Réservations ==================
+
+// Condition reserver
+if (isset($_POST['action']) && $_POST['action'] == "Envoyer ma demande") {
+  $reserverI = new Trajet();
+  $reserverI->reservations();
+}
+// Condition cancel
+if (isset($_POST['confirmation']) && $_POST['confirmation'] == "Annuler ma réservation") {
+  $cancelI = new Trajet();
+  $cancelI->cancelReservations();
+}
+// Condition valider
+if (isset($_POST['confirmation']) && $_POST['confirmation'] == "Annuler ma réservation") {
+  $cancelI = new Trajet();
+  $cancelI->cancelReservations();
+}
+// header('Location: ../../pages/searchItinerary.php');

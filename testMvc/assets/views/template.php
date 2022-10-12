@@ -15,4 +15,13 @@
     if(isset($newItinerary)){
         echo $newItinerary;
     }
+    if(isset($searchResult)){
+        echo $searchResult;
+    }
+    if(isset($editAccount)){
+        echo $editAccount;
+    }
+    if(isset($myItinerary)){
+        echo $myItinerary;
+    }
     require('./assets/views/footer.php');
