@@ -10,7 +10,7 @@ function fetchTextHeader(){
             controle++;
         }
         if(controle === 4){
-            changingZone.insertAdjacentHTML('afterbegin', '<img src="../assets/img/humanLogo.png" alt="humain stylisé">');
+            changingZone.insertAdjacentHTML('afterbegin', '<img src="./assets/img/humanLogo.png" alt="humain stylisé">');
         }
         if (filename === "confirmation"){
             for (let i = 0; i < data.referant.length; i++) {
@@ -102,7 +102,7 @@ function childRemove(target) {
         target.removeChild(target.firstChild);
     }
 }
-function fileChecker(e){
+function fileChecker(e, f){
     let fileType;
     const files = e.target.files;
     for (const file of files) {
@@ -111,17 +111,17 @@ function fileChecker(e){
     }
     if(fileType[0] != 'image'){
         profilePictureRegister.value ="";
-        childRemove(profilePictureRegisterLabel);
-        profilePictureRegisterLabel.textContent = "Mauvais type de fichier , veuillez choisir un autre fichier";
+        childRemove(f);
+        f.textContent = "Mauvais type de fichier , veuillez choisir un autre fichier";
     }
     if(files[0].size > 1048576){
         profilePictureRegister.value ="";
-        childRemove(profilePictureRegisterLabel);
-        profilePictureRegisterLabel.textContent = "Fichier trop lourd , veuillez choisir un autre fichier";
+        childRemove(f);
+        f.textContent = "Fichier trop lourd , veuillez choisir un autre fichier";
     }
     else{
-        childRemove(profilePictureRegisterLabel);
-        profilePictureRegisterLabel.textContent = files[0].name;
+        childRemove(f);
+        f.textContent = files[0].name;
     }
 }
 function autocomplete(target){
@@ -189,6 +189,7 @@ function calculTimeTravel(){
         fetch('https://api.geoapify.com/v1/routing?waypoints='+$textQuery+'&mode=drive&apiKey=af3f6cef19954a839ffa0379b6264d9d').then(response => response.json()).then(data => {
             let resultHour = Math.floor(data.features[0].properties.time);
             resultHour = (resultHour - (resultHour % 60))/60;
+            console.log(resultHour);
             if(resultHour >= 60 ){
                 resultMin = (resultHour % 60);
                 resultHour = (resultHour - resultMin) / 60;
@@ -197,7 +198,11 @@ function calculTimeTravel(){
                 }
                 inputTimeToTravel.value = resultHour+':'+resultMin+':00';
             }else{
-                inputTimeToTravel.value = '00:'+resultHour+':00 ';
+                if(resultHour < 10){
+                    inputTimeToTravel.value = '00:0'+resultHour+':00 ';
+                }else{
+                    inputTimeToTravel.value = '00:'+resultHour+':00 ';
+                }
             }
         })
     }
@@ -205,3 +210,4 @@ function calculTimeTravel(){
 function changeAutocompleteMode(target){
     document.querySelector(target).autocomplete = 'off';
 }
+// TODO: modifié le tout pour enregistrer les durée d'étapes retourner dans le JSON ( merci Julien)

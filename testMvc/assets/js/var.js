@@ -32,6 +32,9 @@ let LatLonstep1 = document.querySelector('#LatLonstep1New');
 let LatLonstep2 = document.querySelector('#LatLonstep2New');
 let LatLonstep3 = document.querySelector('#LatLonstep3New');
 let inputTimeToTravel = document.querySelector('#inputTimeToTravel');
+let profilePictureEditAccount= document.querySelector('#profilePictureEditAccount');
+let profilePictureEditAccountLabel= document.querySelector('#profilePictureEditAccountLabel');
+
 const filenameToCheck = ['searchItinerary','newItinerary', 'modifyItinerary']
 const rowStep2 = [
     {"type":"div","ID":"rowStep2", "location":"allStepCreateItinerary","class":"flex w-full","inputType":"","placeholder":"","src":"","alt":"","name":""},
