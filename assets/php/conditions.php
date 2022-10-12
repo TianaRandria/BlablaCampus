@@ -75,3 +75,9 @@ if (isset($_POST['confirmation']) && $_POST['confirmation'] == "Annuler ma rése
   $cancelI = new Trajet();
   $cancelI->cancelReservations();
 }
+// Condition valider
+if (isset($_POST['confirmation']) && $_POST['confirmation'] == "Annuler ma réservation") {
+  $cancelI = new Trajet();
+  $cancelI->cancelReservations();
+}
+// header('Location: ../../pages/searchItinerary.php');

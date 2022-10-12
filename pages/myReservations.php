@@ -29,7 +29,7 @@ include('../assets/class/Trajet.php');
       </div>
       <img src="../assets//img/upDown.png" alt="doubles inversés haut et bas" class="fleche">
       <div class="modalReservations h-full w-full absolute flex top-0 left-0 rounded-lg hidden modal1">
-        <form action="reservationCancel.php?id_reserver=<?php echo $myReservations[$i]['id_reservation'] ?>" class="w-full h-full bg-redOnline rounded-lg flex justify-center items-center" method="post">
+        <form action="reservationCancel.php?id_reservation=<?php echo $myReservations[$i]['id_reservation'] ?>" class="w-full h-full bg-redOnline rounded-lg flex justify-center items-center" method="post">
           <input type="submit" value="Annuler" name="action" class="font-bungee text-white text-xl">
         </form>
       </div>
