@@ -218,10 +218,10 @@ class Trajet extends User
   }
   public function cancelReservations()
   {
-    $idT = $_GET['id_traject'];
-    $deletItinerary = $this->connect()->prepare("DELETE FROM trajects WHERE id_traject = :id_traject");
-    $deletItinerary->bindValue(':id_traject', $idT);
-    $deletItinerary->execute();
+    $idR = $_GET['id_reservation'];
+    $cancelReservation = $this->connect()->prepare("DELETE FROM reserver WHERE id_reservation = :id_reservation");
+    $cancelReservation->bindValue(':id_reservation', $idR);
+    $cancelReservation->execute();
     // $deletItinerary->debugDumpParams();
     header('Location: ../../pages/searchItinerary.php');
   }
@@ -235,7 +235,12 @@ class Trajet extends User
     $myReservations = $this->connect()->query('SELECT * FROM mailbox INNER JOIN trajects ON trajects.id_traject = mailbox.id_traject INNER JOIN users ON users.id_user = mailbox.id_user WHERE user.id_user = ' . $_SESSION['id_user'] . '');
     return $myReservations->fetchAll();
   }
-
+  // function for my traj page reservation.php
+  public function getCancelReservId()
+  {
+    $cancelReservation = $this->connect()->query('SELECT * FROM reserver WHERE id_reservation = ' . $_GET['id_reservation'] . '');
+    return $cancelReservation->fetch();
+  }
   //RECUPERE LES RESERVATIONS DE L'UTILISATEUR
   // public function getReservations()
   // {
