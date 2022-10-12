@@ -13,6 +13,9 @@
             case 'myAccount':
                 require('./assets/views/viewsAccount/myAccount.php');
                 break;
+            case 'editAccount':
+                require('./assets/views/viewsAccount/editAccount.php');
+                break;
             default:
                 break;
         }
@@ -28,4 +31,8 @@
     function logoutUser(){
         $logout = new User;
         $logout->logout();
+    }
+    function editUser(){
+        $edit = new User();
+        $edit->editAccount();
     }

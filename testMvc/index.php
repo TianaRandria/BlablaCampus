@@ -6,8 +6,7 @@ foreach ($list as $controller) {
 }
 if(empty($_GET['page'])){
     homePage();
-    if(isset($_SESSION['nickname_user'])){
-        session_start();
+    if(isset($_SESSION['username_user'])){
         header('Location: ./searchItinerary');
     }
 }else{
@@ -20,13 +19,17 @@ if(empty($_GET['page'])){
                 registerUser();
                 break;
             case "RECHERCHER":
-                $test = searchItineraryControl();
+                $transfert = newArray(searchItineraryControl());
+                require('./assets/views/viewsTraject/resultSearch.php');
                 break;
             case "Se déconnecter":
                 logoutUser();
                 break;
             case "Proposer un trajet":
                 registerTraject();
+                break;
+            case "Modifier mon compte":
+                editUser();
                 break;
             default:
                 break;
@@ -36,11 +39,13 @@ if(empty($_GET['page'])){
         case "login" :
         case "register":
         case "myAccount":
+        case "editAccount":
             accountPage();
             break;
         case "searchItinerary":
         case "newItinerary":
         case "resultSearch":
+        case "myItinerary":
             trajectPage();
             break;
         case "confirmation":

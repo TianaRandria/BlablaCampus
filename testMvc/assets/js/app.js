@@ -11,8 +11,13 @@ if (filename != "") {
             break;
         case "register":
             profilePictureRegister.addEventListener('change', function(e){
-                fileChecker(e);
+                fileChecker(e , profilePictureRegisterLabel);
             })
+            break;
+        case "editAccount":
+            profilePictureEditAccount.addEventListener('change', function(e){
+                fileChecker(e, profilePictureEditAccountLabel);
+                })
             break;
         case "newItinerary":
             switchCheckboxCreateItinerary(checkboxForth, checkboxBackAndForth);
