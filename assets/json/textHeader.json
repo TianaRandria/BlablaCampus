@@ -1,0 +1,20 @@
+{
+    "textes": [
+        {"file": "register.php", "toWrite": "CRÉER UN COMPTE"},
+        {"file": "login.php", "toWrite": "SE CONNECTER"},
+        {"file": "pswdReset.php", "toWrite": "MOT DE PASSE PERDU"},
+        {"file": "confirmation.php", "toWrite": "CONFIRMATION"}
+    ],
+    "referant":[
+        {"file":"login.php","toWrite":"Vous êtes bien connecté"},
+        {"file":"register.php","toWrite":"Votre compte a bien été crée"},
+        {"file":"pswdReset.php","toWrite":"Un email vient de vous être envoye pour réinitialiser votre mot de passe."},
+        {"file":"changeItinerary.php","toWrite":"Votre trajet à bien été modifié!"},
+        {"file":"reservation.php","toWrite":"Votre message a bien été envoyé"},
+        {"file":"validation.php","toWrite":"Votre message a bien été envoyé"},
+        {"file":"deleteItinerary.php","toWrite":"Votre trajet à bien été supprimé!"},
+        {"file":"reservationCancel.php","toWrite":"Votre réservation a bien été annulée!"},
+        {"file":"editAccount.php","toWrite":"Votre compte a bien été mis à jour"},
+        {"file":"reservation.php","toWrite":"Trajet réserver"}
+    ]
+}
