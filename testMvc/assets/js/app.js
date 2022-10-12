@@ -34,7 +34,7 @@ if (filename != "") {
                 if(itineraryFinalCreate.value !=="") {
                     addNewItinerary.classList.remove("hidden");
                 }else{addNewItinerary.classList.add("hidden");}
-                calculTimeTravel();
+                calculTimeTravel('#LatLoncreateItineraryDepart');
             })
             break;
         case "myItinerary":
@@ -82,10 +82,21 @@ if (filename != "") {
         case "modifyItinerary":
             switchCheckboxCreateItinerary(checkboxForth, checkboxBackAndForth);
             switchCheckboxCreateItinerary(checkboxBackAndForth, checkboxForth);
-            if (!document.querySelector('#step2New')) {
-                step1Adding.addEventListener("click", function(){
-                    if (step1New.value !=="") {
-                        newStepItinerary();
+            forceFetch(modifyItineraryDepart ,LatLonmodifyItineraryDepart);
+            if ( step1Adding !== null && step1Adding.value != ""){
+                forceFetch(step1Adding, LatLonstep1modify);
+            }
+            if ( step2Adding !== null && step2Adding.value != ""){
+                forceFetch(step2Adding, LatLonstep2modify);
+            }
+            if ( step3Adding !== null && step3Adding.value != ""){
+                forceFetch(step3Adding, LatLonstep3modify);
+            }
+            if (document.querySelector('#step2Adding') == null) {
+                console.log('test');
+                document.querySelector('#step1AddingStep').addEventListener("click", function(){
+                    if (modifystep1Adding.value !=="") {
+                        modifyStepItinerary();
                     }
                 });
             }else{
@@ -95,11 +106,12 @@ if (filename != "") {
                         for (let i = 0; i < rowStep3.length; i++) {
                             createElement(rowStep3[i].type, rowStep3[i].ID, rowStep3[i].location, rowStep3[i].class, rowStep3[i].inputType, rowStep3[i].placeholder,rowStep3[i].src, rowStep3[i].alt,rowStep3[i].name)
                         }
-                        autocomplete('#step3New');
+                        autocomplete('#modifystep3Adding');
                     }
                 })
             }
             autocomplete('#modifyItineraryDepart');
+            autocomplete('#modifystep1Adding');
             break;
         default:
             break;

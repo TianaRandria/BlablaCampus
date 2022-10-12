@@ -141,8 +141,9 @@ function autocomplete(target){
                         document.querySelector(target).value = document.querySelector('#result'+i).textContent;
                         e.target.parentNode.removeChild(e.target.parentNode.lastChild);
                         let transfertName = target.replace('#','');
+                        console.log(transfertName);
                         document.querySelector('#LatLon'+transfertName).value = data.results[i].lat+','+data.results[i].lon;
-                        calculTimeTravel();
+                        calculTimeTravel('#LatLon'+transfertName);
                         if (document.querySelector('.toChange').classList.contains('hidden')) {
                             document.querySelector('.toChange').classList.remove('hidden');
                         }
@@ -164,32 +165,54 @@ function hiddingSubmitButton(target){
         }
     })
 }
-function calculTimeTravel(){
-    if (document.querySelector('#LatLoncreateItineraryDepart').value != "" && document.querySelector('#itineraryFinalCreate').value != ""){
-        $textQuery = document.querySelector('#LatLoncreateItineraryDepart').value+"|";
-        if (document.querySelector('#LatLonstep1New').value != "") {
-            $textQuery += document.querySelector('#LatLonstep1New').value;
-            if (document.querySelector('#LatLonstep2New') !== null){
-                if (document.querySelector('#LatLonstep2New').value !="") {
-                    $textQuery += '|'+document.querySelector('#LatLonstep2New').value;
-                if (document.querySelector('#LatLonstep3New') !== null) {
-                    if (document.querySelector('#LatLonstep3New').value != "") {
-                        $textQuery += '|'+document.querySelector('#LatLonstep3New').value+'|';
+function calculTimeTravel(target){
+    if (document.querySelector(target).value != "" && document.querySelector('#itineraryFinalCreate').value != ""){
+        $textQuery = document.querySelector(target).value+"|";
+        if (document.querySelector('#LatLonstep1New') !== null) {
+            if (document.querySelector('#LatLonstep1New').value != "") {
+                $textQuery += document.querySelector('#LatLonstep1New').value;
+                if (document.querySelector('#LatLonstep2New') !== null){
+                    if (document.querySelector('#LatLonstep2New').value !="") {
+                        $textQuery += '|'+document.querySelector('#LatLonstep2New').value;
+                    if (document.querySelector('#LatLonstep3New') !== null) {
+                        if (document.querySelector('#LatLonstep3New').value != "") {
+                            $textQuery += '|'+document.querySelector('#LatLonstep3New').value+'|';
+                        }
                     }
-                }
-                else{
+                    else{
+                        $textQuery += '|'
+                    }
+                    }
+                }else{
                     $textQuery += '|'
                 }
-                }
-            }else{
-                $textQuery += '|'
-            }
+            } 
         }
-        $textQuery += document.querySelector('#itineraryFinalCreate').value
+        if (document.querySelector('#LatLonmodifystep1Adding') !== null) {
+            if (document.querySelector('#LatLonmodifystep1Adding').value != "") {
+                $textQuery += document.querySelector('#LatLonmodifystep1Adding').value;
+                if (document.querySelector('#LatLonmodifystep2Adding') !== null){
+                    if (document.querySelector('#LatLonmodifystep2Adding').value !="") {
+                        $textQuery += '|'+document.querySelector('#LatLonmodifystep2Adding').value;
+                    if (document.querySelector('#LatLonmodifystep3Adding') !== null) {
+                        if (document.querySelector('#LatLonmodifystep3Adding').value != "") {
+                            $textQuery += '|'+document.querySelector('#LatLonmodifystep3Adding').value+'|';
+                        }
+                    }
+                    else{
+                        $textQuery += '|'
+                    }
+                    }
+                }else{
+                    $textQuery += '|'
+                }
+            } 
+        }
+        $textQuery += document.querySelector('#itineraryFinalCreate').value;
+        console.log($textQuery);
         fetch('https://api.geoapify.com/v1/routing?waypoints='+$textQuery+'&mode=drive&apiKey=af3f6cef19954a839ffa0379b6264d9d').then(response => response.json()).then(data => {
             let resultHour = Math.floor(data.features[0].properties.time);
             resultHour = (resultHour - (resultHour % 60))/60;
-            console.log(resultHour);
             if(resultHour >= 60 ){
                 resultMin = (resultHour % 60);
                 resultHour = (resultHour - resultMin) / 60;
@@ -209,5 +232,30 @@ function calculTimeTravel(){
 }
 function changeAutocompleteMode(target){
     document.querySelector(target).autocomplete = 'off';
+}
+function forceFetch(target, targetWriting){
+    fetch('https://api.geoapify.com/v1/geocode/autocomplete?text='+target.value+'&filter=countrycode:fr&format=json&apiKey=af3f6cef19954a839ffa0379b6264d9d').then(response => response.json()).then(data =>{
+        targetWriting.value = data.results[0].lat+','+data.results[0].lon;
+    })
+}
+function modifyStepItinerary(){
+    step1AddingStep.classList.add('hidden');
+    for (let i = 0; i < rowStep2Modify.length; i++) {
+        createElement(rowStep2Modify[i].type, rowStep2Modify[i].ID, rowStep2Modify[i].location, rowStep2Modify[i].class, rowStep2Modify[i].inputType, rowStep2Modify[i].placeholder,rowStep2Modify[i].src, rowStep2Modify[i].alt,rowStep2Modify[i].name)
+    }
+    changeAutocompleteMode('#modifystep2Adding');
+    autocomplete('#modifystep2Adding');
+    hiddingSubmitButton('#modifystep2Adding');
+    document.querySelector('#step2AddingStep').addEventListener('click', function(){
+        if(document.querySelector('#step2Adding').value !==""){
+            document.querySelector('#step2AddingStep').classList.add('hidden');
+            for (let i = 0; i < rowStep3modify.length; i++) {
+                createElement(rowStep3modify[i].type, rowStep3modify[i].ID, rowStep3modify[i].location, rowStep3modify[i].class, rowStep3modify[i].inputType, rowStep3modify[i].placeholder,rowStep3modify[i].src, rowStep3modify[i].alt,rowStep3modify[i].name)
+            }
+            changeAutocompleteMode('#step3Addingmodify');
+            autocomplete('#step3Addingmodify');
+            hiddingSubmitButton('#step3Addingmodify');
+        }
+    })
 }
 // TODO: modifié le tout pour enregistrer les durée d'étapes retourner dans le JSON ( merci Julien)

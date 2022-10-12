@@ -18,6 +18,9 @@
                 $transfert = newArray($listTraject->getMyTrajects());
                 require('./assets/views/viewsTraject/myItinerary.php');
                 break;
+            case 'modifyItinerary':
+                require('./assets/views/viewsTraject/modifyItinerary.php');
+                break;
             default:
                 break;
         }

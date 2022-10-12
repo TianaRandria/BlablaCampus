@@ -46,6 +46,7 @@ if(empty($_GET['page'])){
         case "newItinerary":
         case "resultSearch":
         case "myItinerary":
+        case "modifyItinerary":
             trajectPage();
             break;
         case "confirmation":

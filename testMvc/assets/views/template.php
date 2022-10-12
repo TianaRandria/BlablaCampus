@@ -24,4 +24,7 @@
     if(isset($myItinerary)){
         echo $myItinerary;
     }
+    if(isset($modifyItinerary)){
+        echo $modifyItinerary;
+    }
     require('./assets/views/footer.php');
