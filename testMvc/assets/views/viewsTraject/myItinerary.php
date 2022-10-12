@@ -18,18 +18,18 @@
                 </div>
                 <img src="<?php if($transfert[$i]['type_traject'] == 1){echo './assets/img/upDown.png';}else{echo './assets/img/arrowDown.svg';} ?>" alt="doubles inversés haut et bas" class="fleche">
                 <div class="modalTraject h-full w-full absolute flex top-0 left-0 rounded-lg hidden modal2">
-                    <form action="./modifyItinerary" class="w-1/2 h-full bg-redOnline rounded-l-lg flex justify-center items-center" method="post">
-                        <input type="hidden" name="startingPointToTransfert" value="<?= $transfert[$i][''] ?>">
-                        <input type="hidden" name="endPointToTransfert" value="<?= $transfert[$i][''] ?>">
-                        <input type="hidden" name="hourStartToTransfert" value="<?= $transfert[$i][''] ?>">
-                        <input type="hidden" name="dateToTransfert" value="<?= $transfert[$i][''] ?>">
-                        <input type="hidden" name="step1ToTransfert" value="<?= $transfert[$i][''] ?>">
-                        <input type="hidden" name="step2ToTransfert" value="<?= $transfert[$i][''] ?>">
-                        <input type="hidden" name="step3ToTransfert" value="<?= $transfert[$i][''] ?>">
-                        <input type="hidden" name="tttToTransfert" value="<?= $transfert[$i][''] ?>">
-                        <input type="hidden" name="numberPlaceToTransfert" value="<?= $transfert[$i][''] ?>">
-                        <input type="hidden" name="placeRestToTransfert" value="<?= $transfert[$i][''] ?>">
-                        <input type="hidden" name="type_Traject" value="<?= $transfert[$i][''] ?>">
+                    <form action="./modifyItinerary" class="w-1/2 h-full bg-redOnline rounded-l-lg flex justify-center items-center" method="get">
+                        <input type="hidden" name="startingPointToTransfert" value="<?= $transfert[$i]['starting_point'] ?>">
+                        <input type="hidden" name="endPointToTransfert" value="<?= $transfert[$i]['end_point'] ?>">
+                        <input type="hidden" name="hourStartToTransfert" value="<?= $transfert[$i]['hourStart'] ?>">
+                        <input type="hidden" name="dateToTransfert" value="<?= $transfert[$i]['date_traject'] ?>">
+                        <input type="hidden" name="step1ToTransfert" value="<?= $transfert[$i]['step1'] ?>">
+                        <input type="hidden" name="step2ToTransfert" value="<?= $transfert[$i]['step2'] ?>">
+                        <input type="hidden" name="step3ToTransfert" value="<?= $transfert[$i]['step3'] ?>">
+                        <input type="hidden" name="tttToTransfert" value="<?= $transfert[$i]['timeTotravel'] ?>">
+                        <input type="hidden" name="numberPlaceToTransfert" value="<?= $transfert[$i]['numberplace_traject'] ?>">
+                        <input type="hidden" name="placeRestToTransfert" value="<?= $transfert[$i]['placeRest'] ?>">
+                        <input type="hidden" name="type_Traject" value="<?= $transfert[$i]['type_traject'] ?>">
                         <input type="hidden" name="idToTransfert" value="<?= $transfert[$i]['id_traject']?>">
                         <input type="submit" value="editer" name="action" class="font-bungee text-white text-xl">
                     </form>
