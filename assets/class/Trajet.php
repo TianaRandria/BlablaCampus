@@ -187,7 +187,7 @@ class Trajet extends User
   // function for all traj page resultSearch.php
   public function getAllTrajects()
   {
-    $monthItinerary = $this->connect()->query('SELECT * FROM trajects INNER JOIN users ON trajects.id_user = users.id_user WHERE 1 = 1 AND placerest_traject > 0');
+    $monthItinerary = $this->connect()->query('SELECT * FROM trajects INNER JOIN users ON trajects.id_user = users.id_user AND placerest_traject > 0 WHERE users.id_user != ' . $_SESSION['id_user'] . '');
     return $monthItinerary->fetchAll();
   }
 
@@ -205,7 +205,7 @@ class Trajet extends User
     $idTraject = $_GET['id_traject'];
     $reserverM = $this->connect()->prepare("INSERT INTO mailbox (type_message) VALUES ('0')");
     $reserverM->execute();
-    $userGetId = $this->connect()->query('SELECT * FROM mailbox');
+    $userGetId = $this->connect()->query('SELECT id_message FROM mailbox');
     $user = $userGetId->fetch();
     $idMess = $user['id_message'];
     $reserver = $this->connect()->prepare("INSERT INTO reserver (id_user, id_traject, id_message) VALUES (:id_user, :id_traject, :id_message)");
@@ -213,7 +213,7 @@ class Trajet extends User
     $reserver->bindParam(':id_traject', $idTraject);
     $reserver->bindParam(':id_message', $idMess);
     $reserver->execute();
-    $reserver->debugDumpParams();
+    // $reserver->debugDumpParams();
   }
   public function cancelReservations()
   {

@@ -3,7 +3,7 @@ include('../assets/class/Trajet.php');
 
 ?>
 
-<main class="flex flex-col justify-start items-center w-screen min-h-screen gap-4">
+<main class="flex flex-col justify-start items-center w-screen min-h-screen gap-4 w-4/5">
   <h4 class="w-5/6font-bungee">Trajets Disponibles</h4>
   <?php
   $allItineraryObject = new Trajet();
@@ -11,7 +11,7 @@ include('../assets/class/Trajet.php');
   for ($i = 0; $i < count($allItinerary); $i++) {
   ?>
     <form action="reservation.php" class="w-full" id="result <?php echo $allItinerary[$i]['id_traject'] ?>">
-      <div class="card w-full bg-xtraLightGrey rounded-lg flex flex-col p-3 gap-3.5 relative">
+      <div class="card w-full bg-xtraLightGrey rounded-lg flex flex-col p-3 gap-3.5 relative w-4/5">
         <p class="text-xs font-workSans text-end w-full">places disponibles : <span class="text-redOnline font-bold"><?php echo $allItinerary[$i]['placerest_traject'] ?></span></p>
         <div class="firstRow w-full flex h-16 gap-2">
           <div class="flex flex-col justify-between h-full">
