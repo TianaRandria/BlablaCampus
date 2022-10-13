@@ -65,7 +65,7 @@ class User extends Database
       $_SESSION['bio_user'] = $user['bio_user'];
       $_SESSION['email_user'] = $user['email_user'];
       $_SESSION['img_user'] = $user['img_user'];
-      header('Location: ../../pages/confirmation.php');
+      header('Location: ../../pages/login.php');
     }
   }
   public function logout()
