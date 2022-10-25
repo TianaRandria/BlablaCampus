@@ -113,7 +113,6 @@ class Trajet extends User
     $request = implode(" ", $req);
     $search = $this->connect()->prepare('SELECT DISTINCT * FROM trajects INNER JOIN users ON trajects.Id_user = users.Id_user WHERE 1 AND placerest_traject > 0 ' . $request . '');
     $search->execute($value);
-    // return $search->debugDumpParams();
     return $search->fetchAll();
   }
   public function getMyTrajects(){
